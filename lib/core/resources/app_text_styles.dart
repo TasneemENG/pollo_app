@@ -43,4 +43,36 @@ abstract class TextStyles {
     height: 30 / 20,
     letterSpacing: 0,
   );
+  static TextStyle onboardingSubtitle =baseStyle(
+    fontSize: 20.sp,
+    fontWeight:FontWeightHelper.regular,
+    fontFamily: 'Inter',
+    height: 30 / 20,
+    letterSpacing: 0,
+    color: AppColors.subtitleColor
+
+
+  );
+  static TextStyle onboardingTitle =baseStyle(
+    fontSize: 24.sp,
+    fontWeight:FontWeightHelper.bold,
+    fontFamily: 'Inter',
+    height: 36 / 24,
+    letterSpacing: 0,
+      color: Colors.white
+
+
+
+  );
+  static TextStyle Skip_button =baseStyle(
+    fontSize: 24.sp,
+    fontWeight:FontWeightHelper.semiBold,
+    fontFamily: 'Inter',
+    height: 29.05 / 24,
+    letterSpacing: 0,
+    color: Colors.white
+
+
+
+  );
 }

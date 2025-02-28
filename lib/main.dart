@@ -16,13 +16,13 @@ void main() async {
   // setupServiceLocator();
   Bloc.observer = MyBlocObserver();
   SystemUIConfig.configure();
-  runApp(PolloApp());
+  runApp(MyApp());
 }
 
-class PolloApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   final AppRouter appRouter = AppRouter();
 
-  PolloApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
