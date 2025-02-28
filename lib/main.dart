@@ -7,6 +7,7 @@ import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/routing/app_router.dart';
 import 'package:pollo/core/shared/shared_pref.dart';
 import 'package:pollo/core/routing/routes.dart';
+import 'package:pollo/core/helpers/app_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,19 +22,28 @@ void main() async {
 class PolloApp extends StatelessWidget {
   final AppRouter appRouter = AppRouter();
 
+  PolloApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(390, 844),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: appRouter.generateRouter,
-        initialRoute: Routes.splashView,
-        theme: ThemeData(
-          scaffoldBackgroundColor: AppColors.background,
-          fontFamily: 'Inter',
+    return BlocProvider(
+      create: (context) => AppCubit(),
+      child: ScreenUtilInit(
+        designSize: const Size(390, 844),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        child: BlocBuilder<AppCubit, AppState>(
+          builder: (context, state) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              onGenerateRoute: appRouter.generateRouter,
+              initialRoute: Routes.splashView,
+              theme: ThemeData(
+                scaffoldBackgroundColor: AppColors.background,
+                fontFamily: 'Inter',
+              ),
+            );
+          },
         ),
       ),
     );
