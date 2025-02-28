@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pollo/core/resources/app_colors.dart';
 
-import '../../../../core/resources/app_colors.dart'; // Import AppColors
-import '../../../../core/resources/app_text_styles.dart'; // Import TextStyles
-
-class ButtonRow extends StatelessWidget {
+class NextButton extends StatelessWidget {
   final VoidCallback onNext;
 
-  const ButtonRow({
+  const NextButton({
     super.key,
     required this.onNext,
   });
