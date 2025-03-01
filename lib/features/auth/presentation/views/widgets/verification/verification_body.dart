@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/features/auth/presentation/views/widgets/verification/verification_header.dart';
+import 'verification_form.dart';
 
-import 'verification_pin_put.dart';
 class VerificationBody extends StatelessWidget {
   const VerificationBody({super.key});
 
@@ -10,7 +11,8 @@ class VerificationBody extends StatelessWidget {
     return Column(
       children: [
         const VerificationHeader(),
-        VerificationPinPut()
+        30.verticalSpace,
+        const VerificationForm(),
       ],
     );
   }
