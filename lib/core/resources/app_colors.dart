@@ -8,6 +8,12 @@ abstract class AppColors {
   static const LinearGradient mainColor = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
-    colors: [Color(0xFFC20167), Color(0xFF064198)],
+    colors: [ Color(0xFF064198),Color(0xFFC20167)],
   );
+  static const Color subtitleColor = Color(0xFF544F4F);
+  static const LinearGradient backButtonColor = LinearGradient(
+    colors: [Color(0xFFE2006E), Color(
+        0xFF881268)],
+  );
+
 }
