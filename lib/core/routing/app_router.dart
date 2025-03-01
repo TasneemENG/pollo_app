@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/features/auth/presentation/views/forget_password_view.dart';
 import 'package:pollo/features/auth/presentation/views/login_view.dart';
+import 'package:pollo/features/auth/presentation/views/reset_password_view.dart';
 import 'package:pollo/features/auth/presentation/views/signup_view.dart';
 import 'package:pollo/features/auth/presentation/views/verification_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
@@ -37,6 +38,13 @@ class AppRouter {
         case Routes.verificationView:
         return RouteAnimations.buildPageRoute(
           page: const VerificationView(),
+          settings: settings,
+          transitionType: TransitionType.slideFromBottom,
+        );
+
+        case Routes.resetPasswordView:
+        return RouteAnimations.buildPageRoute(
+          page: const ResetPasswordView(),
           settings: settings,
           transitionType: TransitionType.slideFromBottom,
         );
