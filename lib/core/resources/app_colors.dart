@@ -12,6 +12,17 @@ abstract class AppColors {
     end: Alignment.centerRight,
     colors: [ Color(0xFF064198),Color(0xFFC20167)],
   );
+  static const LinearGradient reverse_mainColor = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [ Color(0xFFC20167),
+      Color(0xFF064198),],
+  );
+  static const LinearGradient container_circles = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [ Color(0xFFFFE6AA), Color(0xFFDBD5C6),],
+  );
   static const Color greyColor = Color(0xFF544F4F);
   static const LinearGradient backButtonColor = LinearGradient(
     colors: [Color(0xFFE2006E), Color(

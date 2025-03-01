@@ -44,21 +44,21 @@ abstract class TextStyles {
     letterSpacing: 0,
   );
   static TextStyle onboardingSubtitle = baseStyle(
-      fontSize: 20.sp,
+      fontSize: 20,
       fontWeight: FontWeightHelper.regular,
       fontFamily: 'Inter',
       height: 30 / 20,
       letterSpacing: 0,
       color: AppColors.greyColor);
   static TextStyle onboardingTitle = baseStyle(
-      fontSize: 24.sp,
+      fontSize: 24,
       fontWeight: FontWeightHelper.bold,
       fontFamily: 'Inter',
       height: 36 / 24,
       letterSpacing: 0,
       color: Colors.white);
   static TextStyle Skip_button = baseStyle(
-      fontSize: 24.sp,
+      fontSize: 24,
       fontWeight: FontWeightHelper.semiBold,
       fontFamily: 'Inter',
       height: 29.05 / 24,
@@ -74,48 +74,48 @@ abstract class TextStyles {
 
   static TextStyle font16Medium = baseStyle(
     fontSize: 16,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeightHelper.medium,
     height: 19.36 / 16,
     letterSpacing: 0,
   );
   static TextStyle font18Medium = baseStyle(
     fontSize: 18,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeightHelper.medium,
     height: 21.78 / 18,
     letterSpacing: 0,
   );
   static TextStyle font14Medium = baseStyle(
     fontSize: 14,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeightHelper.medium,
     height: 16.94 / 14,
     letterSpacing: 0,);
 
   static TextStyle font16Solid = baseStyle(
       fontSize: 16,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeightHelper.semiBold,
       height: 19.36 / 16,
       letterSpacing: 0);
 
   static TextStyle font14Solid = baseStyle(
       fontSize: 14,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeightHelper.semiBold,
       height: 16.94 / 14,
       letterSpacing: 0);
 
   static TextStyle font20Solid = baseStyle(
       fontSize: 20,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeightHelper.semiBold,
       height: 24 / 20,
       letterSpacing: 0);
 
   static TextStyle font24bold = baseStyle(
     fontSize: 24,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeightHelper.bold,
     height: 29.05 / 24,
 
   );
   static TextStyle nav_item_selected = baseStyle(
-    fontSize: 12.sp,
+    fontSize: 12,
     fontWeight: FontWeightHelper.regular ,
     height: 29.05 / 24,
     color: Colors.white,
@@ -123,7 +123,7 @@ abstract class TextStyles {
 
   );
   static TextStyle nav_item_not_selected = baseStyle(
-    fontSize: 12.sp,
+    fontSize: 12,
     fontWeight:FontWeightHelper.regular ,
     height: 14.5 / 12,
     color: AppColors.greyColor,

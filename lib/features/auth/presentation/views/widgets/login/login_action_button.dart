@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
@@ -9,7 +10,7 @@ class LoginActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
+      padding: EdgeInsets.only(right: 8.r),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -22,7 +23,7 @@ class LoginActionButton extends StatelessWidget {
               child: Text(
                 "Forget Password?",
                 style: TextStyles.font14Solid.copyWith(
-                  color: Colors.white,
+                  color: AppColors.background,
                 ),
               ),
             ),
