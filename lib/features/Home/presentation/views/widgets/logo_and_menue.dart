@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pollo/core/resources/app_colors.dart';
+import 'package:pollo/core/resources/app_images.dart';
+
+class LogoAndMenu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image.network(
+            Assets.logo,
+            height: 38.h,
+            width: 86.w,
+          ),
+          Container(
+            width: 32.w,
+            height: 32.h,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4.r),
+              color: Colors.white,
+              border: Border.all(color: AppColors.borderColor),
+            ),
+            child: GestureDetector(
+              onTap: () {
+                // Add your action here
+              },
+              child: Center(
+                child: Icon(
+                  Icons.menu,
+                  color: AppColors.iconColor,
+                  size: 24.sp,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

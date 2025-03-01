@@ -18,4 +18,5 @@ abstract class AppColors {
         0xFF881268)],
   );
   static const Color borderColor = Color(0xFFDBD5D5);
+  static const Color search_bar = Color(0xFFECECEC);
 }
