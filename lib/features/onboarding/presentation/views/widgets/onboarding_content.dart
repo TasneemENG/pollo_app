@@ -1,10 +1,7 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/core/resources/app_text_styles.dart';
-import 'package:pollo/core/widgets/add_gredient_text.dart';
-import 'package:pollo/features/onboarding/presentation/widgets/onboarding_buttons.dart';
-import 'package:pollo/features/onboarding/presentation/widgets/subtitle_widget.dart';
+
+import 'subtitle_widget.dart';
 
 class OverlayContent extends StatelessWidget {
   final String title;
@@ -19,7 +16,7 @@ class OverlayContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(),
+      padding: const EdgeInsets.only(),
       child: SingleChildScrollView(
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),

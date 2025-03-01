@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pollo/features/onboarding/data/manager/on_boarding_state.dart';
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
+import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
 
 class OnboardingCubit extends Cubit<OnboardingState> {
   final PageController pageController = PageController();

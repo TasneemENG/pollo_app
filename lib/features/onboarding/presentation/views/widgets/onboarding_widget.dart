@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
-import 'package:pollo/features/onboarding/presentation/widgets/onboarding_buttons.dart';
-import 'package:pollo/features/onboarding/presentation/widgets/onboarding_image.dart';
-
+import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_image.dart';
 import 'onboarding_content.dart';
 
 class OnboardingWidget extends StatelessWidget {

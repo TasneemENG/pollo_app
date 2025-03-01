@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_colors.dart';
-import 'package:pollo/core/resources/app_text_styles.dart';
 
 class GradientText extends StatelessWidget {
   final String text;
@@ -15,13 +13,13 @@ class GradientText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (Rect bounds) {
-        return AppColors.mainColor.createShader(bounds);
-      },
-      child: Text(
-        text,
-        style: style,
+    return Text(
+      text,
+      style: style.copyWith(
+        foreground: Paint()
+          ..shader = AppColors.mainColor.createShader(
+            const Rect.fromLTWH(0, 0, 100, 50), // Adjust width & height
+          ),
       ),
     );
   }

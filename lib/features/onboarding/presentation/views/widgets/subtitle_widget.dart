@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/core/widgets/add_gredient_text.dart';
-
-import '../../../../core/resources/app_text_styles.dart';
-import '../../../../core/resources/app_colors.dart'; // Import AppColors
+import 'package:pollo/core/resources/app_text_styles.dart';
+import 'package:pollo/core/widgets/app_gredient_text.dart';
 
 class TitleSubtitleSection extends StatelessWidget {
   final String title;

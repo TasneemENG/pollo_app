@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/resources/app_colors.dart'; // Import AppColors
-import '../../../../core/resources/app_text_styles.dart'; // Import TextStyles
+import 'package:pollo/core/resources/app_colors.dart';
 
 class ButtonRow extends StatelessWidget {
   final VoidCallback onNext;
@@ -25,7 +23,7 @@ class ButtonRow extends StatelessWidget {
             Container(
               width: 50.w, // Adjust size as needed
               height: 50.h, // Adjust size as needed
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle, // Circular shape
                 gradient: AppColors.mainColor, // Use the mainColor gradient
               ),
@@ -34,7 +32,7 @@ class ButtonRow extends StatelessWidget {
             Container(
               width: 48.w, // Adjust size as needed
               height: 48.h,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   shape: BoxShape.circle, // Circular shape
                   color: Colors.white
               ),
@@ -45,7 +43,7 @@ class ButtonRow extends StatelessWidget {
             Container(
               width: 36.36.w, // Adjust size as needed (smaller than the outer circle)
               height: 36.36.h, // Adjust size as needed (smaller than the outer circle)
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle, // Circular shape
                 gradient: AppColors.mainColor, // Use the mainColor gradient
               ),

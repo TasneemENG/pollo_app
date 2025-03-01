@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/features/onboarding/data/manager/on_boarding_cubit.dart';
-import 'package:pollo/features/onboarding/data/manager/on_boarding_state.dart';
-import 'package:pollo/features/onboarding/presentation/widgets/top_button_row.dart';
-import 'package:pollo/features/onboarding/presentation/widgets/onboarding_buttons.dart';
-import 'package:pollo/features/onboarding/presentation/widgets/onboarding_widget.dart';
+import 'package:pollo/features/onboarding/presentation/manager/on_boarding_cubit.dart';
+import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
 import '../../data/models/onboarding_model.dart';
+import 'widgets/onboarding_buttons.dart';
+import 'widgets/onboarding_widget.dart';
+import 'widgets/top_button_row.dart';
 
 
 class OnboardingView extends StatelessWidget {
