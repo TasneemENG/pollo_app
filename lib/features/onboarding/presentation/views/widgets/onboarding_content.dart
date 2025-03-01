@@ -1,8 +1,7 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
-import 'package:pollo/core/widgets/add_gredient_text.dart';
+import 'package:pollo/core/widgets/app_gredient_text.dart';
 
 class OnboardingContent extends StatelessWidget {
   final String title;
@@ -17,7 +16,7 @@ class OnboardingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(),
+      padding: const EdgeInsets.only(),
       child: SingleChildScrollView(
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),

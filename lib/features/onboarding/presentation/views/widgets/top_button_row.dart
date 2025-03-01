@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
-import 'package:pollo/core/widgets/add_gredient_text.dart';
+import 'package:pollo/core/widgets/app_gredient_text.dart';
 
 class TopButtonsRow extends StatelessWidget {
   final int currentPage;

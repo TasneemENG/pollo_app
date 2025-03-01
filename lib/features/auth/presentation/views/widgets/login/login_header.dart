@@ -12,7 +12,7 @@ class LoginHeader extends StatelessWidget {
       children: [
         const AuthHeaderImage(svgAssetPath: 'assets/svgs/gradientrectangle.svg',),
        10.verticalSpace,
-        AuthHeader(
+        const AuthHeader(
           title: 'Sign in',
           subtitle: 'Sign in to Resgister Account',
         ),
