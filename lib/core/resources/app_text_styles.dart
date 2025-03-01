@@ -43,4 +43,18 @@ abstract class TextStyles {
     height: 30 / 20,
     letterSpacing: 0,
   );
+
+  /// New style with the specified properties
+  static TextStyle font24semibold = baseStyle(
+    fontSize: 24,
+    fontWeight: FontWeightHelper.semiBold,
+    height: 29.05 / 24,
+    letterSpacing: 0,
+  );
+  static TextStyle font16medium = baseStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.medium,
+    height: 19.36 / 16,
+    letterSpacing: 0,
+  );
 }
