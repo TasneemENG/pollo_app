@@ -3,49 +3,55 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
 import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
-import 'package:flutter/material.dart'; // Required for navigation
 
 class OnboardingCubit extends Cubit<OnboardingState> {
   final PageController pageController = PageController();
 
-  OnboardingCubit() : super(const OnboardingInitial());
+  OnboardingCubit() : super(const OnboardingPageChanged(0)); // Start with page 0
 
-  void updatePage(int page) {
-    emit(OnboardingPageChanged(page));
+  @override
+  Future<void> close() {
+    pageController.dispose(); // Dispose the controller when the cubit is closed
+    return super.close();
   }
 
-  void nextPage(BuildContext context) {
-    if (state is OnboardingPageChanged && (state as OnboardingPageChanged).currentPage < onboardingData.length - 1) {
+  void updatePage(int page) {
+    emit(OnboardingPageChanged(page)); // Emit a new state when the page changes
+  }
+
+  void nextPage() {
+    final currentPage = (state as OnboardingPageChanged).currentPage; // Safe cast
+    if (currentPage < onboardingData.length - 1) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
       );
     } else {
-      // Navigate to the main screen
-      navigateToMainScreen(context);
+      // Navigate to auth screen or handle the end of onboarding
     }
   }
 
   void previousPage() {
-    if (state is OnboardingPageChanged && (state as OnboardingPageChanged).currentPage > 0) {
+    final currentPage = (state as OnboardingPageChanged).currentPage; // Safe cast
+    if (currentPage > 0) {
       pageController.previousPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
       );
     }
   }
-
   void skipToLastPage(BuildContext context) {
     pageController.animateToPage(
-      onboardingData.length - 1,
+      onboardingData.length - 1, // Skip directly to the last page
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeIn,
     );
-    navigateToMainScreen(context);
+
+    // Once you're on the last page, navigate to the main screen
+    Navigator.pushReplacementNamed(context, Routes.mainScreen);  // Ensure this route is correct
   }
 
-  void navigateToMainScreen(BuildContext context) {
 
-    Navigator.pushReplacementNamed(context, Routes.mainScreen);
-  }
+
+
 }

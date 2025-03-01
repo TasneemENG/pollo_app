@@ -17,12 +17,7 @@ class OnboardingView extends StatelessWidget {
         body: SafeArea(
           child: BlocBuilder<OnboardingCubit, OnboardingState>(
             builder: (context, state) {
-              final cubit = context.read<OnboardingCubit>();
-              final currentPage = state is OnboardingPageChanged ? state.currentPage : 0;
-              return OnboardingBody(
-                currentPage: currentPage,
-                cubit: cubit,
-              );
+              return OnboardingBody();
             },
           ),
         ),

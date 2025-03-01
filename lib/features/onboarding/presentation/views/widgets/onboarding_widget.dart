@@ -10,7 +10,6 @@ class OnboardingWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final String image;
-  final VoidCallback onNext;
   final int currentPage;
   final List<OnboardingModel> onboardingData;
 
@@ -19,7 +18,6 @@ class OnboardingWidget extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.image,
-    required this.onNext,
     required this.currentPage,
     required this.onboardingData,
   });

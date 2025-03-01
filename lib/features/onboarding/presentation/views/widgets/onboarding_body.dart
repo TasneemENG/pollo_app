@@ -1,31 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_next_button.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_page.dart';
 import 'package:pollo/features/onboarding/presentation/manager/on_boarding_cubit.dart';
 
 class OnboardingBody extends StatelessWidget {
-  final int currentPage;
-  final OnboardingCubit cubit;
-
-  const OnboardingBody({required this.currentPage, required this.cubit, super.key});
+  const OnboardingBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
+    return BlocBuilder<OnboardingCubit, OnboardingState>(
+      builder: (context, state) {
+        int currentPage = 0;
+        if (state is OnboardingPageChanged) {
+          currentPage = state.currentPage;
+        }
 
-        OnboardingPage(
-          currentPage: currentPage,
-          cubit: cubit,
-        ),
+        return Stack(
+          children: [
 
-        Positioned(
-          bottom: 60.h,
-          right: 20.w,
-          child: NextButton(onNext:()=> cubit.nextPage(context)),
-        ),
-      ],
+            OnboardingPage(
+              currentPage: currentPage,
+            )
+                .animate()
+                .fadeIn(duration: 600.ms)
+                .slideY(begin: 0.3, end: 0, duration: 700.ms, curve: Curves.easeOut) ,
+
+
+            Positioned(
+              bottom: 60.h,
+              right: 20.w,
+              child: NextButton(
+                onNext: () {
+                  context.read<OnboardingCubit>().nextPage();
+                },
+              )
+                  .animate()
+                  .fadeIn(duration: 600.ms)
+                  .slideY(begin: 0.3, end: 0, duration: 700.ms, curve: Curves.easeOut) ,
+
+            ),
+          ],
+        );
+      },
     );
   }
 }

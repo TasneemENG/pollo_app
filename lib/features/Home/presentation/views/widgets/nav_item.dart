@@ -5,8 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
+import 'package:pollo/core/widgets/app_gredient_text.dart';
 import 'package:pollo/features/Home/presentation/manager/bottom_nav_cubit.dart';
-import 'package:pollo/core/widgets/add_gredient_text.dart';
+
 
 class NavItem extends StatelessWidget {
   final int index;
@@ -33,11 +34,11 @@ class NavItem extends StatelessWidget {
           selectedIndex == index
               ? GradientText(
             text: label,
-            style: TextStyles.nav_items_selected,
+            style: TextStyles.nav_item_selected,
           )
               : Text(
             label,
-            style: TextStyles.nav_items_not_selected,
+            style: TextStyles.nav_item_not_selected,
           ),
         ],
       ),

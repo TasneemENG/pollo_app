@@ -4,7 +4,7 @@ abstract class Routes {
   static const String loginView = '/loginView';
   static const String signUpView = '/signUpView';
   static const String forgotPasswordView = '/forgotPasswordView';
-  static const String validateOtpView = '/validateOtpView';
+  static const String verificationView = '/verificationView';
   static const String resetPasswordView = '/resetPasswordView';
   static const String homeView = '/homeView';
   static const String mainScreen = '/mainScreen';

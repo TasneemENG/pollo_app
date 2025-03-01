@@ -50,7 +50,7 @@ class RouteAnimations {
           case TransitionType.fadeScale:
             return _buildFadeScaleTransition(animation, child, curve);
           case TransitionType.none:
-          return child;
+            return child;
         }
       },
     );

@@ -43,58 +43,92 @@ abstract class TextStyles {
     height: 30 / 20,
     letterSpacing: 0,
   );
-  static TextStyle onboardingSubtitle =baseStyle(
-    fontSize: 20.sp,
-    fontWeight:FontWeightHelper.regular,
-    fontFamily: 'Inter',
-    height: 30 / 20,
-    letterSpacing: 0,
-    color: AppColors.greyColor
-
-
-  );
-  static TextStyle onboardingTitle =baseStyle(
-    fontSize: 24.sp,
-    fontWeight:FontWeightHelper.bold,
-    fontFamily: 'Inter',
-    height: 36 / 24,
-    letterSpacing: 0,
-      color: Colors.white
-
-
-
-  );
-  static TextStyle Skip_button =baseStyle(
-    fontSize: 24.sp,
-    fontWeight:FontWeightHelper.semiBold,
-    fontFamily: 'Inter',
+  static TextStyle onboardingSubtitle = baseStyle(
+      fontSize: 20.sp,
+      fontWeight: FontWeightHelper.regular,
+      fontFamily: 'Inter',
+      height: 30 / 20,
+      letterSpacing: 0,
+      color: AppColors.greyColor);
+  static TextStyle onboardingTitle = baseStyle(
+      fontSize: 24.sp,
+      fontWeight: FontWeightHelper.bold,
+      fontFamily: 'Inter',
+      height: 36 / 24,
+      letterSpacing: 0,
+      color: Colors.white);
+  static TextStyle Skip_button = baseStyle(
+      fontSize: 24.sp,
+      fontWeight: FontWeightHelper.semiBold,
+      fontFamily: 'Inter',
+      height: 29.05 / 24,
+      letterSpacing: 0,
+      color: Colors.white);
+  ///
+  static TextStyle font24Semibold = baseStyle(
+    fontSize: 24,
+    fontWeight: FontWeightHelper.semiBold,
     height: 29.05 / 24,
     letterSpacing: 0,
-    color: Colors.white
+  );
 
+  static TextStyle font16Medium = baseStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    height: 19.36 / 16,
+    letterSpacing: 0,
+  );
+  static TextStyle font18Medium = baseStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    height: 21.78 / 18,
+    letterSpacing: 0,
+  );
+  static TextStyle font14Medium = baseStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    height: 16.94 / 14,
+    letterSpacing: 0,);
 
+  static TextStyle font16Solid = baseStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      height: 19.36 / 16,
+      letterSpacing: 0);
+
+  static TextStyle font14Solid = baseStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w600,
+      height: 16.94 / 14,
+      letterSpacing: 0);
+
+  static TextStyle font20Solid = baseStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      height: 24 / 20,
+      letterSpacing: 0);
+
+  static TextStyle font24bold = baseStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+    height: 29.05 / 24,
 
   );
-  static TextStyle nav_items_selected =baseStyle(
-      fontSize: 12.sp,
-      fontWeight:FontWeightHelper.regular,
-      fontFamily: 'Inter',
-      height: 14.52/ 12,
-      letterSpacing: 0,
-      color: Colors.white
-
-
+  static TextStyle nav_item_selected = baseStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular ,
+    height: 29.05 / 24,
+    color: Colors.white,
+      fontFamily: 'Inter'
 
   );
-  static TextStyle nav_items_not_selected =baseStyle(
-      fontSize: 12.sp,
-      fontWeight:FontWeightHelper.regular,
-      fontFamily: 'Inter',
-      height: 14.52/ 12,
-      letterSpacing: 0,
-      color: AppColors.greyColor
-
-
+  static TextStyle nav_item_not_selected = baseStyle(
+    fontSize: 12.sp,
+    fontWeight:FontWeightHelper.regular ,
+    height: 14.5 / 12,
+    color: AppColors.greyColor,
+      fontFamily: 'Inter'
 
   );
+
 }
