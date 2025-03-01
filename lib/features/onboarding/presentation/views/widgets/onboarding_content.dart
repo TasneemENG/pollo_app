@@ -1,13 +1,14 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pollo/core/resources/app_text_styles.dart';
+import 'package:pollo/core/widgets/add_gredient_text.dart';
 
-import 'subtitle_widget.dart';
-
-class OverlayContent extends StatelessWidget {
+class OnboardingContent extends StatelessWidget {
   final String title;
   final String subtitle;
 
-  const OverlayContent({
+  const OnboardingContent({
     super.key,
     required this.title,
     required this.subtitle,
@@ -16,7 +17,7 @@ class OverlayContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(),
+      padding: EdgeInsets.only(),
       child: SingleChildScrollView(
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
@@ -27,13 +28,19 @@ class OverlayContent extends StatelessWidget {
               borderRadius: BorderRadius.circular(24.r),
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,  // Align children to the left
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Ensure that the title and subtitle are aligned to the left
-                TitleSubtitleSection(
-                  title: title,
-                  subtitle: subtitle,
+
+                GradientText(text: title,style:TextStyles.onboardingTitle),
+                SizedBox(
+                  child: Text(
+                    subtitle,
+                    style: TextStyles.onboardingSubtitle,
+                    textAlign: TextAlign.left,
+                    textDirection: TextDirection.ltr,
+                  ),
                 ),
+
                 SizedBox(height: 60.h),
               ],
             ),

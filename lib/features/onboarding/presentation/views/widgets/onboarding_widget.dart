@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_image.dart';
+
 import 'onboarding_content.dart';
 
 class OnboardingWidget extends StatelessWidget {
@@ -10,8 +11,8 @@ class OnboardingWidget extends StatelessWidget {
   final String subtitle;
   final String image;
   final VoidCallback onNext;
-  final int currentPage; // Add currentPage as a parameter
-  final List<OnboardingModel> onboardingData; // Add onboardingData as a parameter
+  final int currentPage;
+  final List<OnboardingModel> onboardingData;
 
   const OnboardingWidget({
     super.key,
@@ -19,8 +20,8 @@ class OnboardingWidget extends StatelessWidget {
     required this.subtitle,
     required this.image,
     required this.onNext,
-    required this.currentPage, // Pass currentPage from the parent
-    required this.onboardingData, // Pass onboardingData from the parent
+    required this.currentPage,
+    required this.onboardingData,
   });
 
   @override
@@ -68,14 +69,12 @@ class OnboardingWidget extends StatelessWidget {
           ),
         ),
 
-
         // Overlay Content
-        OverlayContent(
+        OnboardingContent(
           title: title,
           subtitle: subtitle,
         ),
 
-        // ButtonRow positioned at the bottom right
 
       ],
     );

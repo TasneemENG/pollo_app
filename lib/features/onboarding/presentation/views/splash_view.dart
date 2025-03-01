@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/resources/app_images.dart';
 import '../../../../core/routing/routes.dart';
 
 class SplashView extends StatefulWidget {
-  const SplashView({super.key});
-
   @override
   _SplashViewState createState() => _SplashViewState();
 }
@@ -22,7 +21,7 @@ class _SplashViewState extends State<SplashView>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 3),
+      duration: Duration(seconds: 3),
     );
 
     // Fade animation
@@ -44,7 +43,7 @@ class _SplashViewState extends State<SplashView>
     _controller.forward();
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Future.delayed(const Duration(seconds: 2), () {
+        Future.delayed(Duration(seconds: 2), () {
           Navigator.pushReplacementNamed(context, Routes.onboardingView);
         });
       }
