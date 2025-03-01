@@ -27,7 +27,7 @@ class OnboardingCubit extends Cubit<OnboardingState> {
         curve: Curves.easeIn,
       );
     } else {
-      Navigator.pushReplacementNamed(context, Routes.mainScreen);
+      Navigator.pushReplacementNamed(context, Routes.loginView);
     }
   }
 
@@ -48,7 +48,7 @@ class OnboardingCubit extends Cubit<OnboardingState> {
     );
 
     // Once you're on the last page, navigate to the main screen
-    Navigator.pushReplacementNamed(context, Routes.mainScreen);  // Ensure this route is correct
+    Navigator.pushReplacementNamed(context, Routes.loginView);  // Ensure this route is correct
   }
 
 

@@ -130,5 +130,43 @@ abstract class TextStyles {
       fontFamily: 'Inter'
 
   );
+  static TextStyle search_text = baseStyle(
+      fontSize: 16.sp,
+      fontWeight:FontWeightHelper.medium ,
+      height: 19.36 / 16,
+      color: AppColors.iconColor,
+      fontFamily: 'Inter'
 
+  );
+  static TextStyle home_text1 = baseStyle(
+      fontSize: 18.sp,
+      fontWeight:FontWeightHelper.regular ,
+      height: 21.6 / 18,
+      color: Colors.white,
+      fontFamily: 'Itim'
+
+  );static TextStyle home_text2 = baseStyle(
+      fontSize: 24.sp,
+      fontWeight:FontWeightHelper.regular ,
+      height: 28.8/ 24,
+      color: Colors.white,
+      fontFamily: 'Itim'
+
+  );
+  static TextStyle home_text3 = baseStyle(
+      fontSize: 16.sp,
+      fontWeight:FontWeightHelper.regular ,
+      height: 19.2 / 16,
+      color: Colors.white,
+      fontFamily: 'Itim'
+
+  );
+  static TextStyle categories = baseStyle(
+      fontSize: 20.sp,
+      fontWeight:FontWeightHelper.semiBold ,
+      height: 24.2 / 20,
+      color: Colors.black,
+      fontFamily: 'Inter'
+
+  );
 }
