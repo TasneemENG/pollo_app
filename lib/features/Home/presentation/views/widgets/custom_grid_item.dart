@@ -5,7 +5,7 @@ class CustomGridItem extends StatelessWidget {
   final String image;
   final String text;
 
-  const CustomGridItem({required this.image, required this.text});
+  const CustomGridItem({super.key, required this.image, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -13,17 +13,17 @@ class CustomGridItem extends StatelessWidget {
       width: 104.w,
       height: 95.h,
       decoration: BoxDecoration(
-        color: Color(0xFFF1F1F1),
+        color: const Color(0xFFF1F1F1),
         borderRadius: BorderRadius.circular(10.r),
         border: Border.all(
-          color: Color(0xFFD1D1D1),
+          color: const Color(0xFFD1D1D1),
           width: 1.w,
         ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.network(
+          Image.asset(
             image,
             width: 48.w,
             height: 48.h,

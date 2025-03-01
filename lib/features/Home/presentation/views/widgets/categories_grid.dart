@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/custom_grid_item.dart';
 
 class CategoriesGrid extends StatelessWidget {
   final List<Map<String, dynamic>> gridItems;
 
-  const CategoriesGrid({required this.gridItems});
+  const CategoriesGrid({super.key, required this.gridItems});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class CategoriesGrid extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
       child: GridView.builder(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           crossAxisSpacing: 10.w,

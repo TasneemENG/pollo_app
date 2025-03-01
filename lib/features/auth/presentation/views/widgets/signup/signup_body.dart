@@ -8,13 +8,15 @@ class SignupBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SignupHeader(),
-        20.verticalSpace,
-        const SignupForm(),
-        const SignupSocial(),
-      ]
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const SignupHeader(),
+          20.verticalSpace,
+          const SignupForm(),
+          const SignupSocial(),
+        ]
+      ),
     );
   }
 }

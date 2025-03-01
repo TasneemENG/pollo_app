@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
 import 'package:pollo/features/onboarding/presentation/manager/on_boarding_cubit.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_widget.dart';
-import 'package:pollo/features/onboarding/presentation/views/widgets/top_button_row.dart';
+import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_top_button_row.dart';
 
 class OnboardingPage extends StatelessWidget {
   final int currentPage;

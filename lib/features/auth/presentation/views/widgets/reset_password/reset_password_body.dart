@@ -8,13 +8,15 @@ class ResetPasswordBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const ResetPasswordHeader(),
-        30.verticalSpace,
-        const ResetPasswordForm(),
-
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const ResetPasswordHeader(),
+          30.verticalSpace,
+          const ResetPasswordForm(),
+      
+        ],
+      ),
     );
   }
 }

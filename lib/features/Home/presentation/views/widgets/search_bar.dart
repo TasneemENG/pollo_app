@@ -6,7 +6,7 @@ import 'package:pollo/core/resources/app_text_styles.dart';
 class CustomSearchBar extends StatelessWidget {
   final TextEditingController searchController;
 
-  const CustomSearchBar({required this.searchController});
+  const CustomSearchBar({super.key, required this.searchController});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class CustomSearchBar extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
               blurRadius: 4,
-              offset: Offset(0, 0),
+              offset: const Offset(0, 0),
             ),
           ],
         ),

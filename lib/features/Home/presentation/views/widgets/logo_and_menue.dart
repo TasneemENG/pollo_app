@@ -4,14 +4,16 @@ import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 
 class LogoAndMenu extends StatelessWidget {
+  const LogoAndMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h),
+      padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 50.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.network(
+          Image.asset(
             Assets.logo,
             height: 38.h,
             width: 86.w,

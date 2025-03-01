@@ -8,12 +8,14 @@ class VerificationBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const VerificationHeader(),
-        30.verticalSpace,
-        const VerificationForm(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const VerificationHeader(),
+          30.verticalSpace,
+          const VerificationForm(),
+        ],
+      ),
     );
   }
 }

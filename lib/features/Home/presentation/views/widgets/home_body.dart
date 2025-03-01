@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/categories_grid.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/categories_title.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/gredient_container.dart';
-import 'package:pollo/features/Home/presentation/views/widgets/logo_and_menue.dart';
-import 'package:pollo/features/Home/presentation/views/widgets/search_bar.dart'; // Import the CustomSearchBar widget
-import '../../../../core/resources/app_text_styles.dart';
+import 'package:pollo/features/Home/presentation/views/widgets/search_bar.dart';
 
-class HomePage extends StatefulWidget {
+import 'logo_and_menue.dart'; // Import the CustomSearchBar widget
+
+class HomeBody extends StatefulWidget {
+  const HomeBody({super.key});
+
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeBody> createState() => _HomeBodyState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeBodyState extends State<HomeBody> {
   final TextEditingController _searchController = TextEditingController();
 
   final List<Map<String, dynamic>> gridItems = [
@@ -43,18 +43,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
+    return SingleChildScrollView(
         child: Column(
           children: [
-            LogoAndMenu(),
+            const LogoAndMenu(),
             CustomSearchBar(searchController: _searchController),
-            GradientContainer(),
-            CategoriesTitle(),
+            const GradientContainer(),
+            const CategoriesTitle(),
             CategoriesGrid(gridItems: gridItems),
           ],
         ),
-      ),
     );
   }
 }

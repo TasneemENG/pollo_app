@@ -8,10 +8,12 @@ class ForgetPasswordBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      const ForgetPasswordHeader(),
-      20.verticalSpace,
-      const ForgetPasswordForm(),
-    ]);
+    return SingleChildScrollView(
+      child: Column(children: [
+        const ForgetPasswordHeader(),
+        20.verticalSpace,
+        const ForgetPasswordForm(),
+      ]),
+    );
   }
 }

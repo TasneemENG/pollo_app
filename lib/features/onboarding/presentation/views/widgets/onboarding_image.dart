@@ -13,7 +13,7 @@ class BackgroundImage extends StatelessWidget {
             child: SizedBox(
               height: 350.h,
               width: 343.w,
-              child: Image.network(
+              child: Image.asset(
                 imageUrl,
                 fit: BoxFit.contain, // Ensure the entire image is visible
               ),

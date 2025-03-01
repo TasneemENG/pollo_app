@@ -9,13 +9,15 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const LoginHeader(),
-        20.verticalSpace,
-        const LoginForm(),
-        const LoginSocial(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const LoginHeader(),
+          20.verticalSpace,
+          const LoginForm(),
+          const LoginSocial(),
+        ],
+      ),
     );
   }
 }

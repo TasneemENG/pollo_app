@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 
 class CategoriesTitle extends StatelessWidget {
+  const CategoriesTitle({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
