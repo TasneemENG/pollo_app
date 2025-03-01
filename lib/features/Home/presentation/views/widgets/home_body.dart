@@ -5,8 +5,7 @@ import 'package:pollo/features/Home/presentation/views/widgets/categories_title.
 import 'package:pollo/features/Home/presentation/views/widgets/gredient_container.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/search_bar.dart';
 
-import 'logo_and_menue.dart'; // Import the CustomSearchBar widget
-
+import 'logo_and_menue.dart';
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
 
