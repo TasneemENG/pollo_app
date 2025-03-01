@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pollo/core/helpers/extensions.dart';
+import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/core/widgets/app_button.dart';
 import 'package:pollo/core/widgets/app_text_form_field.dart';
 import 'package:pollo/features/auth/presentation/views/widgets/auth_action_text.dart';
@@ -60,7 +62,7 @@ class _LoginFormState extends State<LoginForm> {
         AuthActionText(
           initialText: 'Don’t have an account?',
           actionText: 'Sign Up',
-          onActionTap: () {},
+          onActionTap: () {context.pushNamed(Routes.signUpView);},
         ),
       ],
     );

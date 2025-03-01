@@ -108,4 +108,11 @@ abstract class TextStyles {
     height: 24 / 20,
     letterSpacing: 0);
 
+  static TextStyle font24bold = baseStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+    height: 29.05 / 24,
+
+  );
+
 }

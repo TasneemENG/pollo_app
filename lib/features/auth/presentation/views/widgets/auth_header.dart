@@ -11,6 +11,7 @@ class AuthHeader extends StatelessWidget {
   final TextStyle? subtitleStyle;
   final double topSpacing;
   final double horizontalPadding;
+  final bool isTitleGradient;
 
   const AuthHeader({
     super.key,
@@ -20,6 +21,7 @@ class AuthHeader extends StatelessWidget {
     this.subtitleStyle,
     this.topSpacing = 0,
     this.horizontalPadding = 20,
+    this.isTitleGradient = true,
   });
 
   @override
@@ -35,6 +37,7 @@ class AuthHeader extends StatelessWidget {
               GradientText(
                 text: title,
                 style: titleStyle ?? TextStyles.font24Semibold,
+                isGradient: isTitleGradient,
               ),
             ],
           ),

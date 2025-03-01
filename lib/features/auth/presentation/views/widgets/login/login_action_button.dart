@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
+import 'package:pollo/core/routing/routes.dart';
 class LoginActionButton extends StatelessWidget {
   const LoginActionButton({super.key});
 
@@ -13,7 +15,7 @@ class LoginActionButton extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {
-              // context.pushNamed(Routes.forgotPasswordView);
+              context.pushNamed(Routes.forgotPasswordView);
             },
             child:ShaderMask(
               shaderCallback: (bounds) => AppColors.mainColor.createShader(bounds),
