@@ -23,7 +23,7 @@ class OnboardingBody extends StatelessWidget {
         Positioned(
           bottom: 60.h,
           right: 20.w,
-          child: NextButton(onNext: cubit.nextPage),
+          child: NextButton(onNext:()=> cubit.nextPage(context)),
         ),
       ],
     );

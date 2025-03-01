@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               onGenerateRoute: appRouter.generateRouter,
-              initialRoute: Routes.splashView,
+              initialRoute: Routes.mainScreen,
               theme: ThemeData(
                 scaffoldBackgroundColor: AppColors.background,
                 fontFamily: 'Inter',

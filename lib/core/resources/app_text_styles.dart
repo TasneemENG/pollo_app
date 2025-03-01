@@ -49,7 +49,7 @@ abstract class TextStyles {
     fontFamily: 'Inter',
     height: 30 / 20,
     letterSpacing: 0,
-    color: AppColors.subtitleColor
+    color: AppColors.greyColor
 
 
   );
@@ -71,6 +71,28 @@ abstract class TextStyles {
     height: 29.05 / 24,
     letterSpacing: 0,
     color: Colors.white
+
+
+
+  );
+  static TextStyle nav_items_selected =baseStyle(
+      fontSize: 12.sp,
+      fontWeight:FontWeightHelper.regular,
+      fontFamily: 'Inter',
+      height: 14.52/ 12,
+      letterSpacing: 0,
+      color: Colors.white
+
+
+
+  );
+  static TextStyle nav_items_not_selected =baseStyle(
+      fontSize: 12.sp,
+      fontWeight:FontWeightHelper.regular,
+      fontFamily: 'Inter',
+      height: 14.52/ 12,
+      letterSpacing: 0,
+      color: AppColors.greyColor
 
 
 
