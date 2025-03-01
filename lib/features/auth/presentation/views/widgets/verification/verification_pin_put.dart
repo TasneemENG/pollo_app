@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 import 'package:pollo/core/resources/app_colors.dart';
+import 'package:pollo/core/resources/app_text_styles.dart';
 
 class VerificationPinPut extends StatelessWidget {
   final int pinLength;
@@ -9,7 +11,7 @@ class VerificationPinPut extends StatelessWidget {
 
   const VerificationPinPut({
     super.key,
-    this.pinLength = 4,
+    this.pinLength = 5,
     this.onCompleted,
     this.controller,
   });
@@ -17,32 +19,31 @@ class VerificationPinPut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
-      textStyle: const TextStyle(
-        fontSize: 20,
-        color: Colors.black,
-        fontWeight: FontWeight.w600,
-      ),
+      width: 50.w,
+      height: 53.h,
+      textStyle: TextStyles.font24bold.copyWith(color: AppColors.bodyText),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         border: Border.all(
-          color: Colors.grey.shade400, // Default gray border
-          width: 1.5,
+          color: AppColors.grayBackground,
+          width: 1.5.w,
         ),
-        color: Colors.white,
+        color: AppColors.grayBackground,
       ),
     );
 
+    // Focused theme for the PIN input fields
     final focusedPinTheme = defaultPinTheme.copyWith(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.white, // Inner white box
+        borderRadius: BorderRadius.circular(10.r),
+        border: Border.all(
+          color: AppColors.mainColor.colors.last,
+          width: 1.5.w,
+        ),
+        color: AppColors.background,
         boxShadow: [
           BoxShadow(
-            color: AppColors.mainColor.colors.first.withOpacity(0.6),
-            spreadRadius: 2,
-            blurRadius: 4,
+            color: AppColors.mainColor.colors.last,
           ),
         ],
       ),

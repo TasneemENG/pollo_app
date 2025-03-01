@@ -35,7 +35,7 @@ class OnboardingBody extends StatelessWidget {
               right: 20.w,
               child: NextButton(
                 onNext: () {
-                  context.read<OnboardingCubit>().nextPage();
+                  context.read<OnboardingCubit>().nextPage(context);
                 },
               )
                   .animate()

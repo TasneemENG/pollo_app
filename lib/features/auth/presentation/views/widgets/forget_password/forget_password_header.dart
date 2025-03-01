@@ -10,7 +10,7 @@ class ForgetPasswordHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const AuthHeaderImage(svgAssetPath: 'assets/svgs/gradientrectangle.svg',),
+        const AuthHeaderImage(svgAssetPath: 'assets/svgs/gradientrectangle.svg',showPopButton: true,),
         20.verticalSpace,
         const AuthHeader(
           title: 'Forget Password?',

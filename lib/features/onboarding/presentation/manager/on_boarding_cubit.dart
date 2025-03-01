@@ -7,19 +7,19 @@ import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state
 class OnboardingCubit extends Cubit<OnboardingState> {
   final PageController pageController = PageController();
 
-  OnboardingCubit() : super(const OnboardingPageChanged(0)); // Start with page 0
+  OnboardingCubit() : super(const OnboardingPageChanged(0));
 
   @override
   Future<void> close() {
-    pageController.dispose(); // Dispose the controller when the cubit is closed
+    pageController.dispose();
     return super.close();
   }
 
   void updatePage(int page) {
-    emit(OnboardingPageChanged(page)); // Emit a new state when the page changes
+    emit(OnboardingPageChanged(page));
   }
 
-  void nextPage() {
+  void nextPage(BuildContext context) {
     final currentPage = (state as OnboardingPageChanged).currentPage; // Safe cast
     if (currentPage < onboardingData.length - 1) {
       pageController.nextPage(
@@ -27,7 +27,7 @@ class OnboardingCubit extends Cubit<OnboardingState> {
         curve: Curves.easeIn,
       );
     } else {
-      // Navigate to auth screen or handle the end of onboarding
+      Navigator.pushReplacementNamed(context, Routes.mainScreen);
     }
   }
 
