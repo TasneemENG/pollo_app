@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/categories_grid.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/categories_title.dart';
-import 'package:pollo/features/Home/presentation/views/widgets/gredient_container.dart';
+import 'package:pollo/core/widgets/gredient_container.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/search_bar.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/logo_and_menue.dart';
 
@@ -15,7 +15,26 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
   final TextEditingController _searchController = TextEditingController();
-
+  final List<Map<String, dynamic>> contentList = const [
+    {
+      "image": Assets.doctor_home,
+      "title1": "Welcome to ",
+      "title2": "Pollo Store",
+      "subtitle": "Your All-in-One Vet Store",
+    },
+    {
+      "image": Assets.doctor_home,
+      "title1": "New Arrivals",
+      "title2": "Check out the latest products",
+      "subtitle": "Shop now!",
+    },
+    {
+      "image": Assets.doctor_home,
+      "title1": "Special Offers",
+      "title2": "Exclusive discounts for you",
+      "subtitle": "Don't miss out!",
+    },
+  ];
   final List<Map<String, dynamic>> gridItems = [
     {"image": Assets.doctor_male, "text": "Veterinarians"},
     {"image": Assets.pharmacy, "text": "Pharmaceutical"},
@@ -47,7 +66,7 @@ class _HomeBodyState extends State<HomeBody> {
         children: [
           const LogoAndMenu(),
           CustomSearchBar(searchController: _searchController),
-          const GradientContainer(),
+          GradientContainer(contentList:contentList,),
           const CategoriesTitle(),
           CategoriesGrid(gridItems: gridItems),
         ],

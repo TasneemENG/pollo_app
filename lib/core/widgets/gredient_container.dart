@@ -4,47 +4,30 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
-import 'package:pollo/core/widgets/app_gredient_text.dart';
-import 'package:pollo/features/Home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
-import 'package:pollo/features/Home/presentation/manager/bottom_nav_cubit/bottom_nav_state.dart';
+import 'package:pollo/features/Home/presentation/manager/home_cubit/container_index_update_cubit.dart';
+import 'package:pollo/features/Home/presentation/manager/home_cubit/container_index_update_state.dart';
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  final List<Map<String, dynamic>> contentList;
+
+  const GradientContainer({super.key, required this.contentList});
 
   @override
   Widget build(BuildContext context) {
-    return const _GradientContainerContent();
+    return BlocProvider(
+      create: (context) => ContainerIndexUpdateCubit(),
+      child: _GradientContainerContent(contentList: contentList),
+    );
   }
 }
 
 class _GradientContainerContent extends StatelessWidget {
-  const _GradientContainerContent();
+  final List<Map<String, dynamic>> contentList;
 
-  static const List<Map<String, dynamic>> _contentList = [
-    {
-      "image": Assets.doctor_home,
-      "title1": "Welcome to ",
-      "title2": "Pollo Store",
-      "subtitle": "Your All-in-One Vet Store",
-    },
-    {
-      "image": Assets.doctor_home,
-      "title1": "Explore the ",
-      "title2": "Best Products",
-      "subtitle": "High-quality products for your pet's needs",
-    },
-    {
-      "image": Assets.doctor_home,
-      "title1": "Get Your ",
-      "title2": "Vet Services",
-      "subtitle": "Book veterinary appointments instantly",
-    },
-  ];
+  const _GradientContainerContent({required this.contentList});
 
   @override
   Widget build(BuildContext context) {
-    final PageController pageController = PageController();
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: Stack(
@@ -55,27 +38,24 @@ class _GradientContainerContent extends StatelessWidget {
             height: 171.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-              gradient: AppColors.reverse_mainColor,
+              gradient:AppColors.reverse_mainColor,
             ),
           ),
-
-          // PageView Content
           Positioned.fill(
-            child: BlocBuilder<BottomNavCubit, BottomNavState>(
+            child: BlocBuilder<ContainerIndexUpdateCubit, ContainerIndexState>(
               builder: (context, state) {
-                int currentPage = state.index;
                 return PageView.builder(
-                  controller: pageController,
-                  onPageChanged: (page) {
-                    context.read<BottomNavCubit>().updateIndex(page);
+                  controller: PageController(),
+                  onPageChanged: (int page) {
+                    context.read<ContainerIndexUpdateCubit>().updateIndex(page);
                   },
-                  itemCount: _contentList.length,
+                  itemCount: contentList.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       child: Stack(
                         children: [
-                          // Text Section
+                          // Text Content
                           Positioned(
                             left: 14.w,
                             top: 0,
@@ -87,31 +67,30 @@ class _GradientContainerContent extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    _contentList[index]["title1"],
+                                    contentList[index]["title1"],
                                     style: TextStyles.home_text1,
                                   ),
-                                  GradientText(
-                                    text: _contentList[index]["title2"],
+                                  Text(
+                                    contentList[index]["title2"],
                                     style: TextStyles.home_text2,
                                   ),
                                   SizedBox(height: 8.h),
                                   Text(
-                                    _contentList[index]["subtitle"],
+                                    contentList[index]["subtitle"],
                                     style: TextStyles.home_text3,
                                   ),
                                 ],
                               ),
                             ),
                           ),
-
-                          // Image Section
+                          // Image
                           Positioned(
                             right: 0.w,
                             bottom: 0.h,
                             child: SizedBox(
                               width: 210.w,
                               child: Image.asset(
-                                _contentList[index]["image"],
+                                contentList[index]["image"],
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -124,34 +103,33 @@ class _GradientContainerContent extends StatelessWidget {
               },
             ),
           ),
-
           // Dots Indicator
           Positioned(
             bottom: 10.h,
             left: 50.w,
             right: 50.w,
-            child: BlocBuilder<BottomNavCubit, BottomNavState>(
-              builder: (context, state) {
-                int currentPage = state.index;
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    _contentList.length,
-                        (index) => AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      margin: EdgeInsets.symmetric(horizontal: 4.w),
-                      height: 6.h,
-                      width: index == currentPage ? 24.w : 10.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.r),
-                        gradient: index == currentPage
-                            ? AppColors.reverse_mainColor
-                            : AppColors.container_circles,
-                      ),
-                    ),
-                  ),
-                );
-              },
+            child: Center(
+              child: BlocBuilder<ContainerIndexUpdateCubit, ContainerIndexState>(
+                builder: (context, state) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(contentList.length, (index) {
+                      return AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        margin: EdgeInsets.symmetric(horizontal: 4.w),
+                        height: index == state.index ? 6.h : 8.h,
+                        width: index == state.index ? 24.w : 10.w,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.r),
+                          gradient: index == state.index
+                              ? const LinearGradient(colors: [Colors.white, Colors.white])
+                              : AppColors.container_circles,
+                        ),
+                      );
+                    }).toList(),
+                  );
+                },
+              ),
             ),
           ),
         ],

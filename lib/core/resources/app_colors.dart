@@ -15,8 +15,8 @@ abstract class AppColors {
   static const LinearGradient reverse_mainColor = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
-    colors: [ Color(0xFFC20167),
-      Color(0xFF064198),],
+    colors: [  Color.fromRGBO(194, 1, 103, 0.7),
+      Color.fromRGBO(6, 65, 152, 0.7),],
   );
   static const LinearGradient container_circles = LinearGradient(
     begin: Alignment.centerLeft,
