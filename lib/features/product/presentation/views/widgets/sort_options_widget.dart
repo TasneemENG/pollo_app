@@ -16,15 +16,17 @@ class SortByDropdown extends StatelessWidget {
       "Nearest",
       "High price"
     ];
+
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
         String? selectedOption;
         if (state is AppSortingOptionChanged) {
           selectedOption = state.selectedOption;
         }
+
         return Container(
           height: 30.h,
-          padding: EdgeInsets.symmetric(horizontal: 8.w),
+          padding: EdgeInsets.symmetric(horizontal: 5.w),
           decoration: BoxDecoration(
             color: AppColors.background,
             borderRadius: BorderRadius.circular(30.r),
@@ -32,13 +34,9 @@ class SortByDropdown extends StatelessWidget {
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
-              value: selectedOption,
-              hint: Text(
-                "Sort By",
-                style: TextStyles.font12Medium,
-              ),
+              value: null,
+              hint: Text("Sort By", style: TextStyles.font12Medium),
               onChanged: (String? newValue) {
-                // Update the selected option using the AppCubit
                 context.read<AppCubit>().updateSortingOption(newValue);
               },
               icon: ShaderMask(
@@ -58,10 +56,7 @@ class SortByDropdown extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        option,
-                        style: TextStyles.font12Medium,
-                      ),
+                      Text(option, style: TextStyles.font12Medium),
                       if (selectedOption == option)
                         ShaderMask(
                           shaderCallback: (bounds) =>

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'product_header.dart';
-import 'product_item.dart';
-import 'product_item_list.dart';
-import 'product_search_bar.dart';
+import 'product_list.dart';
+
 class ProductBody extends StatelessWidget {
   const ProductBody({super.key});
 
@@ -12,8 +10,8 @@ class ProductBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          ProductHeader(),
-          ProductItemList(),
+          const ProductHeader(),
+          ProductList(),
         ],
       ),
     );

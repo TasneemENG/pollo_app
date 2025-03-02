@@ -4,7 +4,7 @@ import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/widgets/app_star_rating.dart';
 
-class ProductItem extends StatelessWidget {
+class CustomProductItem extends StatelessWidget {
   final String imagePath;
   final String name;
   final String price;
@@ -13,7 +13,7 @@ class ProductItem extends StatelessWidget {
   final String timeAgo;
   final VoidCallback? onFavoritePressed;
 
-  const ProductItem({
+  const CustomProductItem({
     super.key,
     required this.imagePath,
     required this.name,

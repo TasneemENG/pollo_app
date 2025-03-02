@@ -97,6 +97,12 @@ abstract class TextStyles {
     height: 14.5 / 12,
     letterSpacing: 0,);
 
+  static TextStyle font12Bold = baseStyle(
+    fontSize: 12,
+    fontWeight: FontWeightHelper.bold,
+    height: 14.5 / 12,
+    letterSpacing: 0,);
+
   static TextStyle font13Medium = baseStyle(
     fontSize: 13,
     fontWeight: FontWeightHelper.medium,

@@ -11,36 +11,47 @@ class ProductHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      const ProductSearchBar(),
-      Padding(
-        padding: EdgeInsets.only(left: 20.r),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              "Showing: ",
-              style:
-                  TextStyles.font13Medium.copyWith(color: AppColors.bodyText),
-            ),
-            Text(
-              "1199 Results for Cats",
-              style:
-                  TextStyles.font13Medium.copyWith(color: AppColors.mainText),
-            ),
-            70.horizontalSpace,
-            const SortByDropdown()
-          ],
+    return Column(
+      children: [
+        const ProductSearchBar(),
+        SizedBox(height: 16.h),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // Showing results text
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Showing: ",
+                      style: TextStyles.font13Medium.copyWith(
+                        color: AppColors.bodyText,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "1199 Results for Cats",
+                      style: TextStyles.font13Medium.copyWith(
+                        color: AppColors.mainText,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // Sort by dropdown
+              const SortByDropdown(),
+            ],
+          ),
         ),
-      ),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.r),
-        child: Divider(
-          color: AppColors.borderColor,
-          thickness: 1,
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: Divider(
+            color: AppColors.borderColor,
+            thickness: 1.h,
+          ),
         ),
-      ),
-
-    ]);
+      ],
+    );
   }
 }
