@@ -29,6 +29,9 @@ class Assets {
   static const farm_fill='assets/images/ph_farm-fill.png';
 
 
+  static const starFull='assets/svgs/fullstar.svg';
+  static const starEmpty='assets/svgs/emptystar.svg';
+
 
 
 

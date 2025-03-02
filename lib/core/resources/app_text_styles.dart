@@ -64,6 +64,7 @@ abstract class TextStyles {
       height: 29.05 / 24,
       letterSpacing: 0,
       color: Colors.white);
+
   ///
   static TextStyle font24Semibold = baseStyle(
     fontSize: 24,
@@ -88,8 +89,19 @@ abstract class TextStyles {
     fontSize: 14,
     fontWeight: FontWeightHelper.medium,
     height: 16.94 / 14,
+    letterSpacing: 0,
+  );
+  static TextStyle font12Medium = baseStyle(
+    fontSize: 12,
+    fontWeight: FontWeightHelper.medium,
+    height: 14.5 / 12,
     letterSpacing: 0,);
 
+  static TextStyle font13Medium = baseStyle(
+    fontSize: 13,
+    fontWeight: FontWeightHelper.medium,
+    letterSpacing: 0,
+  );
   static TextStyle font16Solid = baseStyle(
       fontSize: 16,
       fontWeight: FontWeightHelper.semiBold,
@@ -112,61 +124,48 @@ abstract class TextStyles {
     fontSize: 24,
     fontWeight: FontWeightHelper.bold,
     height: 29.05 / 24,
-
+  );
+  static TextStyle font22Semibold = baseStyle(
+    fontSize: 22,
+    fontWeight: FontWeightHelper.semiBold,
+    height: 25.2 / 22,
   );
   static TextStyle nav_item_selected = baseStyle(
-    fontSize: 12,
-    fontWeight: FontWeightHelper.regular ,
-    height: 29.05 / 24,
-    color: Colors.white,
-      fontFamily: 'Inter'
-
-  );
+      fontSize: 12, fontWeight: FontWeightHelper.regular, letterSpacing: 0);
   static TextStyle nav_item_not_selected = baseStyle(
-    fontSize: 12,
-    fontWeight:FontWeightHelper.regular ,
-    height: 14.5 / 12,
-    color: AppColors.greyColor,
-      fontFamily: 'Inter'
-
-  );
+      fontSize: 12,
+      fontWeight: FontWeightHelper.regular,
+      height: 14.5 / 12,
+      color: AppColors.greyColor,
+      fontFamily: 'Inter');
   static TextStyle search_text = baseStyle(
       fontSize: 16.sp,
-      fontWeight:FontWeightHelper.medium ,
+      fontWeight: FontWeightHelper.medium,
       height: 19.36 / 16,
       color: AppColors.iconColor,
-      fontFamily: 'Inter'
-
-  );
+      fontFamily: 'Inter');
   static TextStyle home_text1 = baseStyle(
       fontSize: 18.sp,
-      fontWeight:FontWeightHelper.regular ,
+      fontWeight: FontWeightHelper.regular,
       height: 21.6 / 18,
       color: Colors.white,
-      fontFamily: 'Itim'
-
-  );static TextStyle home_text2 = baseStyle(
+      fontFamily: 'Itim');
+  static TextStyle home_text2 = baseStyle(
       fontSize: 24.sp,
-      fontWeight:FontWeightHelper.regular ,
-      height: 28.8/ 24,
+      fontWeight: FontWeightHelper.regular,
+      height: 28.8 / 24,
       color: Colors.white,
-      fontFamily: 'Itim'
-
-  );
+      fontFamily: 'Itim');
   static TextStyle home_text3 = baseStyle(
       fontSize: 16.sp,
-      fontWeight:FontWeightHelper.regular ,
+      fontWeight: FontWeightHelper.regular,
       height: 19.2 / 16,
       color: Colors.white,
-      fontFamily: 'Itim'
-
-  );
+      fontFamily: 'Itim');
   static TextStyle categories = baseStyle(
       fontSize: 20.sp,
-      fontWeight:FontWeightHelper.semiBold ,
+      fontWeight: FontWeightHelper.semiBold,
       height: 24.2 / 20,
       color: Colors.black,
-      fontFamily: 'Inter'
-
-  );
+      fontFamily: 'Inter');
 }

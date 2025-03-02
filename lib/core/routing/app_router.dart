@@ -10,6 +10,7 @@ import 'package:pollo/features/auth/presentation/views/signup_view.dart';
 import 'package:pollo/features/auth/presentation/views/verification_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
+import 'package:pollo/features/product/presentation/views/product_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -68,7 +69,12 @@ class AppRouter {
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
-
+      case Routes.productView:
+        return RouteAnimations.buildPageRoute(
+          page:  const ProductView(),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,
+        );
       default:
         //Exit app
         return null;

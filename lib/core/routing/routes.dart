@@ -9,6 +9,7 @@ abstract class Routes {
   static const String homeView = '/homeView';
   static const String mainScreen = '/mainScreen';
   static const String appNavBar = '/appNavBar';
+  static const String productView = '/productView';
 
 
 }

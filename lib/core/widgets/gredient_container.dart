@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pollo/core/helpers/app_cubit.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
-import 'package:pollo/features/Home/presentation/manager/home_cubit/container_index_update_cubit.dart';
-import 'package:pollo/features/Home/presentation/manager/home_cubit/container_index_update_state.dart';
 
 class GradientContainer extends StatelessWidget {
   final List<Map<String, dynamic>> contentList;
@@ -14,10 +13,7 @@ class GradientContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ContainerIndexUpdateCubit(),
-      child: _GradientContainerContent(contentList: contentList),
-    );
+    return _GradientContainerContent(contentList: contentList);
   }
 }
 
@@ -38,16 +34,21 @@ class _GradientContainerContent extends StatelessWidget {
             height: 171.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-              gradient:AppColors.reverse_mainColor,
+              gradient: AppColors.reverse_mainColor,
             ),
           ),
           Positioned.fill(
-            child: BlocBuilder<ContainerIndexUpdateCubit, ContainerIndexState>(
+            child: BlocBuilder<AppCubit, AppState>(
               builder: (context, state) {
+                int currentIndex = 0;
+                if (state is AppContainerIndexChanged) {
+                  currentIndex = state.index;
+                }
+
                 return PageView.builder(
                   controller: PageController(),
                   onPageChanged: (int page) {
-                    context.read<ContainerIndexUpdateCubit>().updateIndex(page);
+                    context.read<AppCubit>().updateContainerIndex(page);
                   },
                   itemCount: contentList.length,
                   itemBuilder: (context, index) {
@@ -109,19 +110,23 @@ class _GradientContainerContent extends StatelessWidget {
             left: 50.w,
             right: 50.w,
             child: Center(
-              child: BlocBuilder<ContainerIndexUpdateCubit, ContainerIndexState>(
+              child: BlocBuilder<AppCubit, AppState>(
                 builder: (context, state) {
+                  int currentIndex = 0;
+                  if (state is AppContainerIndexChanged) {
+                    currentIndex = state.index;
+                  }
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(contentList.length, (index) {
                       return AnimatedContainer(
                         duration: const Duration(milliseconds: 300),
                         margin: EdgeInsets.symmetric(horizontal: 4.w),
-                        height: index == state.index ? 6.h : 8.h,
-                        width: index == state.index ? 24.w : 10.w,
+                        height: index == currentIndex ? 6.h : 8.h,
+                        width: index == currentIndex ? 24.w : 10.w,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.r),
-                          gradient: index == state.index
+                          gradient: index == currentIndex
                               ? const LinearGradient(colors: [Colors.white, Colors.white])
                               : AppColors.container_circles,
                         ),

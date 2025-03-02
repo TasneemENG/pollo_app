@@ -18,6 +18,16 @@ class AppCubit extends Cubit<AppState> {
   void updateConnectivityState(bool isConnected) {
     emit(AppConnectivityStateChanged(isConnected: isConnected));
   }
+
+  /// Method to update the selected sorting option.
+  void updateSortingOption(String? selectedOption) {
+    emit(AppSortingOptionChanged(selectedOption: selectedOption));
+  }
+
+  /// Method to update the container index.
+  void updateContainerIndex(int index) {
+    emit(AppContainerIndexChanged(index: index));
+  }
 }
 
 /// Base state for the AppCubit.
@@ -45,4 +55,18 @@ class AppConnectivityStateChanged extends AppState {
   final bool isConnected;
 
   AppConnectivityStateChanged({required this.isConnected});
+}
+
+/// State when the selected sorting option changes.
+class AppSortingOptionChanged extends AppState {
+  final String? selectedOption;
+
+  AppSortingOptionChanged({required this.selectedOption});
+}
+
+/// State when the container index changes.
+class AppContainerIndexChanged extends AppState {
+  final int index;
+
+  AppContainerIndexChanged({required this.index});
 }
