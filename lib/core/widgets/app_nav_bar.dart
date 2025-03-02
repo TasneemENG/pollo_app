@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pollo/core/helpers/app_cubit.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/widgets/app_gredient_text.dart';
-import 'package:pollo/features/Home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
-import 'package:pollo/features/Home/presentation/manager/bottom_nav_cubit/bottom_nav_state.dart';
 import 'package:pollo/features/Home/presentation/views/home_view.dart';
 
 class AppNavBar extends StatelessWidget {
@@ -15,18 +14,25 @@ class AppNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BottomNavCubit(),
+      create: (context) => AppCubit(),
       child: Scaffold(
-        body: BlocBuilder<BottomNavCubit, BottomNavState>(
+        body: BlocBuilder<AppCubit, AppState>(
+          buildWhen: (previous, current) {
+            // Rebuild only when the state is BottomNavUpdated
+            return current is BottomNavUpdated;
+          },
           builder: (context, state) {
-            return Center(child: _widgetOptions[state.index]);
+            if (state is BottomNavUpdated) {
+              return Center(child: _widgetOptions[state.index]);
+            }
+            return Center(child: _widgetOptions[0]); // Default to HomeView
           },
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          onPressed: () => print('Floating Action Button Pressed'),
+          onPressed: () {},
           shape: const CircleBorder(),
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.background,
           elevation: 7,
           child: Image.asset(Assets.buttom_nav),
         ),
@@ -42,13 +48,19 @@ class AppNavBar extends StatelessWidget {
     const Text('Account Page'),
   ];
 }
+
 class _BottomNavigationBarWidget extends StatelessWidget {
   const _BottomNavigationBarWidget();
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BottomNavCubit, BottomNavState>(
+    return BlocBuilder<AppCubit, AppState>(
+      buildWhen: (previous, current) {
+        // Rebuild only when the state is BottomNavUpdated
+        return current is BottomNavUpdated;
+      },
       builder: (context, state) {
+        final currentIndex = (state is BottomNavUpdated) ? state.index : 0;
         return Container(
           decoration: BoxDecoration(
             boxShadow: [
@@ -57,12 +69,12 @@ class _BottomNavigationBarWidget extends StatelessWidget {
                 spreadRadius: 2,
                 blurRadius: 15,
                 offset: const Offset(0, 0),
-              ),
+              )
             ],
           ),
           child: BottomAppBar(
-            color: Colors.white,
-            surfaceTintColor: Colors.white,
+            color: AppColors.background,
+            surfaceTintColor: AppColors.background,
             shape: const CircularNotchedRectangle(),
             notchMargin: 8,
             clipBehavior: Clip.antiAlias,
@@ -73,11 +85,27 @@ class _BottomNavigationBarWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _NavItem(index: 0, icon: Icons.home_filled, label: 'Home', selectedIndex: state.index),
-                  _NavItem(index: 1, icon: Icons.favorite, label: 'Favourite', selectedIndex: state.index),
+                  _NavItem(
+                      index: 0,
+                      icon: Icons.home_filled,
+                      label: 'Home',
+                      selectedIndex: currentIndex),
+                  _NavItem(
+                      index: 1,
+                      icon: Icons.favorite,
+                      label: 'Favourite',
+                      selectedIndex: currentIndex),
                   SizedBox(width: 48.w),
-                  _NavItem(index: 2, icon: Icons.add_box, label: 'Add Ads', selectedIndex: state.index),
-                  _NavItem(index: 3, icon: Icons.person, label: 'Account', selectedIndex: state.index),
+                  _NavItem(
+                      index: 2,
+                      icon: Icons.add_box,
+                      label: 'Add Ads',
+                      selectedIndex: currentIndex),
+                  _NavItem(
+                      index: 3,
+                      icon: Icons.person,
+                      label: 'Account',
+                      selectedIndex: currentIndex),
                 ],
               ),
             ),
@@ -87,6 +115,7 @@ class _BottomNavigationBarWidget extends StatelessWidget {
     );
   }
 }
+
 class _NavItem extends StatelessWidget {
   final int index;
   final IconData icon;
@@ -104,7 +133,7 @@ class _NavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isSelected = index == selectedIndex;
     return GestureDetector(
-      onTap: () => context.read<BottomNavCubit>().updateIndex(index),
+      onTap: () => context.read<AppCubit>().updateBottomNavIndex(index),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -123,9 +152,11 @@ class _NavItem extends StatelessWidget {
       shaderCallback: (bounds) {
         return isSelected
             ? AppColors.mainColor.createShader(bounds)
-            : const LinearGradient(colors: [AppColors.greyColor, AppColors.greyColor]).createShader(bounds);
+            : const LinearGradient(
+                    colors: [AppColors.greyColor, AppColors.greyColor])
+                .createShader(bounds);
       },
-      child: Icon(icon, color: Colors.white, size: 24.w),
+      child: Icon(icon, color: AppColors.background, size: 24.w),
     );
   }
 }

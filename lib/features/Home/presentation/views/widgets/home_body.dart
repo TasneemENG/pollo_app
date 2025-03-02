@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pollo/core/resources/app_images.dart';
+import 'package:pollo/core/widgets/app_search_bar.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/categories_grid.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/categories_title.dart';
 import 'package:pollo/core/widgets/gredient_container.dart';
-import 'package:pollo/features/Home/presentation/views/widgets/search_bar.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/logo_and_menue.dart';
 
 class HomeBody extends StatefulWidget {
@@ -65,7 +65,7 @@ class _HomeBodyState extends State<HomeBody> {
       child: Column(
         children: [
           const LogoAndMenu(),
-          CustomSearchBar(searchController: _searchController),
+          AppSearchBar(searchController: _searchController),
           GradientContainer(contentList:contentList,),
           const CategoriesTitle(),
           CategoriesGrid(gridItems: gridItems),

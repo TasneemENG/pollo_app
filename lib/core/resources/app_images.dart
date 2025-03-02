@@ -45,6 +45,9 @@ class Assets {
 
 
 
+  static const starFull='assets/svgs/fullstar.svg';
+  static const starEmpty='assets/svgs/emptystar.svg';
+
 
 
 
