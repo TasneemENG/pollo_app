@@ -25,18 +25,21 @@ class _GradientContainerContent extends StatelessWidget {
   final List<Map<String, dynamic>> _contentList = const [
     {
       "image": Assets.doctor_home,
-      "title": "Welcome to Pollo Store",
+      "title1": "Welcome to ",
+      "title2": "Pollo Store",
       "subtitle": "Your All-in-One Vet Store",
     },
     {
       "image": Assets.doctor_home,
-      "title": "New Arrivals",
-      "subtitle": "Check out the latest products",
+      "title1": "Welcome to ",
+      "title2": "Pollo Store",
+      "subtitle": "Your All-in-One Vet Store",
     },
     {
       "image": Assets.doctor_home,
-      "title": "Special Offers",
-      "subtitle": "Exclusive discounts for you",
+      "title1": "Welcome to ",
+      "title2": "Pollo Store",
+      "subtitle": "Your All-in-One Vet Store",
     },
   ];
 
@@ -46,7 +49,7 @@ class _GradientContainerContent extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: Stack(
         children: [
-
+          // Gradient Background
           Container(
             width: 343.w,
             height: 171.h,
@@ -56,7 +59,7 @@ class _GradientContainerContent extends StatelessWidget {
             ),
           ),
 
-
+          // PageView for scrolling content
           Positioned.fill(
             child: BlocBuilder<PageIndexCubit, int>(
               builder: (context, currentPage) {
@@ -83,7 +86,11 @@ class _GradientContainerContent extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    _contentList[index]["title"],
+                                    _contentList[index]["title1"],
+                                    style: TextStyles.home_text1,
+                                  ),
+                                  Text(
+                                    _contentList[index]["title2"],
                                     style: TextStyles.home_text2,
                                   ),
                                   SizedBox(height: 8.h),
@@ -96,15 +103,16 @@ class _GradientContainerContent extends StatelessWidget {
                             ),
                           ),
 
-                          // Image
                           Positioned(
                             right: 0.w,
-                            top: 0.h,
                             bottom: 0.h,
-                            child: Image.asset(
-                              _contentList[index]["image"],
-                              fit: BoxFit.contain,
-                              width: 237.w,
+                            child: SizedBox(
+                              width: 210.w,
+
+                              child: Image.asset(
+                                _contentList[index]["image"],
+                                fit: BoxFit.contain,
+                              ),
                             ),
                           ),
                         ],
