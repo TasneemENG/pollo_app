@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pollo/core/routing/route_animations.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/core/widgets/app_nav_bar.dart';
+import 'package:pollo/features/Home/data/category_item.dart';
 import 'package:pollo/features/Home/presentation/views/home_view.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/category_widget.dart';
 import 'package:pollo/features/auth/presentation/views/forget_password_view.dart';
@@ -11,7 +12,7 @@ import 'package:pollo/features/auth/presentation/views/signup_view.dart';
 import 'package:pollo/features/auth/presentation/views/verification_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
-import 'package:pollo/features/Home/data/category_item.dart'; // Import the Category and CategoryItem classes
+import 'package:pollo/features/product/presentation/views/product_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -30,7 +31,7 @@ class AppRouter {
         );
       case Routes.appNavBar:
         return RouteAnimations.buildPageRoute(
-          page: const AppNavBar(),
+          page:  const AppNavBar(),
           settings: settings,
           transitionType: TransitionType.fadeScale,
         );
@@ -66,7 +67,13 @@ class AppRouter {
         );
       case Routes.homeView:
         return RouteAnimations.buildPageRoute(
-          page: const HomeView(),
+          page:  const HomeView(),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,
+        );
+      case Routes.productView:
+        return RouteAnimations.buildPageRoute(
+          page:  const ProductView(),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
@@ -90,8 +97,9 @@ class AppRouter {
           throw ArgumentError('Invalid arguments passed to categoryWidget route');
         }
 
+
       default:
-      // Exit app or handle unknown routes
+      //Exit app
         return null;
     }
   }
