@@ -1,74 +1,118 @@
+import 'dart:io';
 import 'package:dio/dio.dart';
 
 abstract class Failure {
-  final String message;
+  final String errorMessage;
 
-  Failure(this.message);
+  const Failure(this.errorMessage);
 }
 
 class ServerFailure extends Failure {
-  ServerFailure(super.message);
+  const ServerFailure(super.errorMessage);
 
   factory ServerFailure.fromDioException(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure(
-            'Connection timed out. Please check your internet and try again.');
+        return const ServerFailure('Connection to the server timed out. Please check your internet connection.');
       case DioExceptionType.sendTimeout:
-        return ServerFailure(
-            'Request timed out. Check your connection and try again.');
+        return const ServerFailure('Request send timed out. Please try again.');
       case DioExceptionType.receiveTimeout:
-        return ServerFailure(
-            'Server response timed out. Check your connection or try again later.');
+        return const ServerFailure('Response receive timed out. Please try again later.');
       case DioExceptionType.badCertificate:
-        return ServerFailure('Oops There was an Error, Please try again');
+        return const ServerFailure('Invalid security certificate.');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioException.response!.statusCode!, dioException.response!.data);
+          dioException.response?.statusCode ?? 500,
+          dioException.response?.data,
+        );
       case DioExceptionType.cancel:
-        return ServerFailure('The request was canceled. Please try again.');
+        return const ServerFailure('Request cancelled. Please try again.');
       case DioExceptionType.connectionError:
-        return ServerFailure(
-            'Unable to connect. Please check your internet connection and try again.');
+        return const ServerFailure('Network connection failed. Please check your internet connection.');
       case DioExceptionType.unknown:
-        if (dioException.message != null &&
-            dioException.message!.contains('SocketException')) {
-          return ServerFailure('No Internet Connection');
+        if (_isNetworkError(dioException)) {
+          return const ServerFailure('No internet connection.');
         }
-        return ServerFailure('Unexpected Error, Please try again!');
-      }
+        return const ServerFailure('An unexpected error occurred.');
+    }
   }
 
-  factory ServerFailure.fromResponse(int statusCode, dynamic response) {
-    // Check if the first value is a list, and handle accordingly
-    final firstKeyValue = response[response.keys.first];
+  factory ServerFailure.fromResponse(int statusCode, dynamic responseData) {
+    final message = _parseResponseMessage(responseData);
 
-    if (statusCode == 404) {
-      return ServerFailure(
-        firstKeyValue is List && firstKeyValue.isNotEmpty
-            ? firstKeyValue[0]['Error']
-                .toString() // If it's a list, extract the first error message
-            : firstKeyValue ?? 'Your request was not found, please try later',
-      );
-    } else if (statusCode == 500) {
-      return ServerFailure(
-          'There is a problem with the server, please try later');
-    } else if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(
-        firstKeyValue is List && firstKeyValue.isNotEmpty
-            ? firstKeyValue[0].toString() // Handle if it's a list
-            : firstKeyValue ?? 'Unexpected Error, Please try again',
-      );
-    } else if (statusCode == 555) {
-      return ServerFailure('Backend Error, Please try again');
-    } else {
-      return ServerFailure('There was an error, please try again');
+    switch (statusCode) {
+      case 400:
+        return ServerFailure(message ?? 'Invalid request data.');
+      case 401:
+        return ServerFailure(message ?? 'Authentication required.');
+      case 403:
+        return ServerFailure(message ?? 'Access denied.');
+      case 404:
+        return ServerFailure(message ?? 'Resource not found.');
+      case 408:
+        return ServerFailure(message ?? 'Request timed out.');
+      case 500:
+        return ServerFailure(message ?? 'Internal server error.');
+      case 503:
+        return ServerFailure(message ?? 'Service currently unavailable.');
+      default:
+        return ServerFailure(message ?? 'Request failed with status code $statusCode.');
     }
+  }
+
+  static String? _parseResponseMessage(dynamic responseData) {
+    if (responseData == null) return null;
+
+    // Handle string responses
+    if (responseData is String) {
+      return responseData.isNotEmpty ? responseData : null;
+    }
+
+    // Handle map responses
+    if (responseData is Map<String, dynamic>) {
+      // Check common error message fields
+      return responseData['message']?.toString() ??
+          responseData['error']?.toString() ??
+          responseData['detail']?.toString() ??
+          _parseNestedErrors(responseData);
+    }
+
+    // Handle list responses
+    if (responseData is List && responseData.isNotEmpty) {
+      return responseData.first.toString();
+    }
+
+    return null;
+  }
+
+  static String? _parseNestedErrors(Map<String, dynamic> responseData) {
+    // Handle nested errors structure
+    final errors = responseData['errors'];
+    if (errors is Map && errors.isNotEmpty) {
+      return errors.values.first?.toString();
+    }
+    if (errors is List && errors.isNotEmpty) {
+      return errors.first.toString();
+    }
+
+    // Fallback to first available value
+    final firstValue = responseData.values.firstOrNull;
+    if (firstValue is List && firstValue.isNotEmpty) {
+      return firstValue.first.toString();
+    }
+
+    return firstValue?.toString();
+  }
+
+  static bool _isNetworkError(DioException dioException) {
+    return dioException.error is SocketException || (dioException.message?.contains('SocketException') ?? false);
   }
 }
 
 class CacheFailure extends Failure {
-  CacheFailure(super.message);
+  const CacheFailure(super.errorMessage);
 
-  factory CacheFailure.fromResponse(String message) => CacheFailure(message);
+  factory CacheFailure.fromException(Exception exception) {
+    return CacheFailure('Cache error: ${exception.runtimeType}');
+  }
 }
