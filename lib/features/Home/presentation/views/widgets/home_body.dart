@@ -37,7 +37,7 @@ class _HomeBodyState extends State<HomeBody> {
   ];
   final List<Map<String, dynamic>> gridItems = [
     {"image": Assets.doctor_male, "text": "Veterinarians"},
-    {"image": Assets.pharmacy, "text": "Pharmaceutical"},
+    {"image": Assets.pharmacy, "text": "Pharmacetuical"},
     {"image": Assets.medicine, "text": "Vet Pharmacy"},
     {"image": Assets.sheeps, "text": "Sheep"},
     {"image": Assets.cows, "text": "Cattle"},

@@ -131,7 +131,7 @@ abstract class TextStyles {
 
   );
   static TextStyle search_text = baseStyle(
-      fontSize: 16.sp,
+      fontSize: 16,
       fontWeight:FontWeightHelper.medium ,
       height: 19.36 / 16,
       color: AppColors.iconColor,
@@ -139,14 +139,14 @@ abstract class TextStyles {
 
   );
   static TextStyle home_text1 = baseStyle(
-      fontSize: 18.sp,
+      fontSize: 18,
       fontWeight:FontWeightHelper.regular ,
       height: 21.6 / 18,
       color: Colors.white,
       fontFamily: 'Itim'
 
   );static TextStyle home_text2 = baseStyle(
-      fontSize: 24.sp,
+      fontSize: 24,
       fontWeight:FontWeightHelper.regular ,
       height: 28.8/ 24,
       color: Colors.white,
@@ -154,7 +154,7 @@ abstract class TextStyles {
 
   );
   static TextStyle home_text3 = baseStyle(
-      fontSize: 16.sp,
+      fontSize: 16,
       fontWeight:FontWeightHelper.regular ,
       height: 19.2 / 16,
       color: Colors.white,
@@ -162,11 +162,46 @@ abstract class TextStyles {
 
   );
   static TextStyle categories = baseStyle(
-      fontSize: 20.sp,
+      fontSize: 20,
       fontWeight:FontWeightHelper.semiBold ,
       height: 24.2 / 20,
       color: Colors.black,
       fontFamily: 'Inter'
+
+  );
+  static TextStyle categories_text = baseStyle(
+      fontSize: 16,
+      fontWeight:FontWeightHelper.bold ,
+      height: 19.36 / 16,
+      color: AppColors.mainText,
+      fontFamily: 'Inter'
+
+  );
+  static TextStyle available_text = baseStyle(
+      fontSize: 20,
+      fontWeight:FontWeightHelper.semiBold ,
+      height: 24.2 / 20,
+      color: AppColors.mainText,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
+  static TextStyle no_data = baseStyle(
+      fontSize: 22,
+      fontWeight:FontWeightHelper.medium ,
+      height: 26.63/ 22,
+      color: AppColors.graytxt,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
+  static TextStyle appbar_category_style = baseStyle(
+      fontSize: 22,
+      fontWeight:FontWeightHelper.semiBold ,
+      height: 26.63/ 22,
+      color: AppColors.mainText,
+      fontFamily: 'Inter',
+      letterSpacing: 0
 
   );
 }

@@ -3,6 +3,7 @@ import 'package:pollo/core/routing/route_animations.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/core/widgets/app_nav_bar.dart';
 import 'package:pollo/features/Home/presentation/views/home_view.dart';
+import 'package:pollo/features/Home/presentation/views/widgets/category_widget.dart';
 import 'package:pollo/features/auth/presentation/views/forget_password_view.dart';
 import 'package:pollo/features/auth/presentation/views/login_view.dart';
 import 'package:pollo/features/auth/presentation/views/reset_password_view.dart';
@@ -10,6 +11,7 @@ import 'package:pollo/features/auth/presentation/views/signup_view.dart';
 import 'package:pollo/features/auth/presentation/views/verification_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
+import 'package:pollo/features/Home/data/category_item.dart'; // Import the Category and CategoryItem classes
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -28,7 +30,7 @@ class AppRouter {
         );
       case Routes.appNavBar:
         return RouteAnimations.buildPageRoute(
-          page:  const AppNavBar(),
+          page: const AppNavBar(),
           settings: settings,
           transitionType: TransitionType.fadeScale,
         );
@@ -64,13 +66,32 @@ class AppRouter {
         );
       case Routes.homeView:
         return RouteAnimations.buildPageRoute(
-          page:  const HomeView(),
+          page: const HomeView(),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
+      case Routes.categoryWidget:
+      // Ensure arguments are passed and are of the correct type
+        if (arguments is Map<String, dynamic>) {
+          final List<Category> categories = arguments['categories'];
+          final String categoryName = arguments['categoryName'];
+          final String image = arguments['image'];
+          return RouteAnimations.buildPageRoute(
+            page: CategoryWidget(
+              categories: categories,
+              categoryName: categoryName,
+              image: image,
+            ),
+            settings: settings,
+            transitionType: TransitionType.slideFromLeft,
+          );
+        } else {
+          // Handle invalid arguments
+          throw ArgumentError('Invalid arguments passed to categoryWidget route');
+        }
 
       default:
-        //Exit app
+      // Exit app or handle unknown routes
         return null;
     }
   }

@@ -29,7 +29,7 @@ class _GradientContainerContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15.w),
+      padding: EdgeInsets.symmetric(horizontal: 3.w),
       child: Stack(
         children: [
           // Gradient Background
@@ -38,7 +38,7 @@ class _GradientContainerContent extends StatelessWidget {
             height: 171.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-              gradient:AppColors.reverse_mainColor,
+              gradient: AppColors.reverse_mainColor,
             ),
           ),
           Positioned.fill(
@@ -52,19 +52,16 @@ class _GradientContainerContent extends StatelessWidget {
                   itemCount: contentList.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10.w),
-                      child: Stack(
+                      padding: EdgeInsets.only(left: 10.w),
+                      child: Row(
                         children: [
-                          // Text Content
-                          Positioned(
-                            left: 14.w,
-                            top: 0,
-                            bottom: 0,
-                            child: SizedBox(
-                              width: 166.w,
+                          // Content on the left with full width
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 1.w), // Padding to separate from the image
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     contentList[index]["title1"],
@@ -83,16 +80,13 @@ class _GradientContainerContent extends StatelessWidget {
                               ),
                             ),
                           ),
-                          // Image
-                          Positioned(
-                            right: 0.w,
-                            bottom: 0.h,
-                            child: SizedBox(
-                              width: 210.w,
-                              child: Image.asset(
-                                contentList[index]["image"],
-                                fit: BoxFit.contain,
-                              ),
+                          // Image positioned at the right edge of the container
+                          SizedBox(
+                            width: 200.w, // Adjust the image width as needed
+                            height:300.h,
+                            child: Image.network(
+                              contentList[index]["image"],
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ],

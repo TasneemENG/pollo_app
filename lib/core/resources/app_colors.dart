@@ -30,4 +30,5 @@ abstract class AppColors {
   );
   static const Color borderColor = Color(0xFFDBD5D5);
   static const Color search_bar = Color(0xFFECECEC);
+  static const Color category_container= Color(0xFFF1F1F1);
 }

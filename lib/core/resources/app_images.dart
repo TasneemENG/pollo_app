@@ -27,6 +27,22 @@ class Assets {
   static const baby_chick ='assets/images/noto_front-facing-baby-chick.png';
   static const noto_hatching_chech='assets/images/noto_hatching-chick.png';
   static const farm_fill='assets/images/ph_farm-fill.png';
+  static const Cats ='assets/images/cats.png';
+  static const dogs='assets/images/dogs.png';
+  static const birds='assets/images/birds.png';
+  static const large_animals='assets/images/large_animals.png';
+  static const pet_animals='assets/images/pet_animals.png';
+  static const paultry='assets/images/paultry.png';
+  static const Pets='assets/images/Pets.png';
+  static const veterinarian='assets/images/veterinarian.png';
+  static const empty_sheep='assets/images/empty_sheep.png';
+
+
+
+
+
+
+
 
 
 
