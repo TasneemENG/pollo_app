@@ -5,27 +5,19 @@ class ApiService {
 
   ApiService(this.dio);
 
-  Future<dynamic> get({required String endpoint, Map<String, dynamic>? queryParameters}) async {
+  Future<dynamic> get({
+    required String endpoint,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     final response = await dio.get(endpoint, queryParameters: queryParameters);
     return response.data;
   }
 
-  Future<dynamic> post({required String endpoint, required Map<String, dynamic> data}) async {
+  Future<dynamic> post({
+    required String endpoint,
+    required dynamic data,
+  }) async {
     final response = await dio.post(endpoint, data: data);
-    return response.data;
-  }
-
-  Future<dynamic> postFormData({required String endPoint, required FormData formData,}) async {
-    final response = await dio.post(
-      endPoint,
-      data: formData,
-      options: Options(
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      ),
-    );
-
     return response.data;
   }
 
@@ -38,8 +30,10 @@ class ApiService {
     return response.data;
   }
 
-
-  Future<dynamic> delete({required String endpoint, Map<String, dynamic>? queryParameters}) async {
+  Future<dynamic> delete({
+    required String endpoint,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     final response = await dio.delete(endpoint, queryParameters: queryParameters);
     return response.data;
   }
