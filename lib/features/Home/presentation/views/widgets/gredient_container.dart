@@ -4,25 +4,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
-import 'package:pollo/features/Home/presentation/manager/page_index_cubit.dart';
+import 'package:pollo/core/widgets/app_gredient_text.dart';
+import 'package:pollo/features/Home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
+import 'package:pollo/features/Home/presentation/manager/bottom_nav_cubit/bottom_nav_state.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => PageIndexCubit(),
-      child: const _GradientContainerContent(),
-    );
+    return const _GradientContainerContent();
   }
 }
 
 class _GradientContainerContent extends StatelessWidget {
   const _GradientContainerContent();
 
-  // Sample data for images and text
-  final List<Map<String, dynamic>> _contentList = const [
+  static const List<Map<String, dynamic>> _contentList = [
     {
       "image": Assets.doctor_home,
       "title1": "Welcome to ",
@@ -31,20 +29,22 @@ class _GradientContainerContent extends StatelessWidget {
     },
     {
       "image": Assets.doctor_home,
-      "title1": "Welcome to ",
-      "title2": "Pollo Store",
-      "subtitle": "Your All-in-One Vet Store",
+      "title1": "Explore the ",
+      "title2": "Best Products",
+      "subtitle": "High-quality products for your pet's needs",
     },
     {
       "image": Assets.doctor_home,
-      "title1": "Welcome to ",
-      "title2": "Pollo Store",
-      "subtitle": "Your All-in-One Vet Store",
+      "title1": "Get Your ",
+      "title2": "Vet Services",
+      "subtitle": "Book veterinary appointments instantly",
     },
   ];
 
   @override
   Widget build(BuildContext context) {
+    final PageController pageController = PageController();
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: Stack(
@@ -59,14 +59,15 @@ class _GradientContainerContent extends StatelessWidget {
             ),
           ),
 
-          // PageView for scrolling content
+          // PageView Content
           Positioned.fill(
-            child: BlocBuilder<PageIndexCubit, int>(
-              builder: (context, currentPage) {
+            child: BlocBuilder<BottomNavCubit, BottomNavState>(
+              builder: (context, state) {
+                int currentPage = state.index;
                 return PageView.builder(
-                  controller: PageController(),
-                  onPageChanged: (int page) {
-                    context.read<PageIndexCubit>().updatePageIndex(page);
+                  controller: pageController,
+                  onPageChanged: (page) {
+                    context.read<BottomNavCubit>().updateIndex(page);
                   },
                   itemCount: _contentList.length,
                   itemBuilder: (context, index) {
@@ -74,7 +75,7 @@ class _GradientContainerContent extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       child: Stack(
                         children: [
-                          // Text Content
+                          // Text Section
                           Positioned(
                             left: 14.w,
                             top: 0,
@@ -89,8 +90,8 @@ class _GradientContainerContent extends StatelessWidget {
                                     _contentList[index]["title1"],
                                     style: TextStyles.home_text1,
                                   ),
-                                  Text(
-                                    _contentList[index]["title2"],
+                                  GradientText(
+                                    text: _contentList[index]["title2"],
                                     style: TextStyles.home_text2,
                                   ),
                                   SizedBox(height: 8.h),
@@ -103,12 +104,12 @@ class _GradientContainerContent extends StatelessWidget {
                             ),
                           ),
 
+                          // Image Section
                           Positioned(
                             right: 0.w,
                             bottom: 0.h,
                             child: SizedBox(
                               width: 210.w,
-
                               child: Image.asset(
                                 _contentList[index]["image"],
                                 fit: BoxFit.contain,
@@ -129,28 +130,28 @@ class _GradientContainerContent extends StatelessWidget {
             bottom: 10.h,
             left: 50.w,
             right: 50.w,
-            child: Center(
-              child: BlocBuilder<PageIndexCubit, int>(
-                builder: (context, currentPage) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(_contentList.length, (index) {
-                      return AnimatedContainer(
-                        duration: const Duration(milliseconds: 300),
-                        margin: EdgeInsets.symmetric(horizontal: 4.w),
-                        height: index == currentPage ? 6.h : 8.h,
-                        width: index == currentPage ? 24.w : 10.w,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.r),
-                          gradient: index == currentPage
-                              ? const LinearGradient(colors: [Colors.white, Colors.white])
-                              : AppColors.container_circles,
-                        ),
-                      );
-                    }).toList(),
-                  );
-                },
-              ),
+            child: BlocBuilder<BottomNavCubit, BottomNavState>(
+              builder: (context, state) {
+                int currentPage = state.index;
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    _contentList.length,
+                        (index) => AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      margin: EdgeInsets.symmetric(horizontal: 4.w),
+                      height: 6.h,
+                      width: index == currentPage ? 24.w : 10.w,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.r),
+                        gradient: index == currentPage
+                            ? AppColors.reverse_mainColor
+                            : AppColors.container_circles,
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ],

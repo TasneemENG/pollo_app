@@ -4,8 +4,8 @@ import 'package:pollo/features/Home/presentation/views/widgets/categories_grid.d
 import 'package:pollo/features/Home/presentation/views/widgets/categories_title.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/gredient_container.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/search_bar.dart';
+import 'package:pollo/features/Home/presentation/views/widgets/logo_and_menue.dart';
 
-import 'logo_and_menue.dart';
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
 
@@ -43,15 +43,15 @@ class _HomeBodyState extends State<HomeBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        child: Column(
-          children: [
-            const LogoAndMenu(),
-            CustomSearchBar(searchController: _searchController),
-            const GradientContainer(),
-            const CategoriesTitle(),
-            CategoriesGrid(gridItems: gridItems),
-          ],
-        ),
+      child: Column(
+        children: [
+          const LogoAndMenu(),
+          CustomSearchBar(searchController: _searchController),
+          const GradientContainer(),
+          const CategoriesTitle(),
+          CategoriesGrid(gridItems: gridItems),
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
 import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
@@ -20,19 +21,19 @@ class OnboardingCubit extends Cubit<OnboardingState> {
   }
 
   void nextPage(BuildContext context) {
-    final currentPage = (state as OnboardingPageChanged).currentPage; // Safe cast
+    final currentPage = (state as OnboardingPageChanged).currentPage;
     if (currentPage < onboardingData.length - 1) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
       );
     } else {
-      Navigator.pushReplacementNamed(context, Routes.loginView);
+      context.pushReplacementNamed(Routes.loginView);
     }
   }
 
   void previousPage() {
-    final currentPage = (state as OnboardingPageChanged).currentPage; // Safe cast
+    final currentPage = (state as OnboardingPageChanged).currentPage;
     if (currentPage > 0) {
       pageController.previousPage(
         duration: const Duration(milliseconds: 300),
@@ -40,18 +41,13 @@ class OnboardingCubit extends Cubit<OnboardingState> {
       );
     }
   }
+
   void skipToLastPage(BuildContext context) {
     pageController.animateToPage(
-      onboardingData.length - 1, // Skip directly to the last page
+      onboardingData.length - 1,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeIn,
     );
-
-    // Once you're on the last page, navigate to the main screen
-    Navigator.pushReplacementNamed(context, Routes.loginView);  // Ensure this route is correct
+    context.pushNamed(Routes.loginView);
   }
-
-
-
-
 }

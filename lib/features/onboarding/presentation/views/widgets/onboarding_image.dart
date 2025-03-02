@@ -8,17 +8,15 @@ class BackgroundImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-       Center(
-            child: SizedBox(
-              height: 350.h,
-              width: 343.w,
-              child: Image.asset(
-                imageUrl,
-                fit: BoxFit.contain, // Ensure the entire image is visible
-              ),
-            ),
-          );
-
+    return Center(
+      child: SizedBox(
+        height: 350.h,
+        width: 343.w,
+        child: Image.asset(
+          imageUrl,
+          fit: BoxFit.contain,
+        ),
+      ),
+    );
   }
 }

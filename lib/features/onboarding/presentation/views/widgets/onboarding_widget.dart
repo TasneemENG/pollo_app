@@ -26,10 +26,10 @@ class OnboardingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Background Image
         BackgroundImage(imageUrl: image),
-
-        SizedBox(height: 30.h,),
+        SizedBox(
+          height: 30.h,
+        ),
         Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -44,24 +44,22 @@ class OnboardingWidget extends StatelessWidget {
                 ),
                 child: currentPage == index
                     ? ShaderMask(
-                  shaderCallback: (Rect bounds) {
-                    return AppColors.mainColor.createShader(bounds);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.r)
-                    ),
-                     // Ensure the container color is transparent for gradient to show
-                  ),
-                )
+                        shaderCallback: (Rect bounds) {
+                          return AppColors.mainColor.createShader(bounds);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10.r)),
+                          // Ensure the container color is transparent for gradient to show
+                        ),
+                      )
                     : Container(
-                  decoration: BoxDecoration(
-                      color: const Color(0xFFC388B3),
-                      borderRadius: BorderRadius.circular(10.r)
-                  ),
-                   // Inactive indicator color
-                ),
+                        decoration: BoxDecoration(
+                            color: const Color(0xFFC388B3),
+                            borderRadius: BorderRadius.circular(10.r)),
+                        // Inactive indicator color
+                      ),
               );
             }).toList(), // Reverse the order of the indicators
           ),
@@ -72,8 +70,6 @@ class OnboardingWidget extends StatelessWidget {
           title: title,
           subtitle: subtitle,
         ),
-
-
       ],
     );
   }

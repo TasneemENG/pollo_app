@@ -29,8 +29,7 @@ class OnboardingContent extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
-                GradientText(text: title,style:TextStyles.onboardingTitle),
+                GradientText(text: title, style: TextStyles.onboardingTitle),
                 SizedBox(
                   child: Text(
                     subtitle,
@@ -39,7 +38,6 @@ class OnboardingContent extends StatelessWidget {
                     textDirection: TextDirection.ltr,
                   ),
                 ),
-
                 SizedBox(height: 60.h),
               ],
             ),

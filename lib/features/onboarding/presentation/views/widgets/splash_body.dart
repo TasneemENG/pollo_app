@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/routing/routes.dart';
+
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
 
@@ -43,7 +45,7 @@ class _SplashBodyState extends State<SplashBody>
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         Future.delayed(const Duration(seconds: 2), () {
-          Navigator.pushReplacementNamed(context, Routes.onboardingView);
+          context.pushNamed(Routes.onboardingView);
         });
       }
     });
@@ -58,23 +60,23 @@ class _SplashBodyState extends State<SplashBody>
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: AnimatedBuilder(
-          animation: _controller,
-          builder: (context, child) {
-            return Opacity(
-              opacity: _fadeAnimation.value,
-              child: Transform.scale(
-                scale: _scaleAnimation.value,
-                child: child,
-              ),
-            );
-          },
-          child: Image.asset(
-            Assets.splash, // Use your image path here
-            width: 228.91.w,
-            height: 95.74.h,
-          ),
+      child: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          return Opacity(
+            opacity: _fadeAnimation.value,
+            child: Transform.scale(
+              scale: _scaleAnimation.value,
+              child: child,
+            ),
+          );
+        },
+        child: Image.asset(
+          Assets.splash,
+          width: 228.91.w,
+          height: 95.74.h,
         ),
+      ),
     );
   }
 }

@@ -5,54 +5,50 @@ import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/widgets/app_gredient_text.dart';
+import 'package:pollo/features/Home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
+import 'package:pollo/features/Home/presentation/manager/bottom_nav_cubit/bottom_nav_state.dart';
 import 'package:pollo/features/Home/presentation/views/home_view.dart';
 
-// AppNavBar Widget
 class AppNavBar extends StatelessWidget {
   const AppNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BottomNavCubit(), // Provide the Cubit
+      create: (context) => BottomNavCubit(),
       child: Scaffold(
-        body: BlocBuilder<BottomNavCubit, int>(
-          builder: (context, selectedIndex) {
-            return Center(
-              child: _widgetOptions.elementAt(selectedIndex),
-            );
+        body: BlocBuilder<BottomNavCubit, BottomNavState>(
+          builder: (context, state) {
+            return Center(child: _widgetOptions[state.index]);
           },
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print('Floating Action Button Pressed');
-          }, // Hardcoded image URL
+          onPressed: () => print('Floating Action Button Pressed'),
           shape: const CircleBorder(),
           backgroundColor: Colors.white,
           elevation: 7,
           child: Image.asset(Assets.buttom_nav),
         ),
-        bottomNavigationBar: _BottomNavigationBarWidget(),
+        bottomNavigationBar: const _BottomNavigationBarWidget(),
       ),
     );
   }
 
-  // Hardcoded page options
-  static final List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = [
     const HomeView(),
     const Text('Favourite Page'),
     const Text('Add Ads Page'),
     const Text('Account Page'),
   ];
 }
-
-// BottomNavigationBarWidget (Private)
 class _BottomNavigationBarWidget extends StatelessWidget {
+  const _BottomNavigationBarWidget();
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BottomNavCubit, int>(
-      builder: (context, selectedIndex) {
+    return BlocBuilder<BottomNavCubit, BottomNavState>(
+      builder: (context, state) {
         return Container(
           decoration: BoxDecoration(
             boxShadow: [
@@ -77,11 +73,11 @@ class _BottomNavigationBarWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _NavItem(index: 0, icon: Icons.home_filled, label: 'Home', selectedIndex: selectedIndex),
-                  _NavItem(index: 1, icon: Icons.favorite, label: 'Favourite', selectedIndex: selectedIndex),
+                  _NavItem(index: 0, icon: Icons.home_filled, label: 'Home', selectedIndex: state.index),
+                  _NavItem(index: 1, icon: Icons.favorite, label: 'Favourite', selectedIndex: state.index),
                   SizedBox(width: 48.w),
-                  _NavItem(index: 2, icon: Icons.add_box, label: 'Add Ads', selectedIndex: selectedIndex),
-                  _NavItem(index: 3, icon: Icons.person, label: 'Account', selectedIndex: selectedIndex),
+                  _NavItem(index: 2, icon: Icons.add_box, label: 'Add Ads', selectedIndex: state.index),
+                  _NavItem(index: 3, icon: Icons.person, label: 'Account', selectedIndex: state.index),
                 ],
               ),
             ),
@@ -91,8 +87,6 @@ class _BottomNavigationBarWidget extends StatelessWidget {
     );
   }
 }
-
-// NavItem (Private)
 class _NavItem extends StatelessWidget {
   final int index;
   final IconData icon;
@@ -108,22 +102,17 @@ class _NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isSelected = index == selectedIndex;
     return GestureDetector(
       onTap: () => context.read<BottomNavCubit>().updateIndex(index),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _gradientIcon(icon, selectedIndex == index),
+          _gradientIcon(icon, isSelected),
           SizedBox(height: 4.h),
-          selectedIndex == index
-              ? GradientText(
-            text: label,
-            style: TextStyles.nav_item_selected,
-          )
-              : Text(
-            label,
-            style: TextStyles.nav_item_not_selected,
-          ),
+          isSelected
+              ? GradientText(text: label, style: TextStyles.nav_item_selected)
+              : Text(label, style: TextStyles.nav_item_not_selected),
         ],
       ),
     );
@@ -131,25 +120,12 @@ class _NavItem extends StatelessWidget {
 
   Widget _gradientIcon(IconData icon, bool isSelected) {
     return ShaderMask(
-      shaderCallback: (Rect bounds) {
+      shaderCallback: (bounds) {
         return isSelected
             ? AppColors.mainColor.createShader(bounds)
-            : const LinearGradient(
-          colors: [AppColors.greyColor, AppColors.greyColor],
-        ).createShader(bounds);
+            : const LinearGradient(colors: [AppColors.greyColor, AppColors.greyColor]).createShader(bounds);
       },
-      child: Icon(
-        icon,
-        color: Colors.white,
-        size: 24.w,
-      ),
+      child: Icon(icon, color: Colors.white, size: 24.w),
     );
   }
-}
-
-// BottomNavCubit (For Navigation Logic)
-class BottomNavCubit extends Cubit<int> {
-  BottomNavCubit() : super(0);
-
-  void updateIndex(int index) => emit(index);
 }

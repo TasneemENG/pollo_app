@@ -15,43 +15,38 @@ class NextButton extends StatelessWidget {
     return Center(
       child: InkWell(
         onTap: onNext,
-        borderRadius: BorderRadius.circular(50.r), // Circular shape
+        borderRadius: BorderRadius.circular(50.r),
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // Outer circle with border
             Container(
-              width: 50.w, // Adjust size as needed
-              height: 50.h, // Adjust size as needed
+              width: 50.w,
+              height: 50.h,
               decoration: const BoxDecoration(
-                shape: BoxShape.circle, // Circular shape
-                gradient: AppColors.mainColor, // Use the mainColor gradient
+                shape: BoxShape.circle,
+                gradient: AppColors.mainColor,
               ),
-
             ),
             Container(
-              width: 48.w, // Adjust size as needed
+              width: 48.w,
               height: 48.h,
               decoration: const BoxDecoration(
-                  shape: BoxShape.circle, // Circular shape
-                  color: Colors.white
+                shape: BoxShape.circle,
+                color: Colors.white,
               ),
-
             ),
-
-            // Inner circle with gradient
             Container(
-              width: 36.36.w, // Adjust size as needed (smaller than the outer circle)
-              height: 36.36.h, // Adjust size as needed (smaller than the outer circle)
+              width: 36.36.w,
+              height: 36.36.h,
               decoration: const BoxDecoration(
-                shape: BoxShape.circle, // Circular shape
-                gradient: AppColors.mainColor, // Use the mainColor gradient
+                shape: BoxShape.circle,
+                gradient: AppColors.mainColor,
               ),
               child: Center(
                 child: Icon(
-                  Icons.arrow_forward_ios_outlined, // White arrow icon
+                  Icons.arrow_forward_ios_outlined,
                   color: Colors.white,
-                  size: 20.sp, // Adjust size as needed
+                  size: 20.sp,
                 ),
               ),
             ),
