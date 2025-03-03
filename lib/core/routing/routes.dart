@@ -13,6 +13,9 @@ abstract class Routes {
   static const String productView = '/productView';
   static const String categoryWidget = '/categoryWidget';
   static const String productDetailsView = '/productDetailsView';
+  static const String favouriteView = '/favouriteView';
+  static const String profileView = '/profileView';
+  static const String settingsView = '/settingsView';
 
 
 }

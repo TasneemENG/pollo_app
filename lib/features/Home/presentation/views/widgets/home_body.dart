@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -70,11 +69,11 @@ class _HomeBodyState extends State<HomeBody> {
     return Scaffold(
       backgroundColor: Colors.white,
       endDrawerEnableOpenDragGesture: true,
-      endDrawer: Container(
+      endDrawer: SizedBox(
         width: 243.w,
         child: Drawer(
           backgroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.zero,
           ),
           child: Column(
@@ -88,7 +87,7 @@ class _HomeBodyState extends State<HomeBody> {
                       boxShadow: [
                         BoxShadow(
                           color: AppColors.side_menue_shadow.withOpacity(0.2),
-                          offset: Offset(0, 0),
+                          offset: const Offset(0, 0),
                           blurRadius: 8,
                           spreadRadius: 0,
                         ),
@@ -151,7 +150,7 @@ class _HomeBodyState extends State<HomeBody> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            LogoAndMenu(), // This widget contains the menu icon that opens the drawer
+            const LogoAndMenu(), // This widget contains the menu icon that opens the drawer
             AppSearchBar(searchController: _searchController),
             GradientContainer(contentList: contentList),
             const CategoriesTitle(),

@@ -30,7 +30,7 @@ class CustomProductItemList extends StatelessWidget {
                 location: product['location']!,
                 timeAgo: product['timeAgo']!,
                 onFavoritePressed: () {
-                  print('${product['name']} added to favorites');
+                 //TODO FAVORITE LOGIC
                 },
               ),
             );

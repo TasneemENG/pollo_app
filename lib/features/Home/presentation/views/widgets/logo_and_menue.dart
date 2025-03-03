@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
-import 'package:pollo/core/routing/routes.dart'; // Make sure you have routes set up
+// Make sure you have routes set up
 
 class LogoAndMenu extends StatelessWidget {
   const LogoAndMenu({super.key});
