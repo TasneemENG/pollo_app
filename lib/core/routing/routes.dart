@@ -12,6 +12,7 @@ abstract class Routes {
   static const String appNavBar = '/appNavBar';
   static const String productView = '/productView';
   static const String categoryWidget = '/categoryWidget';
+  static const String productDetailsView = '/productDetailsView';
 
 
 }

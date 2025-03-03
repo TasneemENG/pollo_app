@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/helpers/app_cubit.dart';
 import 'package:pollo/core/resources/app_colors.dart';
-import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 
 
@@ -56,10 +54,9 @@ class _GradientContainerContent extends StatelessWidget {
                       padding: EdgeInsets.only(left: 10.w),
                       child: Row(
                         children: [
-                          // Content on the left with full width
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsets.only(right: 1.w), // Padding to separate from the image
+                              padding: EdgeInsets.only(right: 1.w),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,11 +78,10 @@ class _GradientContainerContent extends StatelessWidget {
                               ),
                             ),
                           ),
-                          // Image positioned at the right edge of the container
-                          SizedBox(
-                            width: 200.w, // Adjust the image width as needed
+                           SizedBox(
+                            width: 200.w,
                             height:300.h,
-                            child: Image.network(
+                            child: Image.asset(
                               contentList[index]["image"],
                               fit: BoxFit.cover,
                             ),

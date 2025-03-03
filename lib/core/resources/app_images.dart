@@ -37,6 +37,10 @@ class Assets {
   static const veterinarian='assets/images/veterinarian.png';
   static const empty_sheep='assets/images/empty_sheep.png';
 
+  static const rectangle_cat='assets/images/rectangle_cat.png';
+  static const location='assets/images/location.png';
+
+
 
 
 
@@ -47,6 +51,9 @@ class Assets {
 
   static const starFull='assets/svgs/fullstar.svg';
   static const starEmpty='assets/svgs/emptystar.svg';
+  static const camera='assets/svgs/camera.svg';
+
+
 
 
 

@@ -13,6 +13,7 @@ import 'package:pollo/features/auth/presentation/views/verification_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
 import 'package:pollo/features/product/presentation/views/product_view.dart';
+import 'package:pollo/features/product_details/presentation/views/product_details_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -96,8 +97,11 @@ class AppRouter {
           // Handle invalid arguments
           throw ArgumentError('Invalid arguments passed to categoryWidget route');
         }
-
-
+        case Routes.productDetailsView:
+        return RouteAnimations.buildPageRoute(
+          page:  const ProductDetailsView(),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,);
       default:
       //Exit app
         return null;
