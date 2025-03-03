@@ -210,4 +210,12 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
+  static TextStyle side_menue_text = baseStyle(
+      fontSize: 18,
+      fontWeight:FontWeightHelper.medium ,
+      color: AppColors.mainText,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
 }

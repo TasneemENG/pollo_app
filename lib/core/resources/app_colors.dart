@@ -23,7 +23,16 @@ abstract class AppColors {
     end: Alignment.centerRight,
     colors: [ Color(0xFFFFE6AA), Color(0xFFDBD5C6),],
   );
+  static  LinearGradient side_menue = LinearGradient(
+    begin: Alignment.centerLeft, // 90deg direction
+    end: Alignment.centerRight,
+    colors: [
+      Color(0x4F064198),
+      Color(0x4FC20167),
+    ],
+  );
   static const Color greyColor = Color(0xFF544F4F);
+  static const Color side_menue_shadow = Color(0x40A444A6);
   static const LinearGradient backButtonColor = LinearGradient(
     colors: [Color(0xFFE2006E), Color(
         0xFF881268)],

@@ -36,22 +36,18 @@ class Assets {
   static const Pets='assets/images/Pets.png';
   static const veterinarian='assets/images/veterinarian.png';
   static const empty_sheep='assets/images/empty_sheep.png';
-
   static const rectangle_cat='assets/images/rectangle_cat.png';
   static const location='assets/images/location.png';
-
-
-
-
-
-
-
-
-
-
   static const starFull='assets/svgs/fullstar.svg';
   static const starEmpty='assets/svgs/emptystar.svg';
   static const camera='assets/svgs/camera.svg';
+  static const side_menue='assets/images/side_menue_img.png';
+  static const about='assets/images/about.png';
+  static const contact_us='assets/images/contact_us.png';
+  static const blog='assets/images/blog.png';
+  static const my_ads='assets/images/my_ads.png';
+  static const profile='assets/images/profile.png';
+  static const settings='assets/images/settings.png';
 
 
 
