@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
 
@@ -18,9 +19,13 @@ class OnboardingCubit extends Cubit<int> {
     emit(page);
   }
 
-  void nextPage() {
+  void nextPage(BuildContext context) {
     if (state < onboardingData.length - 1) {
       emit(state + 1);
+    }
+    else {
+      /// Navigates to login when reaching the last page
+      context.pushNamed(Routes.loginView);
     }
   }
 
