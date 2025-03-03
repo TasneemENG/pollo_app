@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/category_nanigator.dart';
 import 'package:pollo/features/category/presentation/views/widgets/custom_grid_item_container.dart';
