@@ -17,41 +17,47 @@ class OnboardingPage extends StatelessWidget {
         final cubit = context.read<OnboardingCubit>();
         final currentPage = state.currentPage;
 
-        return SizedBox.expand(
-          child: PageView.builder(
-            controller: cubit.pageController,
-            itemCount: onboardingData.length,
-            onPageChanged: (int page) {
-              cubit.updatePage(page);
-            },
-            itemBuilder: (context, index) {
-              final data = onboardingData[index];
-              return SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsets.only(top: 40.h, left: 32.w, right: 32.w),
-                      child: TopButtonsRow(
-                        currentPage: currentPage,
-                        totalPages: onboardingData.length,
-                        onBack: cubit.previousPage,
-                        onSkip: () {
-                          cubit.skipToLastPage(context);
-                        },
-                      ),
-                    ),
-                    OnboardingWidget(
-                      title: data.title,
-                      subtitle: data.subtitle,
-                      image: data.image,
-                      currentPage: currentPage,
-                      onboardingData: onboardingData,
-                    ),
-                  ],
+        return Scaffold(
+          body: SizedBox.expand(
+            child: Column(
+              children: [
+                // Static Top Buttons Row
+                Padding(
+                  padding: EdgeInsets.only(top: 40.h, left: 32.w, right: 32.w),
+                  child: TopButtonsRow(
+                    currentPage: currentPage,
+                    totalPages: onboardingData.length,
+                    onBack: cubit.previousPage,
+                    onSkip: () {
+                      cubit.skipToLastPage(context);
+                    },
+                  ),
                 ),
-              );
-            },
+
+                // Dynamic Content
+                Expanded(
+                  child: PageView.builder(
+                    controller: cubit.pageController,
+                    itemCount: onboardingData.length,
+                    onPageChanged: (int page) {
+                      cubit.updatePage(page);
+                    },
+                    itemBuilder: (context, index) {
+                      final data = onboardingData[index];
+                      return SingleChildScrollView(
+                        child: OnboardingWidget(
+                          title: data.title,
+                          subtitle: data.subtitle,
+                          image: data.image,
+                          currentPage: currentPage,
+                          onboardingData: onboardingData,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
