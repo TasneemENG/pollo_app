@@ -7,6 +7,7 @@ abstract class AppColors {
   static const Color background = Color(0xFFFFFFFF);
   static const Color grayBackground = Color(0xFFECECEC);
   static const Color graytxt = Color(0xFF9B9B9B);
+  static const Color green = Color(0xFF06833E);
   static const LinearGradient mainColor = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,

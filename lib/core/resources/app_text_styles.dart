@@ -85,6 +85,11 @@ abstract class TextStyles {
     height: 21.78 / 18,
     letterSpacing: 0,
   );
+  static TextStyle font18Semibold = baseStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.semiBold,
+    height: 21.78 / 18,
+    letterSpacing: 0,);
   static TextStyle font14Medium = baseStyle(
     fontSize: 14,
     fontWeight: FontWeightHelper.medium,
@@ -125,6 +130,12 @@ abstract class TextStyles {
       fontWeight: FontWeightHelper.semiBold,
       height: 24 / 20,
       letterSpacing: 0);
+  static TextStyle font22Medium = baseStyle(
+      fontSize: 22,
+      fontWeight: FontWeightHelper.medium,
+      height: 25.2 / 22,
+      letterSpacing: 0);
+
 
   static TextStyle font24bold = baseStyle(
     fontSize: 24,
