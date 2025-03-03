@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pollo/core/helpers/extensions.dart';
-import 'package:pollo/core/routing/routes.dart';
+import 'package:pollo/core/routing/routes.dart'; // Import routes
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
 import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
 
@@ -20,34 +20,23 @@ class OnboardingCubit extends Cubit<OnboardingState> {
     emit(OnboardingPageChanged(page));
   }
 
-  void nextPage(BuildContext context) {
+  void nextPage() {
     final currentPage = (state as OnboardingPageChanged).currentPage;
     if (currentPage < onboardingData.length - 1) {
-      pageController.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeIn,
-      );
-    } else {
-      context.pushReplacementNamed(Routes.loginView);
+      emit(OnboardingPageChanged(currentPage + 1)); // Update content index
     }
   }
 
   void previousPage() {
     final currentPage = (state as OnboardingPageChanged).currentPage;
     if (currentPage > 0) {
-      pageController.previousPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeIn,
-      );
+      emit(OnboardingPageChanged(currentPage - 1)); // Update content index
     }
   }
 
+  // Updated method to navigate to the authentication page
   void skipToLastPage(BuildContext context) {
-    pageController.animateToPage(
-      onboardingData.length - 1,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeIn,
-    );
-    context.pushNamed(Routes.loginView);
+    // Navigate to the authentication screen after skipping onboarding
+    Navigator.pushReplacementNamed(context, Routes.loginView); // Routes.auth should be defined in your routes
   }
 }

@@ -16,10 +16,10 @@ class OnboardingBody extends StatelessWidget {
       builder: (context, state) {
         return Stack(
           children: [
-            const OnboardingPage()
-                .animate()
-                .fadeIn(duration: 600.ms)
-                .slideY(
+            // Onboarding Page with a unique Key to trigger rebuild and re-animate
+            OnboardingPage(
+              key: ValueKey(state.currentPage), // Using the current page as a key
+            ).animate().fadeIn(duration: 600.ms).slideY(
               begin: 0.3,
               end: 0,
               duration: 600.ms,
@@ -29,11 +29,8 @@ class OnboardingBody extends StatelessWidget {
               bottom: 60.h,
               right: 20.w,
               child: NextButton(
-                onNext: () => context.read<OnboardingCubit>().nextPage(context),
-              )
-                  .animate()
-                  .fadeIn(duration: 600.ms)
-                  .slideY(
+                onNext: () => context.read<OnboardingCubit>().nextPage(),
+              ).animate().fadeIn(duration: 600.ms).slideY(
                 begin: 0.3,
                 end: 0,
                 duration: 600.ms,

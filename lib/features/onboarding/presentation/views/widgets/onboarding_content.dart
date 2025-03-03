@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/widgets/app_gredient_text.dart';
@@ -29,7 +30,15 @@ class OnboardingContent extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GradientText(text: title, style: TextStyles.onboardingTitle),
+                GradientText(text: title, style: TextStyles.onboardingTitle)
+                    .animate()
+                    .fadeIn(duration: 600.ms)
+                    .slideY(
+                  begin: 0.3,
+                  end: 0,
+                  duration: 600.ms,
+                  curve: Curves.easeOut,
+                ),
                 SizedBox(
                   child: Text(
                     subtitle,
@@ -37,6 +46,14 @@ class OnboardingContent extends StatelessWidget {
                     textAlign: TextAlign.left,
                     textDirection: TextDirection.ltr,
                   ),
+                )
+                    .animate()
+                    .fadeIn(duration: 600.ms)
+                    .slideY(
+                  begin: 0.3,
+                  end: 0,
+                  duration: 600.ms,
+                  curve: Curves.easeOut,
                 ),
                 SizedBox(height: 60.h),
               ],

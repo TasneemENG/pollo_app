@@ -4,7 +4,7 @@ import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/widgets/app_bar.dart';
-import 'package:pollo/core/widgets/dlckl.dart';
+import 'package:pollo/core/widgets/gredient_container.dart';
 import 'package:pollo/features/category/data/category.dart';
 class CategoryBody extends StatelessWidget {
   final List<Category> categories;
