@@ -5,14 +5,14 @@ import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/resources/app_images.dart';
 
-class ProductStackImage extends StatelessWidget {
+class ProductDetailsStackImage extends StatelessWidget {
   final String imagePath;
   final VoidCallback onBackPressed;
   final VoidCallback onFavoritePressed;
   final VoidCallback onSharePressed;
   final String imageCountText;
 
-  const ProductStackImage({
+  const ProductDetailsStackImage({
     super.key,
     required this.imagePath,
     required this.onBackPressed,

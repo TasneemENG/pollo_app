@@ -41,6 +41,13 @@ class AppCubit extends Cubit<AppState> {
 
   /// Getter for the current bottom navigation index.
   int get currentIndex => _currentIndex;
+
+  bool isDescriptionExpanded = false;
+
+  void toggleDescription() {
+    isDescriptionExpanded = !isDescriptionExpanded;
+    emit(AppDescriptionToggled());
+  }
 }
 
 /// Base state for the AppCubit.
@@ -84,3 +91,4 @@ class BottomNavUpdated extends AppState {
   final int index;
   BottomNavUpdated({required this.index});
 }
+class AppDescriptionToggled extends AppState {}
