@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/features/onboarding/presentation/manager/on_boarding_cubit.dart';
+import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_next_button.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_page.dart';
 
@@ -11,7 +12,7 @@ class OnboardingBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OnboardingCubit, int>(
+    return BlocBuilder<OnboardingCubit,OnboardingState>(
       builder: (context, state) {
         return Stack(
           children: [
