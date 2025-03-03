@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pollo/core/helpers/extensions.dart';
-import 'package:pollo/core/routing/routes.dart';
+import 'package:pollo/core/routing/routes.dart'; // Import routes
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
+import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
 
-class OnboardingCubit extends Cubit<int> {
+class OnboardingCubit extends Cubit<OnboardingState> {
   final PageController pageController = PageController();
 
-  OnboardingCubit() : super(0);
+  OnboardingCubit() : super(const OnboardingPageChanged(0));
 
   @override
   Future<void> close() {
@@ -16,26 +17,26 @@ class OnboardingCubit extends Cubit<int> {
   }
 
   void updatePage(int page) {
-    emit(page);
+    emit(OnboardingPageChanged(page));
   }
 
   void nextPage(BuildContext context) {
-    if (state < onboardingData.length - 1) {
-      emit(state + 1);
-    }
-    else {
-      /// Navigates to login when reaching the last page
-      context.pushNamed(Routes.loginView);
+    final currentPage = (state as OnboardingPageChanged).currentPage;
+    if (currentPage < onboardingData.length - 1) {
+      emit(OnboardingPageChanged(currentPage + 1));
+    } else {
+    context.pushReplacementNamed(Routes.loginView);
     }
   }
 
   void previousPage() {
-    if (state > 0) {
-      emit(state - 1);
+    final currentPage = (state as OnboardingPageChanged).currentPage;
+    if (currentPage > 0) {
+      emit(OnboardingPageChanged(currentPage - 1)); // Update content index
     }
   }
 
   void skipToLastPage(BuildContext context) {
-    Navigator.pushReplacementNamed(context, Routes.loginView);
+    context.pushReplacementNamed(Routes.loginView);
   }
 }

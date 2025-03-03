@@ -53,7 +53,7 @@ class _LoginFormState extends State<LoginForm> {
         ),
         const LoginActionButton(),
         AppButton(
-          onPressed: () {context.pushNamed(Routes.appNavBar);},
+          onPressed: () {context.pushNamed(Routes.homeView);},
           text: 'Sign In',
           width: 246.w,
           height: 48.h,

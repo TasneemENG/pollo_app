@@ -80,6 +80,7 @@ class AppRouter {
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
+
       case Routes.categoryWidget:
         // Ensure arguments are passed and are of the correct type
         if (arguments is Map<String, dynamic>) {
@@ -116,6 +117,7 @@ class AppRouter {
           page: const ProfileView(),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,);
+
       default:
         //Exit app
         return null;
