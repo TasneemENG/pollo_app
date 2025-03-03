@@ -14,46 +14,48 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<OnboardingCubit, OnboardingState>(
       builder: (context, state) {
-        final cubit = context.read<OnboardingCubit>();
-        final currentPage = state.currentPage;
+        // Ensure the state is of type OnboardingPageChanged so we can access currentPage
+        if (state is OnboardingPageChanged) {
+          final cubit = context.read<OnboardingCubit>();
+          final data = onboardingData[state.currentPage];
 
-        final data = onboardingData[currentPage]; // Get the current page data
-
-        return Scaffold(
-          body: SizedBox.expand(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 40.h, left: 32.w, right: 32.w),
-                  child: TopButtonsRow(
-                    currentPage: currentPage,
-                    totalPages: onboardingData.length,
-                    onBack: cubit.previousPage,
-                    onSkip: () {
-                      cubit.skipToLastPage(context);
-                    },
+          return Scaffold(
+            body: SizedBox.expand(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 40.h, left: 32.w, right: 32.w),
+                    child: TopButtonsRow(
+                      currentPage: state.currentPage,
+                      totalPages: onboardingData.length,
+                      onBack: cubit.previousPage,
+                      onSkip: () {
+                        cubit.skipToLastPage(context);
+                      },
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      OnboardingWidget(
-                        title: data.title,
-                        subtitle: data.subtitle,
-                        image: data.image,
-                        currentPage: currentPage,
-                        onboardingData: onboardingData,
-                      ),
-                    ],
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        OnboardingWidget(
+                          title: data.title,
+                          subtitle: data.subtitle,
+                          image: data.image,
+                          currentPage: state.currentPage,
+                          onboardingData: onboardingData,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        );
+          );
+        }
+        // You can return an empty container or some placeholder if state is not of type OnboardingPageChanged
+        return Container();
       },
     );
   }
 }
-

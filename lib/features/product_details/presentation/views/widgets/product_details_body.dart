@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'product_details_info.dart';
 import 'product_details_stack_image.dart';
@@ -14,7 +15,7 @@ class ProductDetailsBody extends StatelessWidget {
           ProductDetailsStackImage(
             imagePath: Assets.rectangle_cat,
             onBackPressed: () {
-              Navigator.pop(context);
+             context.pop();
             },
             onFavoritePressed: () {},
             onSharePressed: () {},

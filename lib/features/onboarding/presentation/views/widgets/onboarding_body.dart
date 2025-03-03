@@ -12,13 +12,12 @@ class OnboardingBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OnboardingCubit, OnboardingState>(
+    return BlocBuilder<OnboardingCubit,OnboardingState>(
       builder: (context, state) {
         return Stack(
           children: [
-            // Onboarding Page with a unique Key to trigger rebuild and re-animate
             OnboardingPage(
-              key: ValueKey(state.currentPage), // Using the current page as a key
+              key: ValueKey(state),
             ).animate().fadeIn(duration: 600.ms).slideY(
               begin: 0.3,
               end: 0,
