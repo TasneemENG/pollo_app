@@ -24,7 +24,7 @@ abstract class AppColors {
     end: Alignment.centerRight,
     colors: [ Color(0xFFFFE6AA), Color(0xFFDBD5C6),],
   );
-  static  LinearGradient side_menue = LinearGradient(
+  static  LinearGradient side_menue = const LinearGradient(
     begin: Alignment.centerLeft, // 90deg direction
     end: Alignment.centerRight,
     colors: [

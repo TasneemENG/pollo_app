@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pollo/features/category/data/category.dart';
 import 'package:pollo/features/category/presentation/views/widgets/category_body.dart';

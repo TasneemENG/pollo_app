@@ -29,7 +29,7 @@ class CategoryBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 300.h),
-              Image.network(
+              Image.asset(
                 Assets.empty_sheep,
                 width: 100.w,
                 height: 100.h,
@@ -65,7 +65,7 @@ class CategoryBody extends StatelessWidget {
                   // GridView
                   GridView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 15.w,
@@ -126,7 +126,7 @@ class CategoryBody extends StatelessWidget {
                                       // Centered Image
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(6.r),
-                                        child: Image.network(
+                                        child: Image.asset(
                                           item.image,
                                           width: 132.w,
                                           height: 132.h,

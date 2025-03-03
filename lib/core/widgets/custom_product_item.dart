@@ -65,7 +65,7 @@ class CustomProductItem extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: onFavoritePressed,
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.favorite_border,
                           color: AppColors.mainText,
                         ),

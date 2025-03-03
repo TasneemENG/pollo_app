@@ -37,7 +37,7 @@ class DrawerContent extends StatelessWidget {
               bottom: 0,
               child: Align(
                 alignment: Alignment.center,
-                child: Image.network(
+                child: Image.asset(
                   Assets.side_menue,
                   fit: BoxFit.cover,
                   width: 150.87.w,
@@ -87,7 +87,7 @@ class DrawerContent extends StatelessWidget {
       color: Colors.white,
       padding: EdgeInsets.only(left: 16.w),
       child: ListTile(
-        leading: Image.network(image),
+        leading: Image.asset(image),
         title: Text(title, style: TextStyles.side_menue_text),
         onTap: onTap ?? () => onTap,
       ),
@@ -99,7 +99,7 @@ class DrawerContent extends StatelessWidget {
       color: Colors.white,
       padding: EdgeInsets.only(left: 16.w, bottom: 16.h, top: 10.h),
       child: ListTile(
-        leading: Image.network(Assets.log_out),
+        leading: Image.asset(Assets.log_out),
         title: Text(
           'Log Out',
           style: TextStyles.side_menue_text,

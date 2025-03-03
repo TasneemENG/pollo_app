@@ -46,7 +46,7 @@ dependencies:
   font_awesome_flutter:
   pretty_dio_logger: ^1.4.0
   flutter_rating_bar: ^4.0.1
-  readmore: ^3.0.0
+  tabbar_gradient_indicator: ^1.0.1
 
 
 
