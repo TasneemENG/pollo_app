@@ -8,11 +8,11 @@ abstract class Routes {
   static const String verificationView = '/verificationView';
   static const String resetPasswordView = '/resetPasswordView';
   static const String homeView = '/homeView';
-  static const String mainScreen = '/mainScreen';
   static const String appNavBar = '/appNavBar';
   static const String productView = '/productView';
   static const String categoryWidget = '/categoryWidget';
   static const String productDetailsView = '/productDetailsView';
+
 
 
 }

@@ -29,7 +29,7 @@ class OnboardingBody extends StatelessWidget {
               bottom: 60.h,
               right: 20.w,
               child: NextButton(
-                onNext: () => context.read<OnboardingCubit>().nextPage(),
+                onNext: () => context.read<OnboardingCubit>().nextPage(context),
               ).animate().fadeIn(duration: 600.ms).slideY(
                 begin: 0.3,
                 end: 0,

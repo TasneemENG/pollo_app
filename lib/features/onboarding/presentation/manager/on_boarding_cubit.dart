@@ -20,10 +20,12 @@ class OnboardingCubit extends Cubit<OnboardingState> {
     emit(OnboardingPageChanged(page));
   }
 
-  void nextPage() {
+  void nextPage(BuildContext context) {
     final currentPage = (state as OnboardingPageChanged).currentPage;
     if (currentPage < onboardingData.length - 1) {
-      emit(OnboardingPageChanged(currentPage + 1)); // Update content index
+      emit(OnboardingPageChanged(currentPage + 1));
+    } else {
+    context.pushReplacementNamed(Routes.loginView);
     }
   }
 
@@ -34,9 +36,7 @@ class OnboardingCubit extends Cubit<OnboardingState> {
     }
   }
 
-  // Updated method to navigate to the authentication page
   void skipToLastPage(BuildContext context) {
-    // Navigate to the authentication screen after skipping onboarding
-    Navigator.pushReplacementNamed(context, Routes.loginView); // Routes.auth should be defined in your routes
+    context.pushReplacementNamed(Routes.loginView);
   }
 }
