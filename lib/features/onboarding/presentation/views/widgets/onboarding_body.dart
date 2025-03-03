@@ -3,7 +3,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/features/onboarding/presentation/manager/on_boarding_cubit.dart';
-import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_next_button.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_page.dart';
 
@@ -12,13 +11,12 @@ class OnboardingBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OnboardingCubit, OnboardingState>(
+    return BlocBuilder<OnboardingCubit, int>(
       builder: (context, state) {
         return Stack(
           children: [
-            // Onboarding Page with a unique Key to trigger rebuild and re-animate
             OnboardingPage(
-              key: ValueKey(state.currentPage), // Using the current page as a key
+              key: ValueKey(state),
             ).animate().fadeIn(duration: 600.ms).slideY(
               begin: 0.3,
               end: 0,

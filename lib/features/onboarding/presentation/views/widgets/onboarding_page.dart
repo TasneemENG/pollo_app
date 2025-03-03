@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
 import 'package:pollo/features/onboarding/presentation/manager/on_boarding_cubit.dart';
-import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_widget.dart';
 import 'package:pollo/features/onboarding/presentation/views/widgets/onboarding_top_button_row.dart';
 
@@ -12,12 +11,11 @@ class OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OnboardingCubit, OnboardingState>(
+    return BlocBuilder<OnboardingCubit, int>(
       builder: (context, state) {
         final cubit = context.read<OnboardingCubit>();
-        final currentPage = state.currentPage;
 
-        final data = onboardingData[currentPage]; // Get the current page data
+        final data = onboardingData[state];
 
         return Scaffold(
           body: SizedBox.expand(
@@ -26,7 +24,7 @@ class OnboardingPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 40.h, left: 32.w, right: 32.w),
                   child: TopButtonsRow(
-                    currentPage: currentPage,
+                    currentPage: state,
                     totalPages: onboardingData.length,
                     onBack: cubit.previousPage,
                     onSkip: () {
@@ -42,7 +40,7 @@ class OnboardingPage extends StatelessWidget {
                         title: data.title,
                         subtitle: data.subtitle,
                         image: data.image,
-                        currentPage: currentPage,
+                        currentPage: state,
                         onboardingData: onboardingData,
                       ),
                     ],
@@ -56,4 +54,3 @@ class OnboardingPage extends StatelessWidget {
     );
   }
 }
-
