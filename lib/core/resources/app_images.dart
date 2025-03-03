@@ -48,6 +48,7 @@ class Assets {
   static const my_ads='assets/images/my_ads.png';
   static const profile='assets/images/profile.png';
   static const settings='assets/images/settings.png';
+  static const log_out='assets/images/log-out.png';
 
 
 

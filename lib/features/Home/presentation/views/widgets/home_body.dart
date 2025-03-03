@@ -73,13 +73,12 @@ class _HomeBodyState extends State<HomeBody> {
       endDrawer: Container(
         width: 243.w,
         child: Drawer(
-          backgroundColor: Colors.white, // Set the background color of the drawer to white
+          backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.zero, // Remove curve
+            borderRadius: BorderRadius.zero,
           ),
           child: Column(
             children: [
-              // Stack widget for UserAccountsDrawerHeader and image
               Stack(
                 children: [
                   // BackdropFilter for blur effect
@@ -97,7 +96,6 @@ class _HomeBodyState extends State<HomeBody> {
                     ),
                     height: 155.h,
                   ),
-
                   Positioned(
                     left: 0,
                     right: 0,
@@ -121,8 +119,12 @@ class _HomeBodyState extends State<HomeBody> {
                     padding: EdgeInsets.only(top: 10.h),
                     child: Column(
                       children: [
-                        _buildListTile(Assets.profile, 'Profile'),
-                        _buildListTile(Assets.my_ads, 'My Ads'),
+                        _buildListTile(Assets.profile, 'Profile', onTap: () {
+                          Navigator.pushNamed(context, Routes.signUpView);
+                        }),
+                        _buildListTile(Assets.my_ads, 'My Ads', onTap: () {
+                          Navigator.pushNamed(context, Routes.signUpView);
+                        }),
                         _buildListTile(Assets.contact_us, 'Contact Us', onTap: () {
                           Navigator.pushNamed(context, Routes.signUpView);
                         }),
@@ -140,6 +142,8 @@ class _HomeBodyState extends State<HomeBody> {
                   ),
                 ),
               ),
+              // Logout Icon with Text
+              _buildLogoutTile(),
             ],
           ),
         ),
@@ -165,7 +169,24 @@ class _HomeBodyState extends State<HomeBody> {
       child: ListTile(
         leading: Image.network(image),
         title: Text(title, style: TextStyles.side_menue_text),
-        onTap: onTap ?? () => Navigator.pop(context), // Default action: close drawer
+        onTap: onTap ?? () => Navigator.pop(context),
+      ),
+    );
+  }
+
+  Widget _buildLogoutTile() {
+    return Container(
+      color: Colors.white,
+      padding: EdgeInsets.only(left: 16.w, bottom: 16.h, top: 10.h),
+      child: ListTile(
+        leading: Image.network(Assets.log_out),
+        title: Text(
+          'Log Out',
+          style: TextStyles.side_menue_text
+        ),
+        onTap: () {
+          Navigator.pushNamed(context, Routes.loginView);
+        },
       ),
     );
   }
