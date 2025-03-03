@@ -10,12 +10,11 @@ import 'package:pollo/features/auth/presentation/views/reset_password_view.dart'
 import 'package:pollo/features/auth/presentation/views/signup_view.dart';
 import 'package:pollo/features/auth/presentation/views/verification_view.dart';
 import 'package:pollo/features/category/presentation/views/category_view.dart';
-import 'package:pollo/features/favorite/presentation/views/favorite_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
 import 'package:pollo/features/product/presentation/views/product_view.dart';
 import 'package:pollo/features/product_details/presentation/views/product_details_view.dart';
-import 'package:pollo/features/profile/presentation/views/profile_view.dart';
+import 'package:pollo/features/search/presentation/views/search_page.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -34,7 +33,7 @@ class AppRouter {
         );
       case Routes.appNavBar:
         return RouteAnimations.buildPageRoute(
-          page: const AppNavBar(),
+          page:  const AppNavBar(),
           settings: settings,
           transitionType: TransitionType.fadeScale,
         );
@@ -70,19 +69,25 @@ class AppRouter {
         );
       case Routes.homeView:
         return RouteAnimations.buildPageRoute(
-          page: const HomeView(),
+          page:  const HomeView(),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
       case Routes.productView:
         return RouteAnimations.buildPageRoute(
-          page: const ProductView(),
+          page:  const ProductView(),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,
+        );
+      case Routes.search_page:
+        return RouteAnimations.buildPageRoute(
+          page:  const SearchPage(searchTerm: ''),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
 
       case Routes.categoryWidget:
-        // Ensure arguments are passed and are of the correct type
+      // Ensure arguments are passed and are of the correct type
         if (arguments is Map<String, dynamic>) {
           final List<Category> categories = arguments['categories'];
           final String categoryName = arguments['categoryName'];
@@ -98,28 +103,16 @@ class AppRouter {
           );
         } else {
           // Handle invalid arguments
-          throw ArgumentError(
-              'Invalid arguments passed to categoryWidget route');
+          throw ArgumentError('Invalid arguments passed to categoryWidget route');
         }
-      case Routes.productDetailsView:
+        case Routes.productDetailsView:
         return RouteAnimations.buildPageRoute(
-          page: const ProductDetailsView(),
-          settings: settings,
-          transitionType: TransitionType.slideFromLeft,
-        );
-        case Routes.favouriteView:
-        return RouteAnimations.buildPageRoute(
-          page: const FavouriteView(),
-          settings: settings,
-          transitionType: TransitionType.slideFromLeft,);
-        case Routes.profileView:
-        return RouteAnimations.buildPageRoute(
-          page: const ProfileView(),
+          page:  const ProductDetailsView(),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,);
 
       default:
-        //Exit app
+      //Exit app
         return null;
     }
   }
