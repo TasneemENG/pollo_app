@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pollo/core/routing/route_animations.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/core/widgets/app_nav_bar.dart';
-import 'package:pollo/features/Home/data/category_item.dart';
+import 'package:pollo/features/category/data/category.dart';
 import 'package:pollo/features/Home/presentation/views/home_view.dart';
-import 'package:pollo/features/Home/presentation/views/widgets/category_widget.dart';
 import 'package:pollo/features/auth/presentation/views/forget_password_view.dart';
 import 'package:pollo/features/auth/presentation/views/login_view.dart';
 import 'package:pollo/features/auth/presentation/views/reset_password_view.dart';
 import 'package:pollo/features/auth/presentation/views/signup_view.dart';
 import 'package:pollo/features/auth/presentation/views/verification_view.dart';
+import 'package:pollo/features/category/presentation/views/category_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
 import 'package:pollo/features/product/presentation/views/product_view.dart';
@@ -84,7 +84,7 @@ class AppRouter {
           final String categoryName = arguments['categoryName'];
           final String image = arguments['image'];
           return RouteAnimations.buildPageRoute(
-            page: CategoryWidget(
+            page: CategoryView(
               categories: categories,
               categoryName: categoryName,
               image: image,
