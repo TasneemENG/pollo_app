@@ -30,12 +30,12 @@ class ProfileInfo extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100.r),
               color: AppColors.grayBackground,
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: AppColors.greyColor,
                   spreadRadius: 0,
                   blurRadius: 4,
-                  offset: const Offset(0, 4),
+                  offset: Offset(0, 4),
                 ),
               ],
             ),

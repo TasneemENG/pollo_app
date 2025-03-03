@@ -5,7 +5,7 @@ import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/core/widgets/app_search_bar.dart';
-import 'package:pollo/features/search/presentation/views/search_page.dart'; // Make sure the SearchPage is imported
+// Make sure the SearchPage is imported
 
 class ProductSearchBar extends StatelessWidget {
   const ProductSearchBar({super.key});

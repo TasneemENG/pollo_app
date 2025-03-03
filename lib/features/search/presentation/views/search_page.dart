@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/widgets/app_bar.dart'; // Import CustomAppBar
-import 'package:pollo/core/widgets/app_search_bar.dart'; // Import AppSearchBar
+// Import AppSearchBar
 import 'package:pollo/features/search/presentation/views/widgets/search_history.dart';
 import 'package:pollo/features/search/presentation/views/widgets/search_input_row.dart';
 import 'package:pollo/features/search/presentation/views/widgets/search_results.dart';
@@ -50,7 +49,7 @@ class _SearchPageState extends State<SearchPage> {
             },
           ),
           SizedBox(height: 16.h),
-          SearchHistory(),
+          const SearchHistory(),
           SizedBox(height: 16.h),
           SearchResults(searchTerm: _currentSearchTerm),
         ],

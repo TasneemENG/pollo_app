@@ -17,7 +17,7 @@ class ProfileBody extends StatelessWidget {
             profileInitial: 'S',
           ),
           SizedBox(height: 20.h),
-          ProfileItemList(),
+          const ProfileItemList(),
         ],
       ),
     );

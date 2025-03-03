@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/features/favorite/presentation/views/widgets/favorite_tab.dart';
 import 'favorite_tab_bar.dart';
-import 'saved_item_widget.dart';
 import 'saved_tab.dart';
 
 class FavoriteBody extends StatefulWidget {

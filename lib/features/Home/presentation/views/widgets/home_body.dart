@@ -81,14 +81,14 @@ class _HomeBodyState extends State<HomeBody> {
         return Scaffold(
           backgroundColor: Colors.white,
           endDrawerEnableOpenDragGesture: true,
-          endDrawer: Container(
+          endDrawer: SizedBox(
             width: 243.w,
-            child: Drawer(
+            child: const Drawer(
               backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.zero,
               ),
-              child: const DrawerContent(),
+              child: DrawerContent(),
             ),
           ),
           body: HomeContent( // Use HomeContent widget

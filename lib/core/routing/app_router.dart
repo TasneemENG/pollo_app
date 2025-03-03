@@ -10,10 +10,12 @@ import 'package:pollo/features/auth/presentation/views/reset_password_view.dart'
 import 'package:pollo/features/auth/presentation/views/signup_view.dart';
 import 'package:pollo/features/auth/presentation/views/verification_view.dart';
 import 'package:pollo/features/category/presentation/views/category_view.dart';
+import 'package:pollo/features/favorite/presentation/views/favorite_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
 import 'package:pollo/features/product/presentation/views/product_view.dart';
 import 'package:pollo/features/product_details/presentation/views/product_details_view.dart';
+import 'package:pollo/features/profile/presentation/views/profile_view.dart';
 import 'package:pollo/features/search/presentation/views/search_page.dart';
 
 class AppRouter {
@@ -110,7 +112,18 @@ class AppRouter {
           page:  const ProductDetailsView(),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,);
-
+        case Routes.favoriteView:
+          return RouteAnimations.buildPageRoute(
+            page:  const FavoriteView(),
+            settings: settings,
+            transitionType: TransitionType.slideFromLeft,
+          );
+          case Routes.profileView:
+            return RouteAnimations.buildPageRoute(
+              page:  const ProfileView(),
+              settings: settings,
+              transitionType: TransitionType.slideFromLeft,
+            );
       default:
       //Exit app
         return null;

@@ -20,7 +20,7 @@ class ProfileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      child: Container(
+      child: SizedBox(
         width: 343.w,
         child: Column(
           children: [
