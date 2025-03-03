@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
+import 'package:pollo/features/search/presentation/views/search_page.dart'; // Make sure you have a search page
 
 class AppSearchBar extends StatelessWidget {
   final TextEditingController searchController;
@@ -31,39 +32,54 @@ class AppSearchBar extends StatelessWidget {
           color: AppColors.search_bar,
           borderRadius: BorderRadius.circular(10.r),
         ),
-        child: TextField(
-          controller: searchController,
-          focusNode: focusNode,
-          decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: TextStyles.search_text,
-            prefixIcon: IconButton(
-             icon: SvgPicture.asset('assets/svgs/search_icon.svg'), onPressed: () {  },
-            iconSize: 24,
-            ),
-            suffixIcon: showClearButton && searchController.text.isNotEmpty
-                ? IconButton(
-              icon: Icon(
-                Icons.clear,
-                color: AppColors.iconColor,
-                size: 24.sp,
+        child: InkWell(
+          onTap: () {
+            print("saerck");
+            // Navigate to the SearchPage when the search bar is tapped
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SearchPage(
+                  searchTerm: searchController.text, // Pass the current search term
+                ),
               ),
-              onPressed: () {
-                searchController.clear();
-                onChanged?.call('');
-              },
-            )
-                : null,
-            filled: true,
-            fillColor: Colors.transparent,
-            contentPadding: EdgeInsets.symmetric(
-              vertical: 12.h,
-              horizontal: 16.w,
+            );
+          },
+          child: TextField(
+            controller: searchController,
+            focusNode: focusNode,
+            decoration: InputDecoration(
+              hintText: hintText,
+              hintStyle: TextStyles.search_text,
+              prefixIcon: IconButton(
+                icon: SvgPicture.asset('assets/svgs/search_icon.svg'),
+                onPressed: () {},
+                iconSize: 24,
+              ),
+              suffixIcon: showClearButton && searchController.text.isNotEmpty
+                  ? IconButton(
+                icon: Icon(
+                  Icons.clear,
+                  color: AppColors.iconColor,
+                  size: 24.sp,
+                ),
+                onPressed: () {
+                  searchController.clear();
+                  onChanged?.call('');
+                },
+              )
+                  : null,
+              filled: true,
+              fillColor: Colors.transparent,
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 12.h,
+                horizontal: 16.w,
+              ),
+              border: InputBorder.none,
             ),
-            border: InputBorder.none,
+            onSubmitted: onSubmitted,
+            onChanged: onChanged,
           ),
-          onSubmitted: onSubmitted,
-          onChanged: onChanged,
         ),
       ),
     );

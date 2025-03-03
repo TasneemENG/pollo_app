@@ -229,4 +229,13 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
+  static TextStyle search_history = baseStyle(
+      fontSize: 16,
+      fontWeight:FontWeightHelper.bold ,
+      height: 19.36/16,
+      color: AppColors.mainText,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
 }

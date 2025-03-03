@@ -14,6 +14,7 @@ import 'package:pollo/features/onboarding/presentation/views/onboarding_view.dar
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
 import 'package:pollo/features/product/presentation/views/product_view.dart';
 import 'package:pollo/features/product_details/presentation/views/product_details_view.dart';
+import 'package:pollo/features/search/presentation/views/search_page.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -75,6 +76,12 @@ class AppRouter {
       case Routes.productView:
         return RouteAnimations.buildPageRoute(
           page:  const ProductView(),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,
+        );
+      case Routes.search_page:
+        return RouteAnimations.buildPageRoute(
+          page:  const SearchPage(searchTerm: ''),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
