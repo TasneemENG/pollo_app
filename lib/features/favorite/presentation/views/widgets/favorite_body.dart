@@ -37,7 +37,6 @@ class _FavoriteBodyState extends State<FavoriteBody>
             children: [
               FavoriteTab(),
               SavedTab(),
-
             ],
           ),
         ),
