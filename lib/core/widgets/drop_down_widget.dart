@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/core/helpers/app_cubit.dart';
+import 'package:pollo/core/helpers/app_cubit.dart'; // Ensure AppCubit is properly defined and imported
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 
@@ -12,7 +12,7 @@ class CustomDropdownWidget extends StatelessWidget {
   const CustomDropdownWidget({
     super.key,
     required this.dropdownName,
-    required this.options,
+    required this.options, String? selectedValue, required Null Function(dynamic value) onChanged,
   });
 
   @override
@@ -39,17 +39,18 @@ class CustomDropdownWidget extends StatelessWidget {
             // Dropdown header and options
             GestureDetector(
               onTap: () {
+                // Toggle the expanded state of the dropdown
                 appCubit.toggleDropdownExpanded(dropdownName);
               },
               child: Stack(
                 children: [
-                  // Gradient border
+                  // Gradient border container
                   Container(
                     width: 343.w,
-                    height: isExpanded ? 200.h : 51.h,
+                    height: isExpanded ? 200.h : 51.h, // Adjust size based on expanded state
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.r),
-                      gradient: AppColors.mainColor, // Use your gradient here
+                      gradient: AppColors.mainColor, // Gradient background
                     ),
                   ),
 
@@ -67,16 +68,15 @@ class CustomDropdownWidget extends StatelessWidget {
                         children: [
                           // Dropdown header (selected value or hint)
                           Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 16.w, vertical: 12.h),
+                            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  selectedValue ?? "Choose",
+                                  selectedValue ?? "Choose", // Display selected value or hint
                                   style: selectedValue != null
                                       ? TextStyles.filter_texts
-                                      : TextStyles.choose,
+                                      : TextStyles.choose, // Apply different text style based on selection
                                 ),
                                 RotationTransition(
                                   turns: isExpanded
@@ -105,13 +105,11 @@ class CustomDropdownWidget extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
                                     onTap: () {
-                                      appCubit.updateSelectedValue(
-                                          dropdownName, options[index]);
+                                      appCubit.updateSelectedValue(dropdownName, options[index]);
                                       appCubit.toggleDropdownExpanded(dropdownName);
                                     },
                                     child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 16.w, vertical: 12.h),
+                                      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                                       child: Text(
                                         options[index],
                                         style: TextStyles.filter_texts,

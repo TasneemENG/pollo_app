@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_images.dart';
-import 'package:pollo/features/Home/presentation/views/widgets/social_media_container.dart'; // Import SocialMediaContainer widget
+import 'package:pollo/features/Home/presentation/views/widgets/contact_us/social_media_item.dart'; // Import SocialMediaContainer widget
 
 class SocialMediaGrid extends StatelessWidget {
   const SocialMediaGrid({super.key});
