@@ -6,20 +6,6 @@ class AppCubit extends Cubit<AppState> {
 
   int _currentIndex = 0; // Holds the current bottom navigation index.
 
-  /// Method to update the loading state.
-  void updateLoadingState(bool isLoading) {
-    emit(AppLoadingState(isLoading: isLoading));
-  }
-
-  /// Method to update the user authentication state.
-  void updateAuthState(bool isLoggedIn) {
-    emit(AppAuthStateChanged(isLoggedIn: isLoggedIn));
-  }
-
-  /// Method to update the app connectivity state.
-  void updateConnectivityState(bool isConnected) {
-    emit(AppConnectivityStateChanged(isConnected: isConnected));
-  }
 
   /// Method to update the selected sorting option.
   void updateSortingOption(String? selectedOption) {
@@ -95,23 +81,6 @@ abstract class AppState {}
 /// Initial state of the app.
 class AppInitial extends AppState {}
 
-/// State when the app is loading.
-class AppLoadingState extends AppState {
-  final bool isLoading;
-  AppLoadingState({required this.isLoading});
-}
-
-/// State when the user authentication state changes.
-class AppAuthStateChanged extends AppState {
-  final bool isLoggedIn;
-  AppAuthStateChanged({required this.isLoggedIn});
-}
-
-/// State when the app connectivity state changes.
-class AppConnectivityStateChanged extends AppState {
-  final bool isConnected;
-  AppConnectivityStateChanged({required this.isConnected});
-}
 
 /// State when the selected sorting option changes.
 class AppSortingOptionChanged extends AppState {

@@ -4,8 +4,8 @@ import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/routing/routes.dart';
-class LoginActionButton extends StatelessWidget {
-  const LoginActionButton({super.key});
+class ForgetActionButton extends StatelessWidget {
+  const ForgetActionButton({super.key});
 
   @override
   Widget build(BuildContext context) {

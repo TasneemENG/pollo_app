@@ -13,15 +13,17 @@ class CategoryBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomCategoryAppBar(title: categoryName),
-        SizedBox(height: 20.h),
-        if (categories[0].items.isEmpty)
-          NoDataWidget()
-        else
-          CategoryContent(categories: categories),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          CustomCategoryAppBar(title: categoryName),
+          SizedBox(height: 20.h),
+          if (categories[0].items.isEmpty)
+            NoDataWidget()
+          else
+            CategoryContent(categories: categories),
+        ],
+      ),
     );
   }
 }

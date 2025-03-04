@@ -14,7 +14,7 @@ class CategoryGridItemContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 104.w,
-      height: 90.h,
+      height: 95.h,
       decoration: BoxDecoration(
         color: const Color(0xFFF1F1F1),
         borderRadius: BorderRadius.circular(10.r),

@@ -1,0 +1,2 @@
+C:/Users/ranya/AndroidStudioProjects/pollo_app2/android/app/.cxx/Debug/531nm411/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/ranya/AndroidStudioProjects/pollo_app2/android/app/.cxx/Debug/531nm411/armeabi-v7a/CMakeFiles/rebuild_cache.dir

@@ -17,14 +17,16 @@ class CategoryContent extends StatelessWidget {
         GradientContainer(contentList: categories[0].contentList),
         SizedBox(height: 10.h),
         Padding(
-          padding: EdgeInsets.only(left: 20.w, top: 5.h, right: 20.w),
+          padding: EdgeInsets.only(left: 20.w, right: 20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start, // Align content to the top
             children: [
               Text(
                 "Available", // Your text here
                 style: TextStyles.available_text,
               ),
+              const SizedBox(height: 0), // Remove or set to 0 to eliminate space
               ProductGrid(items: categories[0].items),
             ],
           ),

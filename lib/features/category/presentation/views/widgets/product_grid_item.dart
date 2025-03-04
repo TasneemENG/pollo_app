@@ -31,7 +31,7 @@ class ProductGridItem extends StatelessWidget {
             left: 1.w,
             child: Container(
               width: 162.w,
-              height: 184.h,
+              height: 188.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.r),
                 color: AppColors.category_container,
@@ -40,7 +40,7 @@ class ProductGridItem extends StatelessWidget {
           ),
           Positioned(
             top: 10.h,
-            left: 10.w,
+            left: 5.w,
             right: 10.w,
             child: Container(
               height: 170.h,
