@@ -1,13 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 
-part 'search_state.dart';
-
-class SearchCubit extends Cubit<SearchState> {
-  SearchCubit() : super(SearchInitial());
+class SearchCubit extends Cubit<String> {
+  SearchCubit() : super(''); // Initially set to an empty string or a default value.
 
   // Method to update the search term
   void updateSearchTerm(String searchTerm) {
-    emit(SearchUpdated(searchTerm));
+    emit(searchTerm); // Directly emit the new search term
   }
 }
