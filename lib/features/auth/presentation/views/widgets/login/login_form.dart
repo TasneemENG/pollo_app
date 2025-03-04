@@ -6,7 +6,7 @@ import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/core/widgets/app_button.dart';
 import 'package:pollo/core/widgets/app_text_form_field.dart';
 import 'package:pollo/features/auth/presentation/views/widgets/auth_action_text.dart';
-import 'package:pollo/features/auth/presentation/views/widgets/login/login_action_button.dart';
+import 'package:pollo/core/widgets/forget_action_button.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -51,7 +51,7 @@ class _LoginFormState extends State<LoginForm> {
           isObscured: isObscureText,
           togglePasswordVisibility: togglePasswordVisibility,
         ),
-        const LoginActionButton(),
+        const ForgetActionButton(),
         AppButton(
           onPressed: () {context.pushNamed(Routes.mainView);},
           text: 'Sign In',
