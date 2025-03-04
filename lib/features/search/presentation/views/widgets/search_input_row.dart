@@ -50,7 +50,7 @@ class SearchInputRow extends StatelessWidget {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (context) => FilterBottomSheet(),
+      builder: (context) => const FilterBottomSheet(),
     );
   }
 }

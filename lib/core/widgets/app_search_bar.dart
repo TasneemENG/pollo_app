@@ -39,7 +39,7 @@ class AppSearchBar extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => SearchPage(
+                builder: (BuildContext context) => SearchPage(
                   searchTerm: searchController.text, // Pass the current search term
                 ),
               ),

@@ -8,10 +8,10 @@ class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
 
   @override
-  _SplashBodyState createState() => _SplashBodyState();
+  SplashBodyState createState() => SplashBodyState();
 }
 
-class _SplashBodyState extends State<SplashBody>
+class SplashBodyState extends State<SplashBody>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;

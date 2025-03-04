@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/core/resources/app_colors.dart';
-import 'package:pollo/features/search/presentation/views/widgets/location_drop_down_widget.dart';
+import 'package:pollo/core/resources/app_text_styles.dart';
+import 'package:pollo/core/widgets/drop_down_widget.dart';
 import 'package:pollo/features/search/presentation/views/widgets/price_range_widgets.dart';
 import 'package:pollo/features/search/presentation/views/widgets/search_button_widget.dart';
 
@@ -28,7 +28,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             color: Colors.black.withOpacity(0.2),
             blurRadius: 10,
             spreadRadius: 5,
-            offset: Offset(0, -3),
+            offset: const Offset(0, -3),
           ),
         ],
       ),
@@ -56,14 +56,18 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 });
               }),
               SizedBox(height: 16.h),
+              Text("Location", style: TextStyles.filter_texts),
+              SizedBox(height: 8.h),
               LocationDropdownWidget(
                 selectedLocation: selectedLocation,
-                onChanged: (value) {
+                onChanged: (String? newLocation) {
                   setState(() {
-                    selectedLocation = value;
+                    selectedLocation = newLocation;
                   });
                 },
+                locations: ['New York', 'Los Angeles', 'Chicago', 'Miami'],  // Pass a dynamic list
               ),
+
               SizedBox(height: 25.h),
               SearchButtonWidget(
                 onPressed: () {

@@ -4,7 +4,7 @@ import 'package:pollo/core/helpers/app_cubit.dart';
 import 'package:pollo/core/networking/api_service.dart';
 import 'package:pollo/core/networking/dio_factory.dart';
 
-final getIt = GetIt.instance;
+final GetIt getIt = GetIt.instance;
 
 Future<void> setupServiceLocator() async {
   // Register Dio instance
