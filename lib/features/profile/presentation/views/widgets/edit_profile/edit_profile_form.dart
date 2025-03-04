@@ -45,9 +45,9 @@ class _EditProfileFormState extends State<EditProfileForm> {
               TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
         ),
         SizedBox(height: 15.h),
-        const CustomDropdownWidget(
+        CustomDropdownWidget(
           dropdownName: "Change Location",
-          options: ["Location 1", "Location 2", "Location 3"],
+          options: const ["Location 1", "Location 2", "Location 3"], onChanged: (value) {  },
         ),
         SizedBox(height: 30.h),
         AppButton(

@@ -49,16 +49,16 @@ class _AddAdsFormState extends State<AddAdsForm> {
           ),
           16.verticalSpace,
           // Category Dropdown
-          const CustomDropdownWidget(
+         CustomDropdownWidget(
             dropdownName: "Category*",
-            options: ["Category 1", "Category 2", "Category 3"],
+            options: ["Category 1", "Category 2", "Category 3"], onChanged: (value) {  },
           ),
           16.verticalSpace,
 
           // Subcategory Dropdown
-          const CustomDropdownWidget(
+          CustomDropdownWidget(
             dropdownName: "Subcategory*",
-            options: ["Subcategory 1", "Subcategory 2", "Subcategory 3"],
+            options: ["Subcategory 1", "Subcategory 2", "Subcategory 3"], onChanged: (value) {  },
           ),
           16.verticalSpace,
 
@@ -131,9 +131,9 @@ class _AddAdsFormState extends State<AddAdsForm> {
           16.verticalSpace,
 
           // Location Dropdown
-          const CustomDropdownWidget(
+          CustomDropdownWidget(
             dropdownName: "Location*",
-            options: ["Location 1", "Location 2", "Location 3"],
+            options: ["Location 1", "Location 2", "Location 3"], onChanged: (value) {  },
           ),
           30.verticalSpace,
 
