@@ -182,7 +182,6 @@ abstract class TextStyles {
   static TextStyle categories = baseStyle(
       fontSize: 20.sp,
       fontWeight: FontWeightHelper.semiBold,
-      height: 29.2 / 20,
       color: Colors.black,
       fontFamily: 'Inter');
 
@@ -242,6 +241,15 @@ abstract class TextStyles {
       fontSize: 16,
       fontWeight:FontWeightHelper.medium ,
       height: 19.36/16,
+      color: AppColors.mainText,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
+  static TextStyle settiing_texts = baseStyle(
+      fontSize: 18,
+      fontWeight:FontWeightHelper.medium ,
+      height: 21.78/18,
       color: AppColors.mainText,
       fontFamily: 'Inter',
       letterSpacing: 0

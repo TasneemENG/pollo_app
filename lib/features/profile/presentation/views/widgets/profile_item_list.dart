@@ -23,7 +23,7 @@ class ProfileItemList extends StatelessWidget {
         ProfileItem(
           title: 'Change Password',
           iconPath: 'assets/svgs/password.svg',
-          onPressed: () {},
+          onPressed: () {context.pushNamed(Routes.changePasswordView);},
         ),
         SizedBox(height: 16.h),
         ProfileItem(
@@ -34,7 +34,7 @@ class ProfileItemList extends StatelessWidget {
         ProfileItem(
             title: 'Help & Support',
             iconPath: 'assets/svgs/help.svg',
-            onPressed: () {}),
+            onPressed: () {context.pushNamed(Routes.helpAndSupportView);}),
         SizedBox(height: 16.h),
         ProfileItem(
           title: 'Logout',

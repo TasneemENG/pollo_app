@@ -56,16 +56,15 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 });
               }),
               SizedBox(height: 16.h),
-              Text("Location", style: TextStyles.filter_texts),
-              SizedBox(height: 8.h),
-              LocationDropdownWidget(
-                selectedLocation: selectedLocation,
-                onChanged: (String? newLocation) {
+              CustomDropdownWidget(
+                name: "Location",
+                selectedValue: selectedLocation,
+                onChanged: (newValue) {
                   setState(() {
-                    selectedLocation = newLocation;
+                    selectedLocation = newValue;
                   });
                 },
-                locations: ['New York', 'Los Angeles', 'Chicago', 'Miami'],  // Pass a dynamic list
+                options: const ["New York", "Los Angeles", "Chicago", "Houston"],
               ),
 
               SizedBox(height: 25.h),

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pollo/core/resources/app_colors.dart';
+import 'package:pollo/core/resources/app_text_styles.dart';
+import 'package:pollo/core/widgets/app_button.dart';
 import 'package:pollo/core/widgets/app_text_form_field.dart';
+import 'package:pollo/core/widgets/drop_down_widget.dart';
 
 class EditProfileForm extends StatefulWidget {
   const EditProfileForm({super.key});
@@ -25,6 +29,9 @@ class _EditProfileFormState extends State<EditProfileForm> {
           isPassword: false,
           isObscured: false,
           togglePasswordVisibility: () {},
+          labelStyle: TextStyles.font18Semibold,
+          hintStyle:
+              TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
         ),
         SizedBox(height: 15.h),
         AppTextFormField(
@@ -34,10 +41,17 @@ class _EditProfileFormState extends State<EditProfileForm> {
           isPassword: false,
           isObscured: false,
           togglePasswordVisibility: () {},
-          suffixIcon: IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset("assets/svgs/phone.svg"),
-          ),
+          labelStyle: TextStyles.font18Semibold,
+          hintStyle:
+              TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
+        ),
+        SizedBox(height: 30.h),
+        AppButton(
+          onPressed: () {},
+          text: 'Save Changes',
+          width: 246.w,
+          height: 48.h,
+          borderRadius: 30.r,
         ),
       ],
     );

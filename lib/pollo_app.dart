@@ -33,7 +33,7 @@ class PolloApp extends StatelessWidget {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 onGenerateRoute: appRouter.generateRouter,
-                initialRoute: Routes.about,
+                initialRoute: Routes.mainView,
                 theme: AppTheme.appTheme,
               );
             },
