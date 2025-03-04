@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/widgets/app_button.dart';
@@ -44,6 +43,11 @@ class _EditProfileFormState extends State<EditProfileForm> {
           labelStyle: TextStyles.font18Semibold,
           hintStyle:
               TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
+        ),
+        SizedBox(height: 15.h),
+        const CustomDropdownWidget(
+          dropdownName: "Change Location",
+          options: ["Location 1", "Location 2", "Location 3"],
         ),
         SizedBox(height: 30.h),
         AppButton(

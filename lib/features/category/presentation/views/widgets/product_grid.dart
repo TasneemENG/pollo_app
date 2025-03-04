@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/features/Home/data/category_item.dart';
-import 'package:pollo/features/category/data/category.dart';
 import 'package:pollo/features/category/presentation/views/widgets/product_grid_item.dart';
 class ProductGrid extends StatelessWidget {
   final List<CategoryItem> items;

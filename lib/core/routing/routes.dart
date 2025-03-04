@@ -17,6 +17,7 @@ abstract class Routes {
   static const String editProfileView = '/editProfileView';
   static const String changePasswordView = '/changePasswordView';
   static const String helpAndSupportView = '/helpAndSupportView';
+  static const String addAdsView = '/addAdsView';
   static const String searchPage = '/search';
 
 
