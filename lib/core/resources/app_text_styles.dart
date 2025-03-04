@@ -264,4 +264,22 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
+  static TextStyle about_style = baseStyle(
+      fontSize: 22,
+      fontWeight:FontWeightHelper.semiBold ,
+      height: 26.63/22,
+      color: Colors.white,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
+  static TextStyle about_content_style = baseStyle(
+      fontSize: 16,
+      fontWeight:FontWeightHelper.semiBold ,
+      height: 22.4/16,
+      color: AppColors.mainText,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
 }

@@ -49,6 +49,7 @@ class Assets {
   static const String profile='assets/images/profile.png';
   static const String settings='assets/images/settings.png';
   static const String log_out='assets/images/log-out.png';
+  static const String about_img='assets/images/about_img.png';
 
 
 
