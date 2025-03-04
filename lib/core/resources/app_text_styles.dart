@@ -238,4 +238,31 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
+  static TextStyle filter_texts = baseStyle(
+      fontSize: 16,
+      fontWeight:FontWeightHelper.medium ,
+      height: 19.36/16,
+      color: AppColors.mainText,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
+  static TextStyle choose = baseStyle(
+      fontSize: 16,
+      fontWeight:FontWeightHelper.medium ,
+      height: 19.36/16,
+      color: AppColors.greyColor,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
+  static TextStyle price_style = baseStyle(
+      fontSize: 14,
+      fontWeight:FontWeightHelper.medium ,
+      height: 19.94/14,
+      color: AppColors.greyColor,
+      fontFamily: 'Inter',
+      letterSpacing: 0
+
+  );
 }

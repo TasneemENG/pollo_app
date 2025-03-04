@@ -22,7 +22,7 @@ class DrawerContent extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: AppColors.side_menue_shadow.withOpacity(0.2),
-                    offset: Offset(0, 0),
+                    offset: const Offset(0, 0),
                     blurRadius: 8,
                     spreadRadius: 0,
                   ),
