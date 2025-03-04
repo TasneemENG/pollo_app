@@ -33,14 +33,14 @@ class PriceRangeWidget extends StatelessWidget {
           ),
           SizedBox(height: 5.h),
           Center(
-            child: Container(
+            child: SizedBox(
               width: 320.w,
               height: 25.h,
               child: SliderTheme(
-                data: SliderThemeData(
+                data: const SliderThemeData(
                   trackHeight: 10,
                   rangeThumbShape: GradientRangeSliderThumbShape(gradient: AppColors.mainColor),
-                  rangeTrackShape: Gradient_Slider(),
+                  rangeTrackShape: GradientSlider(),
                 ),
                 child: RangeSlider(
                   inactiveColor: Colors.grey.withOpacity(0.5),

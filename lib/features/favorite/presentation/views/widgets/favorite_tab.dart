@@ -8,7 +8,7 @@ import 'package:pollo/core/widgets/custom_product_item_list.dart';
 import 'package:pollo/features/favorite/presentation/views/manager/favorite_cubit.dart';
 
 class FavoriteTab extends StatelessWidget {
-  FavoriteTab({super.key});
+  const FavoriteTab({super.key});
 
   @override
   Widget build(BuildContext context) {

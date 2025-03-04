@@ -21,12 +21,12 @@ import 'package:pollo/features/search/presentation/views/search_page.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
-    final arguments = settings.arguments;
+    final Object? arguments = settings.arguments;
 
     switch (settings.name) {
       case Routes.splashView:
         return MaterialPageRoute(
-          builder: (context) => const SplashView(),
+          builder: (BuildContext context) => const SplashView(),
         );
       case Routes.onboardingView:
         return RouteAnimations.buildPageRoute(
