@@ -18,40 +18,17 @@ class _SettingsState extends State<Settings> {
       body:Column(
         children: [
           CustomAppBar(title: "Settings",),
-          Text("Country",style:TextStyles.settiing_texts),
+          SizedBox(height: 20.h,),
           CustomDropdownWidget(
-            name: 'Location',  // The name to be shown above the dropdown
-            selectedValue:"",  // Current selected value
-            onChanged: (newLocation) {
-              setState(() {
-                selectedItem= newLocation;  // Update the selected value
-              });
-            },
-            options: ['New York', 'Los Angeles', 'Chicago', 'Miami'],  // List of dropdown options
+            options: ['New York', 'Los Angeles', 'Chicago', 'Miami'], dropdownName: 'Country',
           ),
-          SizedBox(height:10.h),
-          Text("Country",style:TextStyles.settiing_texts),
+          SizedBox(height:20.h),
           CustomDropdownWidget(
-            name: 'Language',  // The name to be shown above the dropdown
-            selectedValue:"",  // Current selected value
-            onChanged: (newLocation) {
-              setState(() {
-                selectedItem= newLocation;  // Update the selected value
-              });
-            },
-            options: ['New York', 'Los Angeles', 'Chicago', 'Miami'],  // List of dropdown options
+            options: ['English', 'Spanish', 'French', 'German', 'Chinese'], dropdownName: 'Language',
           ),
-          SizedBox(height:10.h),
-          Text("Theme Mode",style:TextStyles.settiing_texts),
+          SizedBox(height:20.h),
           CustomDropdownWidget(
-            name: 'Location',  // The name to be shown above the dropdown
-            selectedValue:"",  // Current selected value
-            onChanged: (newLocation) {
-              setState(() {
-                selectedItem= newLocation;  // Update the selected value
-              });
-            },
-            options: ['New York', 'Los Angeles', 'Chicago', 'Miami'],  // List of dropdown options
+            options: ['Light', 'Dark', 'System Default'], dropdownName: 'Theme Mode',
           ),
         ],
       )

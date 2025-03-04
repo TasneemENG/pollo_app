@@ -48,6 +48,45 @@ class AppCubit extends Cubit<AppState> {
     isDescriptionExpanded = !isDescriptionExpanded;
     emit(AppDescriptionToggled());
   }
+
+  final Map<String, bool> _dropdownExpandedStates = {};
+  final Map<String, String?> _selectedValues = {};
+
+  // Getter to check if a dropdown is expanded
+  bool isDropdownExpanded(String dropdownName) {
+    return _dropdownExpandedStates[dropdownName] ?? false;
+  }
+
+  // Method to toggle the expanded state of a dropdown
+  void toggleDropdownExpanded(String dropdownName) {
+    _dropdownExpandedStates[dropdownName] =
+        !(_dropdownExpandedStates[dropdownName] ?? false);
+    emit(DropdownExpandedState(dropdownName));
+  }
+
+  // Getter to retrieve the selected value for a specific dropdown
+  String? getSelectedValue(String dropdownName) {
+    return _selectedValues[dropdownName];
+  }
+
+  // Method to update the selected value for a specific dropdown
+  void updateSelectedValue(String dropdownName, String? newValue) {
+    _selectedValues[dropdownName] = newValue;
+    emit(DropdownUpdatedState(dropdownName));
+  }
+
+  final Map<String, bool> _checkboxStates = {};
+
+  // Getter to retrieve the checkbox state
+  bool isCheckboxChecked(String checkboxName) {
+    return _checkboxStates[checkboxName] ?? false;
+  }
+
+  // Method to toggle the checkbox state
+  void toggleCheckbox(String checkboxName) {
+    _checkboxStates[checkboxName] = !(_checkboxStates[checkboxName] ?? false);
+    emit(CheckboxStateUpdated(checkboxName));
+  }
 }
 
 /// Base state for the AppCubit.
@@ -91,4 +130,23 @@ class BottomNavUpdated extends AppState {
   final int index;
   BottomNavUpdated({required this.index});
 }
+
 class AppDescriptionToggled extends AppState {}
+
+// New state for dropdown expanded/collapsed
+class DropdownExpandedState extends AppState {
+  final String dropdownName;
+  DropdownExpandedState(this.dropdownName);
+}
+
+// Existing state for dropdown value updates
+class DropdownUpdatedState extends AppState {
+  final String dropdownName;
+
+  DropdownUpdatedState(this.dropdownName);
+}
+
+class CheckboxStateUpdated extends AppState {
+  final String checkboxName;
+  CheckboxStateUpdated(this.checkboxName);
+}

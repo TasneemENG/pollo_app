@@ -4,6 +4,7 @@ import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/features/Home/presentation/views/main_view.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/about.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/settings.dart';
+import 'package:pollo/features/add_ads/presentation/views/add_ads_view.dart';
 import 'package:pollo/features/category/data/category.dart';
 import 'package:pollo/features/Home/presentation/views/home_view.dart';
 import 'package:pollo/features/auth/presentation/views/forget_password_view.dart';
@@ -135,6 +136,11 @@ class AppRouter {
             settings: settings,
             transitionType: TransitionType.slideFromLeft,
           );
+      case Routes.addAdsView:
+        return RouteAnimations.buildPageRoute(
+          page:  const AddAdsView(),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,);
           case Routes.profileView:
             return RouteAnimations.buildPageRoute(
               page:  const ProfileView(),
