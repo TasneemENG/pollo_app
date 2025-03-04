@@ -13,6 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.backgroundColor = const Color(0xffFFD08A),
   });
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -26,9 +27,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       leading: IconButton(
         onPressed: () {
-          context.pop();
+          if (Navigator.of(context).canPop()) {
+            context.pop();
+          }
         },
-        icon: Icon(Icons.arrow_back_ios, color: AppColors.iconColor, size: 20.sp,),
+        icon: Icon(
+          Icons.arrow_back_ios,
+          color: AppColors.iconColor,
+          size: 20.sp,
+        ),
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/widgets/drop_down_widget.dart';
 import 'package:pollo/features/search/presentation/views/widgets/price_range_widgets.dart';
 import 'package:pollo/features/search/presentation/views/widgets/search_button_widget.dart';
@@ -56,17 +55,10 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 });
               }),
               SizedBox(height: 16.h),
-              CustomDropdownWidget(
-                name: "Location",
-                selectedValue: selectedLocation,
-                onChanged: (newValue) {
-                  setState(() {
-                    selectedLocation = newValue;
-                  });
-                },
-                options: const ["New York", "Los Angeles", "Chicago", "Houston"],
+              const CustomDropdownWidget(
+                dropdownName: "Location",
+                options: ["Location 1", "Location 2", "Location 3"],
               ),
-
               SizedBox(height: 25.h),
               SearchButtonWidget(
                 onPressed: () {

@@ -8,6 +8,8 @@ class AppTextFormField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final bool isPassword;
+  final bool isPrice;
+  final bool isDetails;
   final String? Function(String?)? validator;
   final ValueChanged<String>? onChanged;
   final TextInputType? keyboardType;
@@ -23,6 +25,8 @@ class AppTextFormField extends StatelessWidget {
     required this.hintText,
     required this.controller,
     required this.isPassword,
+    this.isPrice = false,
+    this.isDetails = false,
     this.validator,
     this.onChanged,
     this.keyboardType,
@@ -57,13 +61,15 @@ class AppTextFormField extends StatelessWidget {
             ),
             child: TextFormField(
               controller: controller,
-              keyboardType: keyboardType,
+              keyboardType: isPrice ? TextInputType.number : keyboardType,
               obscureText: isObscured,
+              maxLines: isDetails ? 4 : 1, // Allow multiple lines for details
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: hintStyle ?? TextStyles.font16Medium.copyWith(color: AppColors.graytxt),
                 border: InputBorder.none,
-                contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: isDetails ? 16.h : 12.h),
+                prefixIcon: isPrice ? _buildPricePrefix() : null, // Add prefix for price field
                 suffixIcon: _buildSuffixIcon(),
               ),
               validator: validator,
@@ -76,6 +82,29 @@ class AppTextFormField extends StatelessWidget {
     );
   }
 
+  // Build the prefix for the price field
+  Widget? _buildPricePrefix() {
+    return Padding(
+      padding: EdgeInsets.only(left: 16.w, right: 8.w),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'EGP',
+            style: TextStyles.font16Medium.copyWith(color: AppColors.mainText),
+          ),
+          SizedBox(width: 8.w),
+          Container(
+            width: 1.w,
+            height: 48.h,
+            color: AppColors.mainColor.colors.last, // Vertical separator
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Build the suffix icon
   Widget? _buildSuffixIcon() {
     if (isPassword) {
       return IconButton(

@@ -34,7 +34,9 @@ class ProfileHeader extends StatelessWidget {
           left: 15.w,
           child: IconButton(
             onPressed: () {
-              context.pop();
+              if (Navigator.of(context).canPop()) {
+                context.pop();
+              }
             },
             icon: Icon(
               Icons.arrow_back_ios,

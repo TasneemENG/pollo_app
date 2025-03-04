@@ -17,9 +17,12 @@ abstract class Routes {
   static const String editProfileView = '/editProfileView';
   static const String changePasswordView = '/changePasswordView';
   static const String helpAndSupportView = '/helpAndSupportView';
+  static const String addAdsView = '/addAdsView';
   static const String searchPage = '/search';
   static const String about = '/about';
   static const String setting = '/setting';
+  static const String my_adds = '/my_adds';
+  static const String contact_us = '/contact_us';
 
 
 

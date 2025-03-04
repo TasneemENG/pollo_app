@@ -7,6 +7,7 @@ import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/widgets/app_nav_bar.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/drawer_content.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/home_body.dart';
+import 'package:pollo/features/add_ads/presentation/views/add_ads_view.dart';
 import 'package:pollo/features/favorite/presentation/views/favorite_view.dart';
 import 'package:pollo/features/profile/presentation/views/profile_view.dart';
 
@@ -16,7 +17,7 @@ class MainView extends StatelessWidget {
   static final List<Widget> _widgetOptions = [
     const HomeBody(),
     const FavoriteView(),
-    const Text('Add Ads Page', style: TextStyle(fontSize: 20)), // Placeholder
+    const AddAdsView(),
     const ProfileView(),
   ];
 
