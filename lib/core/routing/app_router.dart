@@ -3,6 +3,8 @@ import 'package:pollo/core/routing/route_animations.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/features/Home/presentation/views/main_view.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/about.dart';
+import 'package:pollo/features/Home/presentation/views/widgets/contact_us.dart';
+import 'package:pollo/features/Home/presentation/views/widgets/my_ads.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/settings.dart';
 import 'package:pollo/features/add_ads/presentation/views/add_ads_view.dart';
 import 'package:pollo/features/category/data/category.dart';
@@ -96,6 +98,24 @@ class AppRouter {
       case Routes.about:
         return RouteAnimations.buildPageRoute(
           page:  const About(),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,
+        );
+      case Routes.setting:
+        return RouteAnimations.buildPageRoute(
+          page:  const Settings(),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,
+        );
+      case Routes.my_adds:
+        return RouteAnimations.buildPageRoute(
+          page:  const MyAds(),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,
+        );
+      case Routes.contact_us:
+        return RouteAnimations.buildPageRoute(
+          page:  const ContactUs(),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );

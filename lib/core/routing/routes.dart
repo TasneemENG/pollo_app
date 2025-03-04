@@ -21,6 +21,8 @@ abstract class Routes {
   static const String searchPage = '/search';
   static const String about = '/about';
   static const String setting = '/setting';
+  static const String my_adds = '/my_adds';
+  static const String contact_us = '/contact_us';
 
 
 

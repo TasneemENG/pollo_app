@@ -54,22 +54,22 @@ class DrawerContent extends StatelessWidget {
               child: Column(
                 children: [
                   _buildListTile(Assets.profile, 'Profile', onTap: () {
-                    context.pushNamed(Routes.signUpView);
+                    context.pushNamed(Routes.profileView);
                   }),
                   _buildListTile(Assets.my_ads, 'My Ads', onTap: () {
-                    context.pushNamed(Routes.signUpView);
+                    context.pushNamed(Routes.my_adds);
                   }),
                   _buildListTile(Assets.contact_us, 'Contact Us', onTap: () {
-                    context.pushNamed(Routes.signUpView);
+                    context.pushNamed(Routes.contact_us);
                   }),
                   _buildListTile(Assets.about, 'About', onTap: () {
-                    context.pushNamed(Routes.signUpView);
+                    context.pushNamed(Routes.about);
                   }),
                   _buildListTile(Assets.blog, 'Blog', onTap: () {
                     context.pushNamed(Routes.signUpView);
                   }),
                   _buildListTile(Assets.settings, 'Settings', onTap: () {
-                    context.pushNamed(Routes.signUpView);
+                    context.pushNamed(Routes.setting);
                   }),
                 ],
               ),

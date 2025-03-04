@@ -56,7 +56,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               }),
               SizedBox(height: 16.h),
               const CustomDropdownWidget(
-                dropdownName: "Location*",
+                dropdownName: "Location",
                 options: ["Location 1", "Location 2", "Location 3"],
               ),
               SizedBox(height: 25.h),
