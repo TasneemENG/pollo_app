@@ -9,6 +9,8 @@ import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/features/favorite/presentation/views/manager/favorite_cubit.dart';
 import 'package:pollo/features/favorite/presentation/views/manager/saved_cubit.dart';
 
+import 'features/search/presentation/manager/search_cubit/search_cubit.dart';
+
 class PolloApp extends StatelessWidget {
   final AppRouter appRouter = AppRouter();
 
@@ -21,6 +23,7 @@ class PolloApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt.get<AppCubit>()),
         BlocProvider(create: (context) => FavoriteCubit()),
         BlocProvider(create: (context) => SavedCubit()),
+        BlocProvider(create: (context) => SearchCubit()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(390, 844),

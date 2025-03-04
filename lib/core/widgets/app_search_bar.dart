@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
-import 'package:pollo/features/search/presentation/views/search_page.dart'; // Make sure you have a search page
+import 'package:pollo/features/search/presentation/views/search_page.dart';
 
 class AppSearchBar extends StatelessWidget {
   final TextEditingController searchController;
@@ -34,7 +34,7 @@ class AppSearchBar extends StatelessWidget {
         ),
         child: InkWell(
           onTap: () {
-            print("saerck");
+            print("search");
             // Navigate to the SearchPage when the search bar is tapped
             Navigator.push(
               context,
