@@ -21,18 +21,12 @@ class SearchPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CustomAppBar(title: "Search"),
-            BlocBuilder<SearchCubit, SearchState>(
-              builder: (context, state) {
-                String currentSearchTerm = searchTerm; // Default value if no search term is updated
-
-                if (state is SearchUpdated) {
-                  currentSearchTerm = state.searchTerm; // If updated, use the new term
-                }
-
+            BlocBuilder<SearchCubit, String>(
+              builder: (context, currentSearchTerm) {
                 return SearchInputRow(
                   searchController: TextEditingController(text: currentSearchTerm),
                   onChanged: (newTerm) {
-                    // Dispatch the update action to the cubit
+
                     context.read<SearchCubit>().updateSearchTerm(newTerm);
                   },
                 );
@@ -41,15 +35,9 @@ class SearchPage extends StatelessWidget {
             SizedBox(height: 16.h),
             const SearchHistory(),
             SizedBox(height: 16.h),
-            BlocBuilder<SearchCubit, SearchState>(
-              builder: (context, state) {
-                String searchTerm = '';
-
-                if (state is SearchUpdated) {
-                  searchTerm = state.searchTerm;
-                }
-
-                return SearchResults(searchTerm: searchTerm);
+            BlocBuilder<SearchCubit, String>( // Now the state is just a String
+              builder: (context, currentSearchTerm) {
+                return SearchResults(searchTerm: currentSearchTerm);
               },
             ),
           ],

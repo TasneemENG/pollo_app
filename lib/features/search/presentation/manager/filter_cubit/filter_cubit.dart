@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pollo/features/search/presentation/manager/filter_cubit/filter_state.dart';
 
-class FilterCubit extends Cubit<FilterState> {
-  FilterCubit() : super(FilterState());
+class FilterCubit extends Cubit<Map<String, dynamic>> {
+  FilterCubit()
+      : super({
+    'priceRange': const RangeValues(0, 1000),
+    'selectedLocation': null,
+  });
 
   // Update price range
   void updatePriceRange(RangeValues range) {
-    emit(state.copyWith(priceRange: range));
+    emit({
+      'priceRange': range,
+      'selectedLocation': state['selectedLocation'],
+    });
   }
 
   // Update location
   void updateLocation(String? location) {
-    emit(state.copyWith(selectedLocation: location));
+    emit({
+      'priceRange': state['priceRange'],
+      'selectedLocation': location,
+    });
   }
 }
-
