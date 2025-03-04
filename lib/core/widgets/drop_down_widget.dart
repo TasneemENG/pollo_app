@@ -18,6 +18,12 @@ class CustomDropdownWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, AppState>(
+      buildWhen: (previous, current) {
+        return current is DropdownExpandedState &&
+            current.dropdownName == dropdownName ||
+            current is DropdownUpdatedState &&
+                current.dropdownName == dropdownName;
+      },
       builder: (context, state) {
         final appCubit = context.read<AppCubit>();
         final isExpanded = appCubit.isDropdownExpanded(dropdownName);
@@ -47,7 +53,8 @@ class CustomDropdownWidget extends StatelessWidget {
                   // Gradient border container
                   Container(
                     width: 343.w,
-                    height: isExpanded ? 200.h : 51.h, // Adjust size based on expanded state
+                    height: isExpanded ? 200.h : 51.h,
+                    // Adjust size based on expanded state
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.r),
                       gradient: AppColors.mainColor, // Gradient background
@@ -59,7 +66,8 @@ class CustomDropdownWidget extends StatelessWidget {
                     padding: EdgeInsets.all(1.w), // Adjust for border width
                     child: Container(
                       width: 341.w,
-                      height: isExpanded ? 198.h : 49.h, // Adjust for border width
+                      height: isExpanded ? 198.h : 49.h,
+                      // Adjust for border width
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.r),
                         color: Colors.white,
@@ -68,15 +76,18 @@ class CustomDropdownWidget extends StatelessWidget {
                         children: [
                           // Dropdown header (selected value or hint)
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16.w, vertical: 12.h),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  selectedValue ?? "Choose", // Display selected value or hint
+                                  selectedValue ?? "Choose",
+                                  // Display selected value or hint
                                   style: selectedValue != null
                                       ? TextStyles.filter_texts
-                                      : TextStyles.choose, // Apply different text style based on selection
+                                      : TextStyles
+                                      .choose, // Apply different text style based on selection
                                 ),
                                 RotationTransition(
                                   turns: isExpanded
@@ -105,11 +116,14 @@ class CustomDropdownWidget extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
                                     onTap: () {
-                                      appCubit.updateSelectedValue(dropdownName, options[index]);
-                                      appCubit.toggleDropdownExpanded(dropdownName);
+                                      appCubit.updateSelectedValue(
+                                          dropdownName, options[index]);
+                                      appCubit.toggleDropdownExpanded(
+                                          dropdownName);
                                     },
                                     child: Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 16.w, vertical: 12.h),
                                       child: Text(
                                         options[index],
                                         style: TextStyles.filter_texts,

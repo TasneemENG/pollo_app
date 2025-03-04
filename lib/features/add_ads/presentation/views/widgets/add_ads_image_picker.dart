@@ -6,9 +6,11 @@ import 'dart:io';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/widgets/app_gredient_text.dart';
+import 'package:pollo/features/add_ads/presentation/manager/image_picker/image_picker_cubit.dart';
 import 'package:pollo/features/add_ads/presentation/views/widgets/dotted_border_painter.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddAdsImagePicker extends StatefulWidget {
+class AddAdsImagePicker extends StatelessWidget {
   final ValueChanged<File?> onImageSelected;
 
   const AddAdsImagePicker({
@@ -17,13 +19,80 @@ class AddAdsImagePicker extends StatefulWidget {
   });
 
   @override
-  State<AddAdsImagePicker> createState() => _AddAdsImagePickerState();
-}
+  Widget build(BuildContext context) {
+    return BlocBuilder<ImageCubit, File?>(
+      buildWhen: (previous, current) => previous?.path != current?.path,
+      builder: (context, imageFile) {
+        return GestureDetector(
+          onTap: () => _pickImage(context),
+          child: Container(
+            width: 343.w,
+            height: 204.h,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.r),
+            ),
+            child: CustomPaint(
+              painter: DottedBorderPainter(),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.r),
+                  color: AppColors.background,
+                ),
+                child: imageFile == null
+                    ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset('assets/svgs/upload.svg'),
+                    8.verticalSpace,
+                    Container(
+                      width: 129.w,
+                      height: 32.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.r),
+                        gradient: AppColors.reverse_mainColor,
+                      ),
+                      padding: EdgeInsets.all(1.w),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.r),
+                          color: AppColors.borderColor,
+                        ),
+                        child: Center(
+                          child: GradientText(
+                            text: 'Add Image',
+                            style: TextStyles.font16Solid.copyWith(
+                                color: AppColors.mainColor.colors.first),
+                          ),
+                        ),
+                      ),
+                    ),
+                    4.verticalSpace,
+                    Text(
+                      '5MB maximum file size accepted in\n the following formats: .jpg, .png',
+                      textAlign: TextAlign.center,
+                      style: TextStyles.font16Medium
+                          .copyWith(color: AppColors.bodyText),
+                    ),
+                  ],
+                )
+                    : ClipRRect(
+                  borderRadius: BorderRadius.circular(12.r),
+                  child: Image.file(
+                    imageFile,
+                    width: 343.w,
+                    height: 150.h,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 
-class _AddAdsImagePickerState extends State<AddAdsImagePicker> {
-  File? _imageFile;
-
-  Future<void> _pickImage() async {
+    Future<void> _pickImage(BuildContext context) async {
     try {
       final picker = ImagePicker();
       final pickedFile = await picker.pickImage(
@@ -38,15 +107,13 @@ class _AddAdsImagePickerState extends State<AddAdsImagePicker> {
         final fileSize = await file.length();
 
         if (fileSize <= 5 * 1024 * 1024) {
-          setState(() {
-            _imageFile = file;
-          });
-          widget.onImageSelected(file);
+          context.read<ImageCubit>().setImage(file);
+          onImageSelected(file);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content:
-                  Text('File size exceeds 5MB. Please select a smaller file.'),
+              Text('File size exceeds 5MB. Please select a smaller file.'),
             ),
           );
         }
@@ -58,74 +125,5 @@ class _AddAdsImagePickerState extends State<AddAdsImagePicker> {
         ),
       );
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _pickImage,
-      child: Container(
-        width: 343.w,
-        height: 204.h,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.r),
-        ),
-        child: CustomPaint(
-          painter: DottedBorderPainter(),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r),
-              color: AppColors.background,
-            ),
-            child: _imageFile == null
-                ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset('assets/svgs/upload.svg'),
-                      8.verticalSpace,
-                      Container(
-                        width: 129.w,
-                        height: 32.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.r),
-                          gradient: AppColors.reverse_mainColor,
-                        ),
-                        padding: EdgeInsets.all(1.w),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.r),
-                            color: AppColors.borderColor,
-                          ),
-                          child: Center(
-                            child: GradientText(
-                              text: 'Add Image',
-                              style: TextStyles.font16Solid.copyWith(
-                                  color: AppColors.mainColor.colors.first),
-                            ),
-                          ),
-                        ),
-                      ),
-                      4.verticalSpace,
-                      Text(
-                        '5MB maximum file size accepted in\n the following formats: .jpg, .png',
-                        textAlign: TextAlign.center,
-                        style: TextStyles.font16Medium
-                            .copyWith(color: AppColors.bodyText),
-                      ),
-                    ],
-                  )
-                : ClipRRect(
-                    borderRadius: BorderRadius.circular(12.r),
-                    child: Image.file(
-                      _imageFile!,
-                      width: 343.w,
-                      height: 150.h,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-          ),
-        ),
-      ),
-    );
   }
 }
