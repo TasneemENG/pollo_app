@@ -19,7 +19,7 @@ class ProductSearchBar extends StatelessWidget {
           child: AppSearchBar(
             searchController: searchController,
             onChanged: (searchTerm) {
-             context.pushNamed( Routes.search_page);
+             context.pushNamed( Routes.searchPage);
             },
           ),
         ),

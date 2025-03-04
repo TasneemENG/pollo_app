@@ -14,6 +14,8 @@ class AppTextFormField extends StatelessWidget {
   final bool isObscured;
   final VoidCallback togglePasswordVisibility;
   final Widget? suffixIcon;
+  final TextStyle? labelStyle;
+  final TextStyle? hintStyle;
 
   const AppTextFormField({
     super.key,
@@ -27,6 +29,8 @@ class AppTextFormField extends StatelessWidget {
     required this.isObscured,
     required this.togglePasswordVisibility,
     this.suffixIcon,
+    this.labelStyle,
+    this.hintStyle,
   });
 
   @override
@@ -36,7 +40,7 @@ class AppTextFormField extends StatelessWidget {
       children: [
         Text(
           labelText,
-          style: TextStyles.font18Medium.copyWith(color: AppColors.mainText),
+          style: labelStyle ?? TextStyles.font18Medium.copyWith(color: AppColors.mainText),
         ),
         8.verticalSpace,
         Container(
@@ -57,7 +61,7 @@ class AppTextFormField extends StatelessWidget {
               obscureText: isObscured,
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: TextStyles.font16Medium.copyWith(color: AppColors.graytxt),
+                hintStyle: hintStyle ?? TextStyles.font16Medium.copyWith(color: AppColors.graytxt),
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                 suffixIcon: _buildSuffixIcon(),

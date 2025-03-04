@@ -182,7 +182,6 @@ abstract class TextStyles {
   static TextStyle categories = baseStyle(
       fontSize: 20.sp,
       fontWeight: FontWeightHelper.semiBold,
-      height: 29.2 / 20,
       color: Colors.black,
       fontFamily: 'Inter');
 
