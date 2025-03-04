@@ -17,7 +17,7 @@ class CategoryContent extends StatelessWidget {
         GradientContainer(contentList: categories[0].contentList),
         SizedBox(height: 10.h),
         Padding(
-          padding: EdgeInsets.only(left: 20.w, top: 15.h, right: 20.w),
+          padding: EdgeInsets.only(left: 20.w, top: 5.h, right: 20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
