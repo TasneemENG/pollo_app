@@ -1,10 +1,10 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchCubit extends Cubit<String> {
-  SearchCubit() : super(''); // Initially set to an empty string or a default value.
+  SearchCubit() : super('');
 
   // Method to update the search term
   void updateSearchTerm(String searchTerm) {
-    emit(searchTerm); // Directly emit the new search term
+    emit(searchTerm); // Emit the updated search term
   }
 }

@@ -91,7 +91,7 @@ class AppRouter {
         );
       case Routes.searchPage:
         return RouteAnimations.buildPageRoute(
-          page:  const SearchPage(searchTerm: ''),
+          page:  const SearchPage(searchTerm: "",),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
