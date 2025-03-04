@@ -9,6 +9,7 @@ class FavoriteView extends StatelessWidget {
     return const Scaffold(
       appBar: CustomAppBar(title: 'Favorite'),
       body: FavoriteBody(),
+
     );
   }
 }

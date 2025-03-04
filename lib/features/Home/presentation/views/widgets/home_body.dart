@@ -6,6 +6,8 @@ import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/widgets/app_nav_bar.dart';
 import 'package:pollo/features/Home/presentation/views/home_view.dart';
+import 'package:pollo/features/favorite/presentation/views/favorite_view.dart';
+import 'package:pollo/features/profile/presentation/views/profile_view.dart';
 import 'drawer_content.dart'; // Import DrawerContent
 import 'home_content.dart'; // Import HomeContent
 
@@ -20,9 +22,9 @@ class _HomeBodyState extends State<HomeBody> {
   final TextEditingController _searchController = TextEditingController();
   static final List<Widget> _widgetOptions = [
     const HomeView(),
-    const Text('Favourite Page'),
+    const FavoriteView(),
     const Text('Add Ads Page'),
-    const Text('Account Page'),
+    const ProfileView(),
   ];
   final List<Map<String, dynamic>> contentList = const [
     {
@@ -70,44 +72,11 @@ class _HomeBodyState extends State<HomeBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, AppState>(
-      buildWhen: (previous, current) {
-        return current is BottomNavUpdated;
-      },
-      builder: (context, state) {
-        if (state is BottomNavUpdated) {
-          return Center(child: _widgetOptions[state.index]);
-        }
-        return Scaffold(
-          backgroundColor: Colors.white,
-          endDrawerEnableOpenDragGesture: true,
-          endDrawer: SizedBox(
-            width: 243.w,
-            child: const Drawer(
-              backgroundColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.zero,
-              ),
-              child: DrawerContent(),
-            ),
-          ),
-          body: HomeContent( // Use HomeContent widget
-            searchController: _searchController,
-            contentList: contentList,
-            gridItems: gridItems,
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-            },
-            shape: const CircleBorder(),
-            backgroundColor: AppColors.background,
-            elevation: 7,
-            child: Image.asset(Assets.buttom_nav),
-          ),
-          bottomNavigationBar: const AppNavBar(),
-        );
-      },
+    return HomeContent(
+      // Use HomeContent widget
+      searchController: _searchController,
+      contentList: contentList,
+      gridItems: gridItems,
     );
   }
 }
