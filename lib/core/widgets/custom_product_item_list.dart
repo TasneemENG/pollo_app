@@ -29,9 +29,6 @@ class CustomProductItemList extends StatelessWidget {
                 rating: product['rating']!,
                 location: product['location']!,
                 timeAgo: product['timeAgo']!,
-                onFavoritePressed: () {
-                 //TODO FAVORITE LOGIC
-                },
               ),
             );
           },

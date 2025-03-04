@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
+import 'package:pollo/features/favorite/presentation/views/manager/favorite_cubit.dart';
 
 class SavedItemWidget extends StatelessWidget {
   final String title;
@@ -40,7 +42,7 @@ class SavedItemWidget extends StatelessWidget {
                 ),
                 const Spacer(),
                 IconButton(
-                  onPressed: onDelete,
+                  onPressed: onDelete, // Now using callback passed from parent
                   icon: SvgPicture.asset(iconPath),
                 ),
               ],
