@@ -3,16 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 
-class LocationDropdownWidget extends StatelessWidget {
-  final String? selectedLocation;
+class CustomDropdownWidget extends StatelessWidget {
+  final String? selectedValue;
   final ValueChanged<String?> onChanged;
-  final List<String> locations; // Accepting dynamic list of locations
+  final List<String> options;
+  final String name;
 
-  const LocationDropdownWidget({
+  const CustomDropdownWidget({
     super.key,
-    this.selectedLocation,
+    this.selectedValue,
     required this.onChanged,
-    required this.locations, // Passing the list of locations
+    required this.options,
+    required this.name,
   });
 
   @override
@@ -22,6 +24,11 @@ class LocationDropdownWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Text(
+            name,
+            style: TextStyles.filter_texts,
+          ),
+          SizedBox(height: 8.h),
           Center(
             child: Container(
               width: 343.w,
@@ -40,9 +47,9 @@ class LocationDropdownWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                 child: DropdownButton<String>(
                   hint: Text("Choose", style: TextStyles.choose),
-                  value: selectedLocation,
+                  value: selectedValue,
                   onChanged: onChanged,
-                  items: locations.map<DropdownMenuItem<String>>((String value) {
+                  items: options.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),

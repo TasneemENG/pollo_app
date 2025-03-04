@@ -15,7 +15,9 @@ import 'package:pollo/features/onboarding/presentation/views/onboarding_view.dar
 import 'package:pollo/features/onboarding/presentation/views/splash_view.dart';
 import 'package:pollo/features/product/presentation/views/product_view.dart';
 import 'package:pollo/features/product_details/presentation/views/product_details_view.dart';
+import 'package:pollo/features/profile/presentation/views/change_password_view.dart';
 import 'package:pollo/features/profile/presentation/views/edit_profile_view.dart';
+import 'package:pollo/features/profile/presentation/views/help_and_support_view.dart';
 import 'package:pollo/features/profile/presentation/views/profile_view.dart';
 import 'package:pollo/features/search/presentation/views/search_page.dart';
 
@@ -82,7 +84,7 @@ class AppRouter {
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
-      case Routes.search_page:
+      case Routes.searchPage:
         return RouteAnimations.buildPageRoute(
           page:  const SearchPage(searchTerm: ''),
           settings: settings,
@@ -130,6 +132,16 @@ class AppRouter {
               page:  const EditProfileView(),
               settings: settings,
               transitionType: TransitionType.slideFromLeft,);
+            case Routes.changePasswordView:
+              return RouteAnimations.buildPageRoute(
+                page:  const ChangePasswordView(),
+                settings: settings,
+                transitionType: TransitionType.slideFromLeft,);
+              case Routes.helpAndSupportView:
+                return RouteAnimations.buildPageRoute(
+                  page:  const HelpAndSupportView(),
+                  settings: settings,
+                  transitionType: TransitionType.slideFromLeft,);
       default:
       //Exit app
         return null;

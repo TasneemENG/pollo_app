@@ -7,6 +7,7 @@ class ChangePasswordBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ChangePasswordForm(),
         ],

@@ -38,36 +38,40 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AppTextFormField(
-          labelText: "Current Password",
-          hintText: "Enter Current Password",
-          controller: currentPasswordController,
-          isPassword: true,
-          isObscured: isCurrentPasswordObscured,
-          togglePasswordVisibility: toggleCurrentPasswordVisibility,
-        ),
-        15.verticalSpace,
-        AppTextFormField(
-          labelText: "New Password",
-          hintText: "Enter New Password",
-          controller: newPasswordController,
-          isPassword: true,
-          isObscured: isNewPasswordObscured,
-          togglePasswordVisibility: toggleNewPasswordVisibility,
-        ),
-        15.verticalSpace,
-        AppTextFormField(
-          labelText: "Confirm Password",
-          hintText: "Confirm Your Password",
-          controller: confirmPasswordController,
-          isPassword: true,
-          isObscured: isConfirmPasswordObscured,
-          togglePasswordVisibility: toggleConfirmPasswordVisibility,
-        ),
-        20.verticalSpace,
-      ],
+    return Padding(
+      padding: EdgeInsets.all(20.r),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          AppTextFormField(
+            labelText: "Current Password",
+            hintText: "Enter Current Password",
+            controller: currentPasswordController,
+            isPassword: true,
+            isObscured: isCurrentPasswordObscured,
+            togglePasswordVisibility: toggleCurrentPasswordVisibility,
+          ),
+          15.verticalSpace,
+          AppTextFormField(
+            labelText: "New Password",
+            hintText: "Enter New Password",
+            controller: newPasswordController,
+            isPassword: true,
+            isObscured: isNewPasswordObscured,
+            togglePasswordVisibility: toggleNewPasswordVisibility,
+          ),
+          15.verticalSpace,
+          AppTextFormField(
+            labelText: "Confirm Password",
+            hintText: "Confirm Your Password",
+            controller: confirmPasswordController,
+            isPassword: true,
+            isObscured: isConfirmPasswordObscured,
+            togglePasswordVisibility: toggleConfirmPasswordVisibility,
+          ),
+          20.verticalSpace,
+        ],
+      ),
     );
   }
 }
