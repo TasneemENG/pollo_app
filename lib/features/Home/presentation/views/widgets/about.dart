@@ -14,8 +14,8 @@ class About extends StatelessWidget {
           Stack(
             children: [
               // Full-width image
-              Image.network(
-                Assets.about_img,
+              Image.asset(
+                Assets.aboutImg,
                 height: 368.h,
                 width: double.infinity,
                 fit: BoxFit.cover, // Ensure the image covers the full width

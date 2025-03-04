@@ -49,7 +49,7 @@ class Assets {
   static const String profile='assets/images/profile.png';
   static const String settings='assets/images/settings.png';
   static const String log_out='assets/images/log-out.png';
-  static const String about_img='assets/images/about_img.png';
+  static const String aboutImg='assets/images/aboutimage.png';
   static const String phone='assets/images/phone-call.png';
   static const String whats_up='assets/images/whatsapp (1).png';
   static const String email='assets/images/email.png';
