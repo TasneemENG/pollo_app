@@ -5,8 +5,8 @@ import 'package:pollo/core/helpers/app_cubit.dart';
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/widgets/app_nav_bar.dart';
-import 'package:pollo/features/Home/presentation/views/home_view.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/drawer_content.dart';
+import 'package:pollo/features/Home/presentation/views/widgets/home_body.dart';
 import 'package:pollo/features/favorite/presentation/views/favorite_view.dart';
 import 'package:pollo/features/profile/presentation/views/profile_view.dart';
 
@@ -14,7 +14,7 @@ class MainView extends StatelessWidget {
   const MainView({super.key});
 
   static final List<Widget> _widgetOptions = [
-    const HomeView(),
+    const HomeBody(),
     const FavoriteView(),
     const Text('Add Ads Page', style: TextStyle(fontSize: 20)), // Placeholder
     const ProfileView(),
@@ -26,7 +26,7 @@ class MainView extends StatelessWidget {
       buildWhen: (previous, current) => current is BottomNavUpdated,
       builder: (context, state) {
         final cubit =
-            context.watch<AppCubit>(); // Change from `read` to `watch`
+            context.watch<AppCubit>();
         return Scaffold(
           backgroundColor: Colors.white,
           endDrawerEnableOpenDragGesture: true,
