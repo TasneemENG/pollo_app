@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pollo/core/helpers/extensions.dart';
+import 'package:pollo/core/routing/routes.dart';
 
 import 'profile_item.dart';
 
@@ -13,7 +15,9 @@ class ProfileItemList extends StatelessWidget {
         ProfileItem(
           title: 'Edit Profile',
           iconPath: 'assets/svgs/edit.svg',
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed(Routes.editProfileView);
+          },
         ),
         SizedBox(height: 16.h),
         ProfileItem(

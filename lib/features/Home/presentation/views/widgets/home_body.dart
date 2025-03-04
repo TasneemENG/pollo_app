@@ -15,12 +15,6 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
   final TextEditingController _searchController = TextEditingController();
-  static final List<Widget> _widgetOptions = [
-    const HomeView(),
-    const FavoriteView(),
-    const Text('Add Ads Page'),
-    const ProfileView(),
-  ];
   final List<Map<String, dynamic>> contentList = const [
     {
       "image": Assets.doctor_home,

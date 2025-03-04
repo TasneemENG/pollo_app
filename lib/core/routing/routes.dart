@@ -14,6 +14,7 @@ abstract class Routes {
   static const String productDetailsView = '/productDetailsView';
   static const String favoriteView = '/favoriteView';
   static const String profileView = '/profileView';
+  static const String editProfileView = '/editProfileView';
   static const String search_page = '/search';
 
 

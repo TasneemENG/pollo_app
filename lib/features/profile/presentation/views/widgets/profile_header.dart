@@ -46,7 +46,7 @@ class ProfileHeader extends StatelessWidget {
         // Profile Title
         Positioned(
           top: 45.h,
-          left: 155.w,
+          left: 160.w,
           child: Text(
             'Profile',
             style: TextStyles.font22Semibold.copyWith(

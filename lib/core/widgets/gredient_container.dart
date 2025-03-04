@@ -59,8 +59,6 @@ class _GradientContainerContentState extends State<_GradientContainerContent> {
             child: BlocBuilder<AppCubit, AppState>(
               buildWhen: (previous, current) => current is AppContainerIndexChanged,
               builder: (context, state) {
-                int currentIndex = state is AppContainerIndexChanged ? state.index : 0;
-
                 return PageView.builder(
                   controller: _pageController,
                   onPageChanged: (page) {
