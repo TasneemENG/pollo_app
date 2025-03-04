@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pollo/features/Home/presentation/views/widgets/custom_grid_item.dart';
+import 'package:pollo/features/Home/presentation/views/widgets/_home/custom_grid_item.dart';
 
 class CategoriesGrid extends StatelessWidget {
   final List<Map<String, dynamic>> gridItems;

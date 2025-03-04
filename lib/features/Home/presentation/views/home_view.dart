@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pollo/features/Home/presentation/views/widgets/home_body.dart';
+import 'package:pollo/features/Home/presentation/views/widgets/_home/home_body.dart' show HomeBody;
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
