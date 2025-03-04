@@ -13,7 +13,7 @@ class OnboardingView extends StatelessWidget {
       create: (context) => OnboardingCubit(),
       child: Scaffold(
         body: SafeArea(
-          child: BlocBuilder<OnboardingCubit, OnboardingState>(
+          child: BlocBuilder<OnboardingCubit, int>(
             builder: (context, state) {
               return const OnboardingBody();
             },

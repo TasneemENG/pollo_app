@@ -12,15 +12,16 @@ class OnboardingBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OnboardingCubit,OnboardingState>(
-      builder: (context, state) {
+    return BlocBuilder<OnboardingCubit, int>(  // Using int as the state type instead of OnboardingState
+      builder: (context, currentPage) {   // currentPage will be an int, which is the page index
         return Stack(
           children: [
+            // Passing currentPage as the key, so that page transitions correctly
             OnboardingPage(
-              key: ValueKey(state),
-            ).animate().fadeIn(duration: 600.ms).slideY(
-              begin: 0.3,
-              end: 0,
+              key: ValueKey(currentPage),  // Use currentPage to differentiate between page changes
+            ).animate().fadeIn(duration: 600.ms).slideX(
+              begin: -0.3, // Start the page from the left
+              end: 0, // End at the normal position
               duration: 600.ms,
               curve: Curves.easeOut,
             ),
@@ -29,9 +30,9 @@ class OnboardingBody extends StatelessWidget {
               right: 20.w,
               child: NextButton(
                 onNext: () => context.read<OnboardingCubit>().nextPage(context),
-              ).animate().fadeIn(duration: 600.ms).slideY(
-                begin: 0.3,
-                end: 0,
+              ).animate().fadeIn(duration: 600.ms).slideX(
+                begin: 0.3, // Start the button from the right
+                end: 0, // End at the normal position
                 duration: 600.ms,
                 curve: Curves.easeOut,
               ),

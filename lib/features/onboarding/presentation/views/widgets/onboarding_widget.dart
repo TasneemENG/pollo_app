@@ -26,12 +26,12 @@ class OnboardingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Background Image with Animation
+
         BackgroundImage(imageUrl: image)
             .animate()
             .fadeIn(duration: 600.ms)
-            .slideY(
-          begin: 0.3,
+            .slideX(
+          begin: -0.3,
           end: 0,
           duration: 600.ms,
           curve: Curves.easeOut,
@@ -39,26 +39,26 @@ class OnboardingWidget extends StatelessWidget {
 
         SizedBox(height: 30.h),
 
-        // Page Indicators with Animation
+
         _buildPageIndicators()
             .animate()
             .fadeIn(duration: 600.ms)
-            .slideY(
-          begin: 0.3,
+            .slideX(
+          begin: -0.3,
           end: 0,
           duration: 600.ms,
           curve: Curves.easeOut,
         ),
 
-        // Onboarding Content with Animation
+
         OnboardingContent(
           title: title,
           subtitle: subtitle,
         )
             .animate()
             .fadeIn(duration: 600.ms)
-            .slideY(
-          begin: 0.3,
+            .slideX(
+          begin: -0.3,
           end: 0,
           duration: 600.ms,
           curve: Curves.easeOut,
@@ -67,8 +67,7 @@ class OnboardingWidget extends StatelessWidget {
     );
   }
 
-  // Build Page Indicators
-  // Build Page Indicators
+
   Widget _buildPageIndicators() {
     return Center(
       child: Row(
@@ -83,8 +82,8 @@ class OnboardingWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.r),
               color: currentPage == index
                   ? Colors
-                  .transparent // Gradient will be applied via ShaderMask
-                  : const Color(0xFFC388B3), // Inactive indicator color
+                  .transparent
+                  : const Color(0xFFC388B3),
             ),
             child: currentPage == index
                 ? ShaderMask(
@@ -98,14 +97,14 @@ class OnboardingWidget extends StatelessWidget {
                 ),
               ),
             )
-                : null, // No ShaderMask for inactive indicators
+                : null,
           )
-              .animate() // Add animation here for both active and inactive indicators
+              .animate()
               .fadeIn(duration: 600.ms)
               .scale(
-               duration: 600.ms, curve: Curves.easeOut)
-              .slideY(
-              begin: 0.3, end: 0, duration: 600.ms, curve: Curves.easeOut);
+              duration: 600.ms, curve: Curves.easeOut)
+              .slideX(
+              begin: -0.3, end: 0, duration: 600.ms, curve: Curves.easeOut);
         }),
       ),
     );
