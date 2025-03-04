@@ -20,6 +20,7 @@ abstract class Routes {
   static const String addAdsView = '/addAdsView';
   static const String searchPage = '/search';
   static const String about = '/about';
+  static const String setting = '/setting';
 
 
 
