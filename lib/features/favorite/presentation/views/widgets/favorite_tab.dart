@@ -13,6 +13,7 @@ class FavoriteTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FavoriteCubit, List<Map<String, String>>>(
+      buildWhen: (previous, current) => previous != current, // Rebuild only if favorites list changes
       builder: (context, favoriteProducts) {
         return SingleChildScrollView(
           child: Column(

@@ -13,6 +13,7 @@ class SavedTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SavedCubit, List<Map<String, String>>>(
+      buildWhen: (previous, current) => previous != current, // Rebuild only when saved items change
       builder: (context, savedItems) {
         return SingleChildScrollView(
           child: Column(
