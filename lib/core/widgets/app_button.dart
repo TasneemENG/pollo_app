@@ -28,7 +28,7 @@ class AppButton extends StatelessWidget {
     return SizedBox(
       width: width ?? double.infinity,
       height: height ?? 46.h,
-      child: Ink(
+      child: Container(
         decoration: BoxDecoration(
           gradient: AppColors.mainColor, // Ensure this is a `LinearGradient`
           borderRadius: BorderRadius.circular(borderRadius ?? 16.r),

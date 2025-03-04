@@ -6,8 +6,6 @@ import 'package:pollo/core/helpers/app_cubit.dart';
 import 'package:pollo/core/resources/theme.dart';
 import 'package:pollo/core/routing/app_router.dart';
 import 'package:pollo/core/routing/routes.dart';
-import 'package:pollo/features/favorite/presentation/views/manager/favorite_cubit.dart';
-import 'package:pollo/features/favorite/presentation/views/manager/saved_cubit.dart';
 
 class PolloApp extends StatelessWidget {
   final AppRouter appRouter = AppRouter();
@@ -16,24 +14,21 @@ class PolloApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => getIt.get<AppCubit>()),
-        BlocProvider(create: (context) => FavoriteCubit()),
-        BlocProvider(create: (context) => SavedCubit()),
-      ],
+    return BlocProvider(
+      create: (context) => getIt.get<AppCubit>(),
       child: ScreenUtilInit(
         designSize: const Size(390, 844),
         minTextAdapt: true,
         splitScreenMode: true,
         ensureScreenSize: true,
+        // هنا لازم استخدم builder عشان اقدر اوصل ل ال context الخاص ب screen util بيبقي مفيد بعدين
         builder: (context, child) {
           return BlocBuilder<AppCubit, AppState>(
             builder: (context, state) {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 onGenerateRoute: appRouter.generateRouter,
-                initialRoute: Routes.mainView,
+                initialRoute: Routes.homeView,
                 theme: AppTheme.appTheme,
               );
             },

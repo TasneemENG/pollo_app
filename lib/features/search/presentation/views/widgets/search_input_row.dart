@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart' show SvgPicture;
 import 'package:pollo/core/resources/app_colors.dart';
 import 'package:pollo/core/widgets/app_search_bar.dart';
+import 'filter_bottom_sheet.dart';
 
 class SearchInputRow extends StatelessWidget {
   final TextEditingController searchController;
@@ -34,13 +35,22 @@ class SearchInputRow extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: () {
-              // Handle filter button click
+              _showFilterBottomSheet(context); // Show the bottom sheet
             },
             icon: SvgPicture.asset('assets/svgs/filter_icon.svg'),
           ),
         ),
         10.horizontalSpace,
       ],
+    );
+  }
+
+  void _showFilterBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => FilterBottomSheet(),
     );
   }
 }
