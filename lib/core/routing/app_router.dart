@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pollo/core/routing/route_animations.dart';
 import 'package:pollo/core/routing/routes.dart';
-import 'package:pollo/core/widgets/app_nav_bar.dart';
 import 'package:pollo/features/Home/presentation/views/main_view.dart';
 import 'package:pollo/features/category/data/category.dart';
 import 'package:pollo/features/Home/presentation/views/home_view.dart';
