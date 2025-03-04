@@ -6,11 +6,13 @@ import 'package:pollo/core/resources/app_text_styles.dart';
 class LocationDropdownWidget extends StatelessWidget {
   final String? selectedLocation;
   final ValueChanged<String?> onChanged;
+  final List<String> locations; // Accepting dynamic list of locations
 
   const LocationDropdownWidget({
     super.key,
     this.selectedLocation,
     required this.onChanged,
+    required this.locations, // Passing the list of locations
   });
 
   @override
@@ -20,8 +22,6 @@ class LocationDropdownWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Location", style: TextStyles.filter_texts),
-          SizedBox(height: 8.h),
           Center(
             child: Container(
               width: 343.w,
@@ -42,8 +42,7 @@ class LocationDropdownWidget extends StatelessWidget {
                   hint: Text("Choose", style: TextStyles.choose),
                   value: selectedLocation,
                   onChanged: onChanged,
-                  items: <String>['Location 1', 'Location 2', 'Location 3']
-                      .map<DropdownMenuItem<String>>((String value) {
+                  items: locations.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),

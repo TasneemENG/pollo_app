@@ -3,12 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/routing/routes.dart'; // Import routes
 import 'package:pollo/features/onboarding/data/models/onboarding_model.dart';
-import 'package:pollo/features/onboarding/presentation/manager/on_boarding_state.dart';
 
-class OnboardingCubit extends Cubit<OnboardingState> {
+class OnboardingCubit extends Cubit<int> {
   final PageController pageController = PageController();
 
-  OnboardingCubit() : super(const OnboardingPageChanged(0));
+  OnboardingCubit() : super(0);
 
   @override
   Future<void> close() {
@@ -17,22 +16,20 @@ class OnboardingCubit extends Cubit<OnboardingState> {
   }
 
   void updatePage(int page) {
-    emit(OnboardingPageChanged(page));
+    emit(page);
   }
 
   void nextPage(BuildContext context) {
-    final currentPage = (state as OnboardingPageChanged).currentPage;
-    if (currentPage < onboardingData.length - 1) {
-      emit(OnboardingPageChanged(currentPage + 1));
+    if (state < onboardingData.length - 1) {
+      emit(state + 1);
     } else {
-    context.pushReplacementNamed(Routes.loginView);
+      context.pushReplacementNamed(Routes.loginView);
     }
   }
 
   void previousPage() {
-    final currentPage = (state as OnboardingPageChanged).currentPage;
-    if (currentPage > 0) {
-      emit(OnboardingPageChanged(currentPage - 1)); // Update content index
+    if (state > 0) {
+      emit(state - 1);
     }
   }
 

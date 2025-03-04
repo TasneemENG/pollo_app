@@ -7,3 +7,4 @@ class Category {
 
   Category({required this.name, required this.items,this.contentList = const [],});
 }
+

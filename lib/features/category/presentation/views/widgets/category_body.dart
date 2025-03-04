@@ -8,153 +8,26 @@ import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/core/widgets/app_bar.dart';
 import 'package:pollo/core/widgets/gredient_container.dart';
 import 'package:pollo/features/category/data/category.dart';
+import 'package:pollo/features/category/presentation/views/widgets/category_content_widget.dart';
+import 'package:pollo/features/category/presentation/views/widgets/custom_category_appbar.dart';
+import 'package:pollo/features/category/presentation/views/widgets/no_dat_widget.dart';
 class CategoryBody extends StatelessWidget {
   final List<Category> categories;
   final String categoryName;
   final String image;
+
   const CategoryBody({super.key, required this.categories, required this.categoryName, required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-            padding: EdgeInsets.only(left: 16.w),
-            child: CustomAppBar(title: categoryName,)
-        ),
+        CustomCategoryAppBar(title: categoryName),
         SizedBox(height: 20.h),
-        if (categories[0].items.isEmpty) Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 300.h),
-              Image.asset(
-                Assets.empty_sheep,
-                width: 100.w,
-                height: 100.h,
-              ),
-              SizedBox(height: 10.h),
-              Text(
-                "There are no data",
-                style: TextStyles.no_data,
-              ),
-            ],
-          ),
-        ) else Column(
-          children: [
-            // GradientContainer
-            GradientContainer(
-              contentList: categories[0].contentList,
-            ),
-            SizedBox(height: 10.h),
-            // Rest of the content
-            Padding(
-              padding: EdgeInsets.only(left: 20.w, top: 15.h, right: 20.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Available", // Your text here
-                    style: TextStyles.available_text,
-                  ),
-                  // GridView
-                  GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 15.w,
-                      mainAxisSpacing: 15.h,
-                      childAspectRatio: 0.9,
-                    ),
-                    itemCount: categories[0].items.length,
-                    itemBuilder: (context, index) {
-                      final item = categories[0].items[index];
-                      return InkWell(
-                        onTap: () {
-                          context.pushNamed(Routes.productView);
-                        },
-                        child: Stack(
-                          children: [
-                            Container(
-                              width: 164.w,
-                              height: 190.h,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.r), // Radius of 10
-                                gradient: AppColors.mainColor, // Use your gradient here
-                              ),
-                            ),
-
-                            Positioned(
-                              top: 1.h,
-                              left: 1.w,
-                              child: Container(
-                                width: 162.w,
-                                height: 184.h,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.r),
-                                  color: AppColors.category_container,
-                                ),
-                              ),
-                            ),
-
-                            Positioned(
-                              top: 10.h,
-                              left: 10.w,
-                              right: 10.w,
-                              child: Container(
-                                height: 170.h,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6.r),
-                                  color: Colors.transparent,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-
-                                    Container(
-                                      width: 133.w,
-                                      height: 133.h,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(6.r),
-                                        gradient: AppColors.mainColor,
-                                        color: Colors.white,
-                                      ),
-                                      child: Center(
-                                        // Centered Image
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(6.r),
-                                          child: Image.asset(
-                                            item.image,
-                                            width: 132.w,
-                                            height: 132.h,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 8.h), // Equal vertical spacing
-                                    // Text
-                                    Text(
-                                      item.text,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyles.categories_text,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+        if (categories[0].items.isEmpty)
+          NoDataWidget()
+        else
+          CategoryContent(categories: categories),
       ],
     );
   }
