@@ -12,18 +12,18 @@ class AppNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, AppState>(
-      buildWhen: (previous, current) {
+      buildWhen: (AppState previous, AppState current) {
         // Rebuild only when the state is BottomNavUpdated
         return current is BottomNavUpdated;
       },
-      builder: (context, state) {
-        final currentIndex = (state is BottomNavUpdated) ? state.index : 0;
+      builder: (BuildContext context, AppState state) {
+        final int currentIndex = (state is BottomNavUpdated) ? state.index : 0;
         return Stack(
-          children: [
+          children: <Widget>[
             // BottomAppBar
             Container(
               decoration: BoxDecoration(
-                boxShadow: [
+                boxShadow: <BoxShadow>[
                   BoxShadow(
                     color: Colors.black.withOpacity(0.1),
                     spreadRadius: 2,
@@ -44,7 +44,7 @@ class AppNavBar extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: <Widget>[
                       _NavItem(
                           index: 0,
                           icon: Icons.home_filled,
@@ -99,7 +99,7 @@ class _NavItem extends StatelessWidget {
       onTap: () => context.read<AppCubit>().updateBottomNavIndex(index),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           _gradientIcon(icon, isSelected),
           SizedBox(height: 4.h),
           isSelected
@@ -112,11 +112,11 @@ class _NavItem extends StatelessWidget {
 
   Widget _gradientIcon(IconData icon, bool isSelected) {
     return ShaderMask(
-      shaderCallback: (bounds) {
+      shaderCallback: (Rect bounds) {
         return isSelected
             ? AppColors.mainColor.createShader(bounds)
             : const LinearGradient(
-            colors: [AppColors.greyColor, AppColors.greyColor])
+            colors: <Color>[AppColors.greyColor, AppColors.greyColor])
             .createShader(bounds);
       },
       child: Icon(icon, color: AppColors.background, size: 24.w),

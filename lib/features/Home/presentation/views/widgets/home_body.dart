@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pollo/core/resources/app_images.dart';
-import 'package:pollo/features/Home/presentation/views/home_view.dart';
-import 'package:pollo/features/favorite/presentation/views/favorite_view.dart';
-import 'package:pollo/features/profile/presentation/views/profile_view.dart';
-// Import DrawerContent
 import 'home_content.dart'; // Import HomeContent
 
 class HomeBody extends StatefulWidget {

@@ -34,7 +34,7 @@ class _FavoriteBodyState extends State<FavoriteBody>
         Expanded(
           child: TabBarView(
             controller: _tabController,
-            children: [
+            children: const [
               FavoriteTab(),
               SavedTab(),
             ],

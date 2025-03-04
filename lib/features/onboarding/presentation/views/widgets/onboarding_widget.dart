@@ -26,7 +26,6 @@ class OnboardingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-
         BackgroundImage(imageUrl: image)
             .animate()
             .fadeIn(duration: 600.ms)
@@ -38,8 +37,6 @@ class OnboardingWidget extends StatelessWidget {
         ),
 
         SizedBox(height: 30.h),
-
-
         _buildPageIndicators()
             .animate()
             .fadeIn(duration: 600.ms)
@@ -49,7 +46,6 @@ class OnboardingWidget extends StatelessWidget {
           duration: 600.ms,
           curve: Curves.easeOut,
         ),
-
 
         OnboardingContent(
           title: title,
@@ -67,7 +63,7 @@ class OnboardingWidget extends StatelessWidget {
     );
   }
 
-
+  // Build Page Indicators
   Widget _buildPageIndicators() {
     return Center(
       child: Row(
@@ -81,8 +77,7 @@ class OnboardingWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               color: currentPage == index
-                  ? Colors
-                  .transparent
+                  ? Colors.transparent
                   : const Color(0xFFC388B3),
             ),
             child: currentPage == index
@@ -103,7 +98,7 @@ class OnboardingWidget extends StatelessWidget {
               .fadeIn(duration: 600.ms)
               .scale(
               duration: 600.ms, curve: Curves.easeOut)
-              .slideX(
+              .slideX( // Horizontal animation for indicators
               begin: -0.3, end: 0, duration: 600.ms, curve: Curves.easeOut);
         }),
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pollo/core/routing/route_animations.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/features/Home/presentation/views/main_view.dart';
+import 'package:pollo/features/Home/presentation/views/widgets/about.dart';
 import 'package:pollo/features/category/data/category.dart';
 import 'package:pollo/features/Home/presentation/views/home_view.dart';
 import 'package:pollo/features/auth/presentation/views/forget_password_view.dart';
@@ -21,12 +22,12 @@ import 'package:pollo/features/search/presentation/views/search_page.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
-    final arguments = settings.arguments;
+    final Object? arguments = settings.arguments;
 
     switch (settings.name) {
       case Routes.splashView:
         return MaterialPageRoute(
-          builder: (context) => const SplashView(),
+          builder: (BuildContext context) => const SplashView(),
         );
       case Routes.onboardingView:
         return RouteAnimations.buildPageRoute(
@@ -85,6 +86,12 @@ class AppRouter {
       case Routes.search_page:
         return RouteAnimations.buildPageRoute(
           page:  const SearchPage(searchTerm: ''),
+          settings: settings,
+          transitionType: TransitionType.slideFromLeft,
+        );
+      case Routes.about:
+        return RouteAnimations.buildPageRoute(
+          page:  const About(),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );

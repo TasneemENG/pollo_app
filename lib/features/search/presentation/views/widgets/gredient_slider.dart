@@ -2,8 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pollo/core/resources/app_colors.dart';
-class Gradient_Slider extends RangeSliderTrackShape {
-  const Gradient_Slider({
+class GradientSlider extends RangeSliderTrackShape {
+  const GradientSlider({
     this.gradient = AppColors.mainColor,
     this.darkenInactive = true,
   });
@@ -78,10 +78,6 @@ class Gradient_Slider extends RangeSliderTrackShape {
 
     final Offset leftThumbOffset = startThumbCenter;
     final Offset rightThumbOffset = endThumbCenter;
-
-    final Size thumbSize = sliderTheme.rangeThumbShape!
-        .getPreferredSize(isEnabled, isDiscrete);
-    final double thumbRadius = thumbSize.width / 2;
     final Radius trackRadius = Radius.circular(trackRect.height / 2);
 
     context.canvas.drawRRect(
