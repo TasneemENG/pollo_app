@@ -42,11 +42,12 @@ class CategoryContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start, // Align content to the top
             children: [
+              SizedBox(height: 15.h),
               Text(
                 "Available", // Your text here
                 style: TextStyles.availableText,
               ),
-              const SizedBox(height: 0), // Remove or set to 0 to eliminate space
+              SizedBox(height: 5.h), // Remove or set to 0 to eliminate space
               ProductGrid(items: categories[0].items),
             ],
           ),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/resources/app_colors.dart';
@@ -34,126 +36,119 @@ class _AddAdsFormState extends State<AddAdsForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ImageCubit(),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 18.r, vertical: 10.r),
-        child: Column(
-          children: [
-            // Image Picker
-            AddAdsImagePicker(
-              onImageSelected: (file) {
-                context.read<ImageCubit>().setImage(file);
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 18.r, vertical: 10.r),
+      child: Column(
+        children: [
+          BlocProvider(
+            create: (context) => ImageCubit(),
+            child: BlocBuilder<ImageCubit, File?>(
+              buildWhen: (previous, current) => previous != current,
+              builder: (context, image) {
+                return AddAdsImagePicker(
+                  onImageSelected: (file) {
+                    context.read<ImageCubit>().setImage(file);
+                  },
+                );
               },
             ),
-            16.verticalSpace,
-            // Category Dropdown
-            CustomDropdownWidget(
-              dropdownName: "Category*",
-              options: const ["Category 1", "Category 2", "Category 3"],
-              onChanged: (value) {},
-            ),
-            16.verticalSpace,
+          ),
+          16.verticalSpace,
 
-            // Subcategory Dropdown
-            CustomDropdownWidget(
-              dropdownName: "Subcategory*",
-              options: const [
-                "Subcategory 1",
-                "Subcategory 2",
-                "Subcategory 3"
-              ],
-              onChanged: (value) {},
-            ),
-            16.verticalSpace,
+          // Other Form Fields (won't rebuild)
+          CustomDropdownWidget(
+            dropdownName: "Category*",
+            options: const ["Category 1", "Category 2", "Category 3"],
+            onChanged: (value) {},
+          ),
+          16.verticalSpace,
 
-            // Ad Title
-            AppTextFormField(
-              labelText: "Ad Title*",
-              hintText: "Enter Title",
-              controller: titleController,
-              isPassword: false,
-              isObscured: false,
-              togglePasswordVisibility: () {},
-              labelStyle: TextStyles.font18Semibold,
-              hintStyle:
-                  TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
-            ),
-            16.verticalSpace,
+          CustomDropdownWidget(
+            dropdownName: "Subcategory*",
+            options: const ["Subcategory 1", "Subcategory 2", "Subcategory 3"],
+            onChanged: (value) {},
+          ),
+          16.verticalSpace,
 
-            // Phone Number
-            AppTextFormField(
-              labelText: "Phone*",
-              hintText: "+201010101010",
-              controller: phoneController,
-              isPassword: false,
-              isObscured: false,
-              togglePasswordVisibility: () {},
-              labelStyle: TextStyles.font18Semibold,
-              hintStyle:
-                  TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
-            ),
-            16.verticalSpace,
+          AppTextFormField(
+            labelText: "Ad Title*",
+            hintText: "Enter Title",
+            controller: titleController,
+            isPassword: false,
+            isObscured: false,
+            togglePasswordVisibility: () {},
+            labelStyle: TextStyles.font18Semibold,
+            hintStyle:
+            TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
+          ),
+          16.verticalSpace,
 
-            // Price
-            AppTextFormField(
-              labelText: "Price*",
-              hintText: "Enter Price",
-              controller: priceController,
-              isPassword: false,
-              isObscured: false,
-              isPrice: true,
-              togglePasswordVisibility: () {},
-              labelStyle: TextStyles.font18Semibold,
-              hintStyle:
-                  TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
-            ),
-            10.verticalSpace,
+          AppTextFormField(
+            labelText: "Phone*",
+            hintText: "+201010101010",
+            controller: phoneController,
+            isPassword: false,
+            isObscured: false,
+            togglePasswordVisibility: () {},
+            labelStyle: TextStyles.font18Semibold,
+            hintStyle:
+            TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
+          ),
+          16.verticalSpace,
 
-            // Negotiable Checkbox
-            Padding(
-              padding: EdgeInsets.only(left: 8.r),
-              child: const AppCheckbox(
-                checkboxName: 'negotiable',
-                label: 'Negotiable',
-              ),
-            ),
-            16.verticalSpace,
+          AppTextFormField(
+            labelText: "Price*",
+            hintText: "Enter Price",
+            controller: priceController,
+            isPassword: false,
+            isObscured: false,
+            isPrice: true,
+            togglePasswordVisibility: () {},
+            labelStyle: TextStyles.font18Semibold,
+            hintStyle:
+            TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
+          ),
+          10.verticalSpace,
 
-            // Details
-            AppTextFormField(
-              labelText: "Details*",
-              hintText: "Describe The Item You Are Selling",
-              controller: detailsController,
-              isPassword: false,
-              isObscured: false,
-              isDetails: true,
-              togglePasswordVisibility: () {},
-              labelStyle: TextStyles.font18Semibold,
-              hintStyle:
-                  TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
+          Padding(
+            padding: EdgeInsets.only(left: 8.r),
+            child: const AppCheckbox(
+              checkboxName: 'negotiable',
+              label: 'Negotiable',
             ),
-            16.verticalSpace,
+          ),
+          16.verticalSpace,
 
-            // Location Dropdown
-            CustomDropdownWidget(
-              dropdownName: "Location*",
-              options: const ["Location 1", "Location 2", "Location 3"],
-              onChanged: (value) {},
-            ),
-            30.verticalSpace,
+          AppTextFormField(
+            labelText: "Details*",
+            hintText: "Describe The Item You Are Selling",
+            controller: detailsController,
+            isPassword: false,
+            isObscured: false,
+            isDetails: true,
+            togglePasswordVisibility: () {},
+            labelStyle: TextStyles.font18Semibold,
+            hintStyle:
+            TextStyles.font16Medium.copyWith(color: AppColors.bodyText),
+          ),
+          16.verticalSpace,
 
-            // Submit Button
-            AppButton(
-              onPressed: () {},
-              text: 'Add',
-              width: 246.w,
-              height: 48.h,
-              borderRadius: 30.r,
-            ),
-            30.verticalSpace,
-          ],
-        ),
+          CustomDropdownWidget(
+            dropdownName: "Location*",
+            options: const ["Location 1", "Location 2", "Location 3"],
+            onChanged: (value) {},
+          ),
+          30.verticalSpace,
+
+          AppButton(
+            onPressed: () {},
+            text: 'Add',
+            width: 246.w,
+            height: 48.h,
+            borderRadius: 30.r,
+          ),
+          30.verticalSpace,
+        ],
       ),
     );
   }

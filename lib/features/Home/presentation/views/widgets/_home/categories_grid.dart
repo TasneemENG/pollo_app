@@ -10,23 +10,20 @@ class CategoriesGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15.w), // Remove vertical padding
-      child: GridView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 10.w,
-          mainAxisSpacing: 10.h,
-          //childAspectRatio: 104.w / 95.h,
-        ),
-        itemCount: gridItems.length,
-        itemBuilder: (context, index) {
-          return CustomGridItem(
-            image: gridItems[index]["image"],
-            text: gridItems[index]["text"],
+      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
+      child: Wrap(
+        spacing: 10.w, // Horizontal spacing
+        runSpacing: 10.h, // Vertical spacing
+        alignment: WrapAlignment.center,
+        children: gridItems.map((item) {
+          return SizedBox(
+            width: (MediaQuery.of(context).size.width - 50.w) / 3, // Responsive width
+            child: CustomGridItem(
+              image: item["image"],
+              text: item["text"],
+            ),
           );
-        },
+        }).toList(),
       ),
     );
   }
