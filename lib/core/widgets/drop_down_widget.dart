@@ -85,7 +85,7 @@ class CustomDropdownWidget extends StatelessWidget {
                                   selectedValue ?? "Choose",
                                   // Display selected value or hint
                                   style: selectedValue != null
-                                      ? TextStyles.filter_texts
+                                      ? TextStyles.filterTexts
                                       : TextStyles
                                       .choose, // Apply different text style based on selection
                                 ),
@@ -126,7 +126,7 @@ class CustomDropdownWidget extends StatelessWidget {
                                           horizontal: 16.w, vertical: 12.h),
                                       child: Text(
                                         options[index],
-                                        style: TextStyles.filter_texts,
+                                        style: TextStyles.filterTexts,
                                       ),
                                     ),
                                   );

@@ -49,7 +49,7 @@ class MainView extends StatelessWidget {
             shape: const CircleBorder(),
             backgroundColor: AppColors.background,
             elevation: 7,
-            child: Image.asset(Assets.buttom_nav),
+            child: Image.asset(Assets.buttNav),
           ),
           bottomNavigationBar: const AppNavBar(),
         );

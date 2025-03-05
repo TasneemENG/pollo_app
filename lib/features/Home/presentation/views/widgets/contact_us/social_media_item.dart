@@ -26,7 +26,7 @@ class SocialMediaContainer extends StatelessWidget {
       height: 219.h,
       width: 164.w,
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.border_contact_Color, width: 1),
+        border: Border.all(color: AppColors.borderContactColor, width: 1),
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: Column(
@@ -39,20 +39,20 @@ class SocialMediaContainer extends StatelessWidget {
             height: 60.h,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: AppColors.border_contact_Color, width: 1),
+              border: Border.all(color: AppColors.borderContactColor, width: 1),
             ),
             child: ClipOval(child: image),
           ),
           SizedBox(height: 8.h),
           Text(
             text1,
-            style: TextStyles.side_menue_text,
+            style: TextStyles.sideMenueText,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
           Text(
             text2,
-            style: TextStyles.price_style,
+            style: TextStyles.priceStyle,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),

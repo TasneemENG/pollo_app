@@ -19,7 +19,7 @@ class CategoryBody extends StatelessWidget {
           CustomCategoryAppBar(title: categoryName),
           SizedBox(height: 20.h),
           if (categories[0].items.isEmpty)
-            NoDataWidget()
+            const NoDataWidget()
           else
             CategoryContent(categories: categories),
         ],

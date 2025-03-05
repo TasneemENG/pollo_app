@@ -57,7 +57,7 @@ abstract class TextStyles {
       height: 36 / 24,
       letterSpacing: 0,
       color: Colors.white);
-  static TextStyle Skip_button = baseStyle(
+  static TextStyle skipButton = baseStyle(
       fontSize: 24,
       fontWeight: FontWeightHelper.semiBold,
       fontFamily: 'Inter',
@@ -147,33 +147,33 @@ abstract class TextStyles {
     fontWeight: FontWeightHelper.semiBold,
     height: 25.2 / 22,
   );
-  static TextStyle nav_item_selected = baseStyle(
+  static TextStyle navItemSelected = baseStyle(
       fontSize: 12, fontWeight: FontWeightHelper.regular, letterSpacing: 0);
-  static TextStyle nav_item_not_selected = baseStyle(
+  static TextStyle navItemNotSelected = baseStyle(
       fontSize: 12,
       fontWeight: FontWeightHelper.regular,
       height: 14.5 / 12,
       color: AppColors.greyColor,
       fontFamily: 'Inter');
-  static TextStyle search_text = baseStyle(
+  static TextStyle searchText = baseStyle(
       fontSize: 16.sp,
       fontWeight: FontWeightHelper.medium,
       height: 19.36 / 16,
       color: AppColors.iconColor,
       fontFamily: 'Inter');
-  static TextStyle home_text1 = baseStyle(
+  static TextStyle homeText1 = baseStyle(
       fontSize: 18.sp,
       fontWeight: FontWeightHelper.regular,
       height: 21.6 / 18,
       color: Colors.white,
       fontFamily: 'Itim');
-  static TextStyle home_text2 = baseStyle(
+  static TextStyle homeText2 = baseStyle(
       fontSize: 24.sp,
       fontWeight: FontWeightHelper.regular,
       height: 28.8 / 24,
       color: Colors.white,
       fontFamily: 'Itim');
-  static TextStyle home_text3 = baseStyle(
+  static TextStyle homeText3 = baseStyle(
       fontSize: 16.sp,
       fontWeight: FontWeightHelper.regular,
       height: 19.2 / 16,
@@ -185,7 +185,7 @@ abstract class TextStyles {
       color: Colors.black,
       fontFamily: 'Inter');
 
-  static TextStyle categories_text = baseStyle(
+  static TextStyle categoriesText = baseStyle(
       fontSize: 16,
       fontWeight:FontWeightHelper.bold ,
       height: 19.36 / 16,
@@ -193,7 +193,7 @@ abstract class TextStyles {
       fontFamily: 'Inter'
 
   );
-  static TextStyle available_text = baseStyle(
+  static TextStyle availableText = baseStyle(
       fontSize: 20,
       fontWeight:FontWeightHelper.semiBold ,
       height: 24.2 / 20,
@@ -202,7 +202,7 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
-  static TextStyle no_data = baseStyle(
+  static TextStyle noData = baseStyle(
       fontSize: 22,
       fontWeight:FontWeightHelper.medium ,
       height: 26.63/ 22,
@@ -211,7 +211,7 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
-  static TextStyle appbar_category_style = baseStyle(
+  static TextStyle appbarCategoryStyle = baseStyle(
       fontSize: 22,
       fontWeight:FontWeightHelper.semiBold ,
       height: 26.63/ 22,
@@ -220,7 +220,7 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
-  static TextStyle side_menue_text = baseStyle(
+  static TextStyle sideMenueText = baseStyle(
       fontSize: 18,
       fontWeight:FontWeightHelper.medium ,
       color: AppColors.mainText,
@@ -228,7 +228,7 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
-  static TextStyle search_history = baseStyle(
+  static TextStyle searchHistory = baseStyle(
       fontSize: 16,
       fontWeight:FontWeightHelper.bold ,
       height: 19.36/16,
@@ -237,7 +237,7 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
-  static TextStyle filter_texts = baseStyle(
+  static TextStyle filterTexts = baseStyle(
       fontSize: 16,
       fontWeight:FontWeightHelper.medium ,
       height: 19.36/16,
@@ -255,7 +255,7 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
-  static TextStyle price_style = baseStyle(
+  static TextStyle priceStyle = baseStyle(
       fontSize: 14,
       fontWeight:FontWeightHelper.medium ,
       height: 19.94/14,
@@ -264,7 +264,7 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
-  static TextStyle about_style = baseStyle(
+  static TextStyle aboutStyle = baseStyle(
       fontSize: 22,
       fontWeight:FontWeightHelper.semiBold ,
       height: 26.63/22,
@@ -273,7 +273,7 @@ abstract class TextStyles {
       letterSpacing: 0
 
   );
-  static TextStyle about_content_style = baseStyle(
+  static TextStyle aboutContentyStle = baseStyle(
       fontSize: 16,
       fontWeight:FontWeightHelper.semiBold ,
       height: 22.4/16,

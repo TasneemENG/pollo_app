@@ -103,8 +103,8 @@ class _NavItem extends StatelessWidget {
           _gradientIcon(icon, isSelected),
           SizedBox(height: 4.h),
           isSelected
-              ? GradientText(text: label, style: TextStyles.nav_item_selected)
-              : Text(label, style: TextStyles.nav_item_not_selected),
+              ? GradientText(text: label, style: TextStyles.navItemSelected)
+              : Text(label, style: TextStyles.navItemNotSelected),
         ],
       ),
     );

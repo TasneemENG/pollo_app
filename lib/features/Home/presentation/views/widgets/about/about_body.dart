@@ -40,7 +40,7 @@ class AboutBody extends StatelessWidget {
                   // "About" text
                   Text(
                     "About",
-                    style: TextStyles.about_style,
+                    style: TextStyles.aboutStyle,
                   ),
 
                   // Spacer to balance the row
@@ -57,7 +57,7 @@ class AboutBody extends StatelessWidget {
         SizedBox(
           width: 343.w,
           height: 220.h,
-          child: Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took aLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a",style: TextStyles.about_content_style,),
+          child: Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took aLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a",style: TextStyles.aboutContentyStle,),
         )
       ],
     );

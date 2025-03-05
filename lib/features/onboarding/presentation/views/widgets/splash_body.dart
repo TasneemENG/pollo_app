@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/helpers/extensions.dart';
 import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/routing/routes.dart';
-
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
 
@@ -45,7 +44,9 @@ class SplashBodyState extends State<SplashBody>
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         Future.delayed(const Duration(seconds: 2), () {
-          context.pushNamed(Routes.onboardingView);
+          if (mounted) {
+            context.pushNamed(Routes.onboardingView);
+          }
         });
       }
     });

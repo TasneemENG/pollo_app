@@ -34,7 +34,7 @@ class ProductGridItem extends StatelessWidget {
               height: 188.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.r),
-                color: AppColors.category_container,
+                color: AppColors.categoryContainer,
               ),
             ),
           ),
@@ -75,7 +75,7 @@ class ProductGridItem extends StatelessWidget {
                   Text(
                     item.text,
                     textAlign: TextAlign.center,
-                    style: TextStyles.categories_text,
+                    style: TextStyles.categoriesText,
                   ),
                 ],
               ),

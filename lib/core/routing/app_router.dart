@@ -107,13 +107,13 @@ class AppRouter {
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
-      case Routes.my_adds:
+      case Routes.myAdds:
         return RouteAnimations.buildPageRoute(
           page:  const MyAds(),
           settings: settings,
           transitionType: TransitionType.slideFromLeft,
         );
-      case Routes.contact_us:
+      case Routes.contactUs:
         return RouteAnimations.buildPageRoute(
           page:  const ContactUs(),
           settings: settings,

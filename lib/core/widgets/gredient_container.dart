@@ -52,7 +52,7 @@ class _GradientContainerContentState extends State<_GradientContainerContent> {
             height: 176.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-              gradient: AppColors.reverse_mainColor,
+              gradient: AppColors.reverseMainColor,
             ),
           ),
           Positioned.fill(
@@ -77,10 +77,10 @@ class _GradientContainerContentState extends State<_GradientContainerContent> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(widget.contentList[index]["title1"], style: TextStyles.home_text1),
-                                  Text(widget.contentList[index]["title2"], style: TextStyles.home_text2),
+                                  Text(widget.contentList[index]["title1"], style: TextStyles.homeText1),
+                                  Text(widget.contentList[index]["title2"], style: TextStyles.homeText2),
                                   SizedBox(height: 8.h),
-                                  Text(widget.contentList[index]["subtitle"], style: TextStyles.home_text3),
+                                  Text(widget.contentList[index]["subtitle"], style: TextStyles.homeText3),
                                 ],
                               ),
                             ),
@@ -124,7 +124,7 @@ class _GradientContainerContentState extends State<_GradientContainerContent> {
                           borderRadius: BorderRadius.circular(10.r),
                           gradient: index == currentIndex
                               ? const LinearGradient(colors: [Colors.white, Colors.white])
-                              : AppColors.container_circles,
+                              : AppColors.containerCircles,
                         ),
                       );
                     }).toList(),

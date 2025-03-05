@@ -9,7 +9,7 @@ class SearchHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 15.w),
-      child: Text("Search History", style: TextStyles.search_history),
+      child: Text("Search History", style: TextStyles.searchHistory),
     );
   }
 }

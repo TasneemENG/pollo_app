@@ -54,7 +54,7 @@ class TopButtonsRow extends StatelessWidget {
             onTap: ()=>onSkip(),
             child: GradientText(
               text: 'Skip',
-              style: TextStyles.Skip_button,
+              style: TextStyles.skipButton,
             ),
           ),
       ],

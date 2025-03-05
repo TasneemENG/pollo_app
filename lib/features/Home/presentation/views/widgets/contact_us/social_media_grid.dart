@@ -12,7 +12,7 @@ class SocialMediaGrid extends StatelessWidget {
       crossAxisCount: 2,
       crossAxisSpacing: 16.w,
       mainAxisSpacing: 16.h,
-      childAspectRatio: 0.8, // Adjust aspect ratio to fit content
+      childAspectRatio: 0.8,
       children: [
         // Facebook Container
         SocialMediaContainer(
@@ -20,18 +20,18 @@ class SocialMediaGrid extends StatelessWidget {
           text1: 'Facebook',
           text2: '+201010101010',
           onPressed: () {
-            print('Facebook button pressed');
+
           },
           buttonText: 'Call Now',
         ),
 
         // Twitter Container
         SocialMediaContainer(
-          image: Image.asset(Assets.whats_up),
+          image: Image.asset(Assets.whatsUp),
           text1: 'Twitter',
           text2: '+201010101010',
           onPressed: () {
-            print('Twitter button pressed');
+
           },
           buttonText: 'Contact',
         ),
@@ -42,7 +42,7 @@ class SocialMediaGrid extends StatelessWidget {
           text1: 'Instagram',
           text2: 'pollo@gmail.com',
           onPressed: () {
-            print('Instagram button pressed');
+
           },
           buttonText: 'Contact',
         ),

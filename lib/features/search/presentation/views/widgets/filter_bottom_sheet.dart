@@ -61,7 +61,7 @@ class FilterBottomSheet extends StatelessWidget {
                     final selectedLocation = state['selectedLocation'];
                     return CustomDropdownWidget(
                       dropdownName: "Location",
-                      options: ["Location 1", "Location 2", "Location 3"],
+                      options: const ["Location 1", "Location 2", "Location 3"],
                       selectedValue: selectedLocation,
                       onChanged: (value) {
                         context.read<FilterCubit>().updateLocation(value);
@@ -95,9 +95,6 @@ class FilterBottomSheet extends StatelessWidget {
   }
 
   void _applyFilters(double minPrice, double maxPrice, String location) {
-    print('Applied Filters:');
-    print('Min Price: $minPrice');
-    print('Max Price: $maxPrice');
-    print('Location: $location');
+
   }
 }

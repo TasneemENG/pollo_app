@@ -8,7 +8,6 @@ import 'package:pollo/core/routing/app_router.dart';
 import 'package:pollo/core/routing/routes.dart';
 import 'package:pollo/features/favorite/presentation/views/manager/favorite_cubit.dart';
 import 'package:pollo/features/favorite/presentation/views/manager/saved_cubit.dart';
-
 import 'features/search/presentation/manager/search_cubit/search_cubit.dart';
 
 class PolloApp extends StatelessWidget {

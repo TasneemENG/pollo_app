@@ -29,13 +29,11 @@ class AppSearchBar extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.search_bar,
+          color: AppColors.searchBar,
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: InkWell(
           onTap: () {
-            print("search");
-            // Navigate to the SearchPage when the search bar is tapped
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -50,7 +48,7 @@ class AppSearchBar extends StatelessWidget {
             focusNode: focusNode,
             decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: TextStyles.search_text,
+              hintStyle: TextStyles.searchText,
               prefixIcon: IconButton(
                 icon: SvgPicture.asset('assets/svgs/search_icon.svg'),
                 onPressed: () {},

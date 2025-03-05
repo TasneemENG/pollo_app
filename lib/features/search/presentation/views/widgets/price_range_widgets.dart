@@ -24,10 +24,10 @@ class PriceRangeWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Price Range', style: TextStyles.filter_texts),
+              Text('Price Range', style: TextStyles.filterTexts),
               Text(
                 '${priceRange.start.toStringAsFixed(0)} EGP - ${priceRange.end.toStringAsFixed(0)} EGP',
-                style: TextStyles.price_style,
+                style: TextStyles.priceStyle,
               ),
             ],
           ),

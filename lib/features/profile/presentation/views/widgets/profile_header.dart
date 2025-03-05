@@ -25,7 +25,7 @@ class ProfileHeader extends StatelessWidget {
         Container(
           width: double.infinity,
           height: 211.h,
-          decoration: const BoxDecoration(gradient: AppColors.reverse_mainColor),
+          decoration: const BoxDecoration(gradient: AppColors.reverseMainColor),
         ),
 
         // Back Button

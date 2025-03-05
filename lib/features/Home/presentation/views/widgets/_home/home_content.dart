@@ -6,7 +6,6 @@ import 'package:pollo/features/Home/presentation/views/widgets/_home/categories_
 import 'package:pollo/features/Home/presentation/views/widgets/_home/categories_title.dart';
 import 'package:pollo/core/widgets/gredient_container.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/_home/logo_and_menue.dart';
-import 'package:pollo/features/search/presentation/views/search_page.dart';
 
 class HomeContent extends StatelessWidget {
   final TextEditingController searchController;

@@ -5,8 +5,8 @@ class AddAdsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: const Column(
+    return const SingleChildScrollView(
+      child: Column(
         children: [
           AddAdsForm()
         ],

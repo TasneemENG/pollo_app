@@ -13,18 +13,18 @@ abstract class AppColors {
     end: Alignment.centerRight,
     colors: [ Color(0xFF064198),Color(0xFFC20167)],
   );
-  static const LinearGradient reverse_mainColor = LinearGradient(
+  static const LinearGradient reverseMainColor = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
     colors: [  Color.fromRGBO(194, 1, 103, 0.7),
       Color.fromRGBO(6, 65, 152, 0.7),],
   );
-  static const LinearGradient container_circles = LinearGradient(
+  static const LinearGradient containerCircles = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
     colors: [ Color(0xFFFFE6AA), Color(0xFFDBD5C6),],
   );
-  static  LinearGradient side_menue = const LinearGradient(
+  static  LinearGradient sideMenue = const LinearGradient(
     begin: Alignment.centerLeft, // 90deg direction
     end: Alignment.centerRight,
     colors: [
@@ -33,13 +33,13 @@ abstract class AppColors {
     ],
   );
   static const Color greyColor = Color(0xFF544F4F);
-  static const Color side_menue_shadow = Color(0x40A444A6);
+  static const Color sideMenueShadow = Color(0x40A444A6);
   static const LinearGradient backButtonColor = LinearGradient(
     colors: [Color(0xFFE2006E), Color(
         0xFF881268)],
   );
   static const Color borderColor = Color(0xFFDBD5D5);
-  static const Color border_contact_Color = Color(0xFFC5C5C5);
-  static const Color search_bar = Color(0xFFECECEC);
-  static const Color category_container= Color(0xFFF1F1F1);
+  static const Color borderContactColor = Color(0xFFC5C5C5);
+  static const Color searchBar = Color(0xFFECECEC);
+  static const Color categoryContainer= Color(0xFFF1F1F1);
 }

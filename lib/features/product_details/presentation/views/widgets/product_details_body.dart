@@ -13,7 +13,7 @@ class ProductDetailsBody extends StatelessWidget {
       child: Column(
         children: [
           ProductDetailsStackImage(
-            imagePath: Assets.rectangle_cat,
+            imagePath: Assets.rectangleCat,
             onBackPressed: () {
              context.pop();
             },

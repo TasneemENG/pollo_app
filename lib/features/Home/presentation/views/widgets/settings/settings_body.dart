@@ -9,18 +9,18 @@ class SettingsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomAppBar(title: "Settings",),
+        const CustomAppBar(title: "Settings",),
         SizedBox(height: 20.h,),
         CustomDropdownWidget(
-          options: ['New York', 'Los Angeles', 'Chicago', 'Miami'], dropdownName: 'Country', onChanged: (value) {  },
+          options: const ['New York', 'Los Angeles', 'Chicago', 'Miami'], dropdownName: 'Country', onChanged: (value) {  },
         ),
         SizedBox(height:20.h),
         CustomDropdownWidget(
-          options: ['English', 'Spanish', 'French', 'German', 'Chinese'], dropdownName: 'Language', onChanged: (value) {  },
+          options: const ['English', 'Spanish', 'French', 'German', 'Chinese'], dropdownName: 'Language', onChanged: (value) {  },
         ),
         SizedBox(height:20.h),
         CustomDropdownWidget(
-          options: ['Light', 'Dark', 'System Default'], dropdownName: 'Theme Mode', onChanged: (value) {  },
+          options: const ['Light', 'Dark', 'System Default'], dropdownName: 'Theme Mode', onChanged: (value) {  },
         ),
       ],
     );

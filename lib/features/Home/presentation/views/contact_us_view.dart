@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/widgets/app_bar.dart';
 import 'package:pollo/features/Home/presentation/views/widgets/contact_us/contact_us_body.dart';
-import 'package:pollo/features/Home/presentation/views/widgets/contact_us/social_media_grid.dart'; // Import SocialMediaGrid
 
 class ContactUs extends StatelessWidget {
   const ContactUs({super.key});
@@ -12,9 +11,9 @@ class ContactUs extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.h),
-        child: CustomAppBar(title: "Contact Us"),
+        child: const CustomAppBar(title: "Contact Us"),
       ),
-      body: ContactUsBody(),
+      body: const ContactUsBody(),
     );
   }
 }

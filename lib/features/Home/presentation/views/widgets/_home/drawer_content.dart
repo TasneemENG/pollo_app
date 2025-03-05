@@ -18,10 +18,10 @@ class DrawerContent extends StatelessWidget {
             // BackdropFilter for blur effect
             Container(
               decoration: BoxDecoration(
-                gradient: AppColors.side_menue,
+                gradient: AppColors.sideMenue,
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.side_menue_shadow.withOpacity(0.2),
+                    color: AppColors.sideMenueShadow.withOpacity(0.2),
                     offset: const Offset(0, 0),
                     blurRadius: 8,
                     spreadRadius: 0,
@@ -38,7 +38,7 @@ class DrawerContent extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: Image.asset(
-                  Assets.side_menue,
+                  Assets.sideMenue,
                   fit: BoxFit.cover,
                   width: 150.87.w,
                   height: 71.h,
@@ -56,11 +56,11 @@ class DrawerContent extends StatelessWidget {
                   _buildListTile(Assets.profile, 'Profile', onTap: () {
                     context.pushNamed(Routes.profileView);
                   }),
-                  _buildListTile(Assets.my_ads, 'My Ads', onTap: () {
-                    context.pushNamed(Routes.my_adds);
+                  _buildListTile(Assets.myAds, 'My Ads', onTap: () {
+                    context.pushNamed(Routes.myAdds);
                   }),
-                  _buildListTile(Assets.contact_us, 'Contact Us', onTap: () {
-                    context.pushNamed(Routes.contact_us);
+                  _buildListTile(Assets.contactUs, 'Contact Us', onTap: () {
+                    context.pushNamed(Routes.contactUs);
                   }),
                   _buildListTile(Assets.about, 'About', onTap: () {
                     context.pushNamed(Routes.about);
@@ -88,7 +88,7 @@ class DrawerContent extends StatelessWidget {
       padding: EdgeInsets.only(left: 16.w),
       child: ListTile(
         leading: Image.asset(image),
-        title: Text(title, style: TextStyles.side_menue_text),
+        title: Text(title, style: TextStyles.sideMenueText),
         onTap: onTap ?? () => onTap,
       ),
     );
@@ -99,10 +99,10 @@ class DrawerContent extends StatelessWidget {
       color: Colors.white,
       padding: EdgeInsets.only(left: 16.w, bottom: 16.h, top: 10.h),
       child: ListTile(
-        leading: Image.asset(Assets.log_out),
+        leading: Image.asset(Assets.logOut),
         title: Text(
           'Log Out',
-          style: TextStyles.side_menue_text,
+          style: TextStyles.sideMenueText,
         ),
         onTap: () {
 

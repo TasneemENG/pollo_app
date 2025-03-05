@@ -12,19 +12,19 @@ class CategoryContent extends StatelessWidget {
   CategoryContent({super.key, required this.categories});
   final List<Map<String, dynamic>> categoryContentList = [
     {
-      "image": Assets.Pets,
+      "image": Assets.pets,
       "title1": "",
       "title2": "Dogs and cats available in-store",
       "subtitle": "",
     },
     {
-      "image": Assets.Pets,
+      "image": Assets.pets,
       "title1": "",
       "title2": "Dogs and cats available in-store",
       "subtitle": "",
     },
     {
-      "image": Assets.Pets,
+      "image": Assets.pets,
       "title1": "",
       "title2": "Dogs and cats available in-store",
       "subtitle": "",
@@ -44,7 +44,7 @@ class CategoryContent extends StatelessWidget {
             children: [
               Text(
                 "Available", // Your text here
-                style: TextStyles.available_text,
+                style: TextStyles.availableText,
               ),
               const SizedBox(height: 0), // Remove or set to 0 to eliminate space
               ProductGrid(items: categories[0].items),

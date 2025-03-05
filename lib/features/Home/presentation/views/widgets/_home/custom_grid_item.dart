@@ -17,8 +17,8 @@ class CustomGridItem extends StatefulWidget {
 
 class _CustomGridItemState extends State<CustomGridItem> {
   final List<CategoryItem> categoryItems = [
-      CategoryItem(image: Assets.large_animals, text: 'Pet Animals'),
-      CategoryItem(image: Assets.pet_animals, text: 'Large Animals'),
+      CategoryItem(image: Assets.largeAnimals, text: 'Pet Animals'),
+      CategoryItem(image: Assets.petAnimals, text: 'Large Animals'),
       CategoryItem(image: Assets.paultry, text: 'Poultry'),
     ];
 

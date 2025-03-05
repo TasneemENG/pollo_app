@@ -17,7 +17,7 @@ class SearchResults extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Result ${index + 1} for $searchTerm'),
-                Icon(Icons.south_east_sharp,color: AppColors.iconColor,)
+                const Icon(Icons.south_east_sharp,color: AppColors.iconColor,)
               ],
             ),
           );

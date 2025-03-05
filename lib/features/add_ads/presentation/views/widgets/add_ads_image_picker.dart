@@ -49,7 +49,7 @@ class AddAdsImagePicker extends StatelessWidget {
                       height: 32.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.r),
-                        gradient: AppColors.reverse_mainColor,
+                        gradient: AppColors.reverseMainColor,
                       ),
                       padding: EdgeInsets.all(1.w),
                       child: Container(
@@ -92,7 +92,9 @@ class AddAdsImagePicker extends StatelessWidget {
     );
   }
 
-    Future<void> _pickImage(BuildContext context) async {
+  Future<void> _pickImage(BuildContext context) async {
+    final currentContext = context; // Store the context in a local variable
+
     try {
       final picker = ImagePicker();
       final pickedFile = await picker.pickImage(
@@ -107,23 +109,29 @@ class AddAdsImagePicker extends StatelessWidget {
         final fileSize = await file.length();
 
         if (fileSize <= 5 * 1024 * 1024) {
-          context.read<ImageCubit>().setImage(file);
-          onImageSelected(file);
+          if (currentContext.mounted) {
+            currentContext.read<ImageCubit>().setImage(file);
+            onImageSelected(file);
+          }
         } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content:
-              Text('File size exceeds 5MB. Please select a smaller file.'),
-            ),
-          );
+          if (currentContext.mounted) {
+            ScaffoldMessenger.of(currentContext).showSnackBar(
+              const SnackBar(
+                content: Text(
+                    'File size exceeds 5MB. Please select a smaller file.'),
+              ),
+            );
+          }
         }
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Failed to pick image: $e'),
-        ),
-      );
+      if (currentContext.mounted) {
+        ScaffoldMessenger.of(currentContext).showSnackBar(
+          SnackBar(
+            content: Text('Failed to pick image: $e'),
+          ),
+        );
+      }
     }
   }
 }

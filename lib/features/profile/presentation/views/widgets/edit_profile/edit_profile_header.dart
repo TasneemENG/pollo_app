@@ -18,7 +18,7 @@ class EditProfileHeader extends StatelessWidget {
           width: double.infinity,
           height: 211.h,
           decoration:
-              const BoxDecoration(gradient: AppColors.reverse_mainColor),
+              const BoxDecoration(gradient: AppColors.reverseMainColor),
         ),
 
         // Back Button

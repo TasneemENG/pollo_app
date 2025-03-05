@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pollo/core/widgets/app_bar.dart';
-import 'package:pollo/core/widgets/app_search_bar.dart';
 import 'package:pollo/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:pollo/features/search/presentation/views/widgets/search_history.dart';
 import 'package:pollo/features/search/presentation/views/widgets/search_input_row.dart';
@@ -16,7 +15,7 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Initialize the search controller with the passed search term
-    TextEditingController _searchController = TextEditingController(text: searchTerm);
+    TextEditingController searchController = TextEditingController(text: searchTerm);
 
     return BlocProvider(
       create: (context) => SearchCubit()..updateSearchTerm(searchTerm), // Initialize the cubit with the passed search term
@@ -28,7 +27,7 @@ class SearchPage extends StatelessWidget {
             BlocBuilder<SearchCubit, String>(
               builder: (context, currentSearchTerm) {
                 return SearchInputRow(
-                  searchController: _searchController,
+                  searchController: searchController,
                   onChanged: (newTerm) {
                     // Dispatch the update action to the cubit
                     context.read<SearchCubit>().updateSearchTerm(newTerm);

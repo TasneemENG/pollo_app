@@ -70,7 +70,6 @@ class ProductList extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   // Handle "View All" tap
-                  print('View All tapped');
                 },
                 child: Row(
                   children: [
