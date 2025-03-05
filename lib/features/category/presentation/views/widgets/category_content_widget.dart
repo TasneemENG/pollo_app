@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pollo/core/resources/app_images.dart';
 import 'package:pollo/core/resources/app_text_styles.dart';
 import 'package:pollo/core/widgets/gredient_container.dart';
 import 'package:pollo/features/category/data/category.dart';
@@ -8,13 +9,32 @@ import 'package:pollo/features/category/presentation/views/widgets/product_grid.
 class CategoryContent extends StatelessWidget {
   final List<Category> categories;
 
-  const CategoryContent({super.key, required this.categories});
-
+  CategoryContent({super.key, required this.categories});
+  final List<Map<String, dynamic>> categoryContentList = [
+    {
+      "image": Assets.Pets,
+      "title1": "",
+      "title2": "Dogs and cats available in-store",
+      "subtitle": "",
+    },
+    {
+      "image": Assets.Pets,
+      "title1": "",
+      "title2": "Dogs and cats available in-store",
+      "subtitle": "",
+    },
+    {
+      "image": Assets.Pets,
+      "title1": "",
+      "title2": "Dogs and cats available in-store",
+      "subtitle": "",
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        GradientContainer(contentList: categories[0].contentList),
+        GradientContainer(contentList: categoryContentList),
         SizedBox(height: 10.h),
         Padding(
           padding: EdgeInsets.only(left: 20.w, right: 20.w),

@@ -9,18 +9,17 @@ class CategoryNavigator {
       BuildContext context, {
         required String categoryName,
         required List<CategoryItem> items,
-        required List<Map<String, dynamic>> contentList,
       }) {
     Category category = Category(
       name: categoryName,
       items: items,
-      contentList: contentList,
+
     );
 
     context.pushNamed(
       Routes.categoryWidget,
       arguments: {
-        'categories': [category],
+        'categories': [category], // Pass the category as a list
         'categoryName': categoryName,
         'image': categoryName,
       },

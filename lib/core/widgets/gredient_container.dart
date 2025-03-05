@@ -49,7 +49,7 @@ class _GradientContainerContentState extends State<_GradientContainerContent> {
           // Gradient Background
           Container(
             width: 343.w,
-            height: 171.h,
+            height: 176.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               gradient: AppColors.reverse_mainColor,

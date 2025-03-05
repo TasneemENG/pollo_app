@@ -131,6 +131,7 @@ class AppRouter {
               categories: categories,
               categoryName: categoryName,
               image: image,
+
             ),
             settings: settings,
             transitionType: TransitionType.slideFromLeft,
